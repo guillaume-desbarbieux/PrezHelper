@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  assistant:
+    build: .
+    container_name: PrezHelper
+    volumes:
+      - ./data:/app/data
+      - ./chroma:/app/chroma
+    ports:
+      - "7860:7860"  # si Gradio ou FastAPI
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LANGCHAIN_TRACING_V2=false
+      - CHROMA_DB_DIR=/app/chroma

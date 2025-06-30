@@ -1,0 +1,14 @@
+# Scraping
+requests
+beautifulsoup4
+trafilatura
+
+# RAG
+langchain
+chromadb
+sentence-transformers
+openai  # si tu utilises GPT
+tqdm
+
+# Optionnel : affichage local ou CLI
+gradio
