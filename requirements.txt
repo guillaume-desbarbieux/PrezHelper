@@ -8,7 +8,7 @@ langchain
 chromadb
 sentence-transformers
 # Forcer l'installation de torch version CPU uniquement (plus léger, pas de dépendances CUDA)
-torch==2.2.2+cpu -f https://download.pytorch.org/whl/torch_stable.html
+torch==2.2.2
 openai  # si tu utilises GPT
 tqdm
 
