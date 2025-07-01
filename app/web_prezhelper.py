@@ -39,6 +39,15 @@ if question:
     if question != st.session_state['last_question']:
         with st.spinner("Recherche des passages pertinents dans la base documentaire..."):
             results = ask_question(question, top_k=top_k)
+        # DEBUG : Affichage brut des résultats Chroma
+        st.write("DEBUG - Résultat documents:", results.get('documents'))
+        st.write("DEBUG - Résultat metadatas:", results.get('metadatas'))
+        st.write("DEBUG - Résultat scores:", results.get('scores'))
+        if not results or 'documents' not in results or not results['documents'] or not results['documents'][0]:
+            st.error("Aucun résultat trouvé ou la base documentaire n'est pas accessible. Veuillez vérifier la base ou réessayer plus tard.")
+            st.session_state['results'] = None
+            st.session_state['last_question'] = question
+            st.stop()
         st.success("Recherche terminée. Passages extraits affichés ci-dessous.")
         st.session_state['results'] = results
         st.session_state['last_question'] = question

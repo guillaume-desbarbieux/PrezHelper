@@ -145,6 +145,7 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
     import requests
     from langchain.text_splitter import RecursiveCharacterTextSplitter
     import chromadb
+    from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
     from utils import scrape_category_page, scrape_article, flatten_article
 
     print("[INFO] Récupération des URLs de catégories...")
@@ -201,8 +202,9 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
 
     # 4. Indexe les chunks dans ChromaDB
     print(f"[INFO] Indexation dans ChromaDB (collection '{collection_name}')...")
+    embedding_function = SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
     client = chromadb.PersistentClient(path="chroma")
-    collection = client.get_or_create_collection(collection_name)
+    collection = client.get_or_create_collection(collection_name, embedding_function=embedding_function)
     # Génère des IDs uniques pour chaque chunk
     ids = [f"chunk_{i}" for i in range(len(all_chunks))]
     collection.add(
