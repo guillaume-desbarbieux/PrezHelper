@@ -1,6 +1,6 @@
 # app/main.py
-from scraper import scrape_prezevent
-from rag import ask_question
+from app.scraper import scrape_prezevent
+from app.rag import ask_question
 
 # Exécution de test : scrape un article + réponse à une question
 if __name__ == "__main__":

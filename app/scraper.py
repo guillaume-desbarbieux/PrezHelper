@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from .utils import describe_image_from_url, describe_video_from_url
+from app.utils import describe_image_from_url, describe_video_from_url
 
 def scrape_article(url):
     response = requests.get(url)
