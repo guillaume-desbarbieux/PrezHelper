@@ -20,4 +20,4 @@ transformers
 Pillow
 torch
 opencv-python
-numpy
+numpy<2
