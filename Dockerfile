@@ -1,23 +1,23 @@
 FROM python:3.10-slim
 
-# Dépendances système
+# Dépendances système minimales (adapte si tu n'as pas besoin de tout)
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
-    git \
-    libglib2.0-0 \
-    libsm6 \
-    libxrender1 \
-    libxext6 \
-    libgl1 \
+    libglib2.0-0 libsm6 libxrender1 libxext6 libgl1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Dossier de travail
 WORKDIR /app
 
-# Copier les fichiers nécessaires
+# Installer pip en amont (non dépendant du requirements.txt)
+RUN pip install --upgrade pip
+
+# Copier uniquement le requirements pour profiter du cache
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copier le code (à la toute fin)
+COPY app/ ./app
+COPY data/ ./data
 
 # Point d'entrée
 CMD ["python", "app/main.py"]
