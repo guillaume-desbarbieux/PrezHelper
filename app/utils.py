@@ -199,6 +199,12 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
         if (idx+1) % 10 == 0 or idx == len(all_articles)-1:
             print(f"[INFO]  -> {idx+1}/{len(all_articles)} articles chunkés. Total chunks: {len(all_chunks)}")
     print(f"[INFO] Total chunks à indexer : {len(all_chunks)}")
+    if all_chunks:
+        print("[DEBUG] Premier chunk à indexer :")
+        print("Texte :", all_chunks[0].page_content)
+        print("Meta :", all_chunks[0].metadata)
+    else:
+        print("[DEBUG] Aucun chunk à indexer !")
 
     # 4. Indexe les chunks dans ChromaDB
     print(f"[INFO] Indexation dans ChromaDB (collection '{collection_name}')...")
