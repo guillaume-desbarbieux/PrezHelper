@@ -1,4 +1,7 @@
 import requests
+import os
+ollama_url = os.getenv("OLLAMA_URL", "http://ollama:11434")
+# puis requests.post(ollama_url + "/api/generate", ...)
 
 def generate_answer_ollama(question, context, model="mistral", ollama_host="http://ollama:11434"):
     """

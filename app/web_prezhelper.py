@@ -40,14 +40,12 @@ if question:
         with st.spinner("Recherche des passages pertinents dans la base documentaire..."):
             results = ask_question(question, top_k=top_k)
         # DEBUG : Affichage brut des résultats Chroma
+        # (debug retiré)
         if not results or not isinstance(results, dict):
             st.error("Erreur interne : la recherche n'a pas retourné de résultat exploitable.")
             st.stop()
         if 'error' in results:
             st.error(f"Erreur ChromaDB : {results['error']}")
-        st.write("DEBUG - Résultat documents:", results.get('documents'))
-        st.write("DEBUG - Résultat metadatas:", results.get('metadatas'))
-        st.write("DEBUG - Résultat scores:", results.get('scores'))
         if not results or 'documents' not in results or not results['documents'] or not results['documents'][0]:
             st.error("Aucun résultat trouvé ou la base documentaire n'est pas accessible. Veuillez vérifier la base ou réessayer plus tard.")
             st.session_state['results'] = None

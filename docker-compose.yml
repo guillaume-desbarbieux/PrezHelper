@@ -14,6 +14,7 @@ services:
       - PYTHONUNBUFFERED=1
       - LANGCHAIN_TRACING_V2=false
       - CHROMA_DB_DIR=/app/chroma
+      - OLLAMA_URL=http://ollama:11434
     command: streamlit run web_prezhelper.py --server.port 8501 --server.address 0.0.0.0
     working_dir: /app        # S'assurer que le CMD est exécuté au bon endroit
     depends_on:
