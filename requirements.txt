@@ -19,7 +19,7 @@ streamlit
 # Pour la description d'images et de vidéos (BLIP, PIL, torch, opencv, numpy, datetime)
 transformers
 Pillow
-torch
+torch>=2.6.0
 opencv-python
 numpy<2
 bs4
