@@ -8,11 +8,9 @@ langchain
 chromadb
 sentence-transformers
 
-openai  # si tu utilises GPT
 tqdm
 
 # Optionnel : affichage local ou CLI
-gradio
 streamlit
 
 # Pour l'affichage d'images (Pillow uniquement)
