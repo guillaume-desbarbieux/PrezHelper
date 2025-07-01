@@ -13,6 +13,21 @@ services:
       - LANGCHAIN_TRACING_V2=false
       - CHROMA_DB_DIR=/app/chroma
     command: streamlit run app/web_prezhelper.py --server.port 8501 --server.address 0.0.0.0
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    # Optionnel : pour pré-télécharger le modèle mistral au démarrage
+    entrypoint: ["/bin/bash", "-c", "ollama serve & sleep 2 && ollama pull mistral && tail -f /dev/null"]
+
+volumes:
+  ollama_data:
 
 # Astuce :
 # Les volumes permettent de modifier le code source (./app) et les données (./data) sur votre machine locale
