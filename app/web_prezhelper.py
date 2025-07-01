@@ -27,14 +27,19 @@ if question:
     for i, doc in enumerate(results['documents'][0]):
         meta = results['metadatas'][0][i]
         score = scores[i] if i < len(scores) else None
-        st.markdown(f"**Passage {i+1}** — Pertinence : {score:.1f}%")
-        st.write(doc)
-        st.caption(f"Source : {meta.get('source', 'N/A')}")
+        title = meta.get('title', 'Sans titre')
+        url = meta.get('source', 'N/A')
+        with st.expander(f"{i+1}. Pertinence : {score:.1f}% | Titre : {title} | URL : {url}"):
+            st.write(doc)
 
     # 2. L'utilisateur peut choisir de générer une réponse LLM à partir des passages
     if st.button("Générer une réponse LLM à partir de ces passages"):
         with st.spinner("Génération de la réponse par le LLM..."):
-            context = "\n\n".join(results['documents'][0])
+            # Ajout du score, titre, catégorie et url dans le contexte envoyé au LLM
+            context = "\n\n".join([
+                f"[Pertinence : {scores[i]:.1f}%]\n[Titre : {meta.get('title', 'Sans titre')}]\n[Catégorie : {meta.get('category_title', 'N/A')}]\n[URL : {meta.get('source', 'N/A')}]\n{doc}"
+                for i, (doc, meta) in enumerate(zip(results['documents'][0], results['metadatas'][0]))
+            ])
             answer = generate_answer_ollama(question, context)
         st.subheader("Réponse générée par LLM :")
         st.write(answer)
