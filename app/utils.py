@@ -27,64 +27,6 @@ def describe_image_from_url(url: str) -> str:
     except Exception as e:
         return f"[Erreur description image: {e}]"
 
-def describe_video_from_url(url: str, frame_interval: int = 15) -> str:
-    """
-    Télécharge une vidéo depuis une URL, extrait une frame toutes les `frame_interval` secondes,
-    génère une description pour chaque frame avec BLIP, puis fusionne les descriptions.
-    """
-    import tempfile, os
-    import requests
-    from PIL import Image
-
-    try:
-        # Télécharger la vidéo dans un fichier temporaire
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.mp4') as tmp:
-            r = requests.get(url, stream=True)
-            for chunk in r.iter_content(chunk_size=8192):
-                if chunk:
-                    tmp.write(chunk)
-            video_path = tmp.name
-
-        cap = cv2.VideoCapture(video_path)
-        fps = cap.get(cv2.CAP_PROP_FPS)
-        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-        duration = total_frames / fps if fps else 0
-        frame_times = np.arange(0, duration, frame_interval)
-        descriptions: List[str] = []
-
-        for t in frame_times:
-            cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000)
-            ret, frame = cap.read()
-            if not ret:
-                continue
-            # Convertir la frame en image PIL
-            img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-            # Utiliser BLIP pour décrire la frame
-            desc = describe_image_pil(img)
-            descriptions.append(desc)
-        cap.release()
-        os.remove(video_path)
-        if not descriptions:
-            return "[Aucune frame n'a pu être décrite]"
-        # Fusionner les descriptions
-        return " ".join(descriptions)
-    except Exception as e:
-        return f"[Erreur description vidéo: {e}]"
-
-def describe_image_pil(img):
-    """
-    Décrit une image PIL avec BLIP (utilisé pour la vidéo).
-    """
-    from transformers import BlipProcessor, BlipForConditionalGeneration
-    import torch
-    processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
-    model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
-    inputs = processor(img, return_tensors="pt")
-    with torch.no_grad():
-        out = model.generate(**inputs)
-    caption = processor.decode(out[0], skip_special_tokens=True)
-    return caption
-
 def scrape_articles(urls, scraper_func, category_title=None, category_description=None):
     """
     Prend une liste d'URLs et une fonction de scraping (ex: scrape_article),
@@ -207,3 +149,46 @@ def flatten_article(article):
         "image_descriptions": image_descriptions
     }
     return {"text": text, "metadata": metadata}
+
+def full_scrape_and_index(collection_name="prezevent_articles"):
+    """
+    Pipeline unitaire : scrape toutes les catégories, articles, prépare les chunks et indexe dans Chroma.
+    """
+    import requests
+    import json
+    from bs4 import BeautifulSoup
+    from langchain.text_splitter import RecursiveCharacterTextSplitter
+    import chromadb
+    from app.utils import scrape_category_page, scrape_article, flatten_article
+
+    # 1. Récupérer les URLs de catégories
+    homepage = "https://help.prezevent.com/"
+    resp = requests.get(homepage)
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    category_urls = [a['href'] for a in soup.find_all('a', class_='category') if a.has_attr('href')]
+
+    # 2. Scraper tous les articles
+    all_articles = []
+    for url in category_urls:
+        results = scrape_category_page(url, scrape_article)
+        all_articles.extend(results)
+
+    # 3. Préparer les chunks
+    splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
+    all_chunks = []
+    for article in all_articles:
+        flat = flatten_article(article)
+        text = flat["text"]
+        metadata = flat["metadata"]
+        chunks = splitter.create_documents([text], metadatas=[metadata])
+        all_chunks.extend(chunks)
+
+    # 4. Indexer dans Chroma
+    client = chromadb.Client()
+    collection = client.get_or_create_collection(collection_name)
+    collection.add_documents(
+        documents=[chunk.page_content for chunk in all_chunks],
+        metadatas=[chunk.metadata for chunk in all_chunks]
+    )
+    print(f"{len(all_chunks)} chunks indexés dans Chroma (collection '{collection_name}').")
+    return all_chunks
