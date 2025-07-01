@@ -161,34 +161,44 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
     import chromadb
     from app.utils import scrape_category_page, scrape_article, flatten_article
 
+    print("[INFO] Récupération des URLs de catégories...")
     # 1. Récupérer les URLs de catégories
     homepage = "https://help.prezevent.com/"
     resp = requests.get(homepage)
     soup = BeautifulSoup(resp.text, 'html.parser')
     category_urls = [a['href'] for a in soup.find_all('a', class_='category') if a.has_attr('href')]
+    print(f"[INFO] {len(category_urls)} catégories trouvées.")
 
     # 2. Scraper tous les articles
     all_articles = []
-    for url in category_urls:
+    for i, url in enumerate(category_urls):
+        print(f"[INFO] Scraping catégorie {i+1}/{len(category_urls)}: {url}")
         results = scrape_category_page(url, scrape_article)
+        print(f"[INFO]  -> {len(results)} articles extraits.")
         all_articles.extend(results)
+    print(f"[INFO] Total articles extraits : {len(all_articles)}")
 
     # 3. Préparer les chunks
+    print("[INFO] Découpage des articles en chunks...")
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
     all_chunks = []
-    for article in all_articles:
+    for idx, article in enumerate(all_articles):
         flat = flatten_article(article)
         text = flat["text"]
         metadata = flat["metadata"]
         chunks = splitter.create_documents([text], metadatas=[metadata])
         all_chunks.extend(chunks)
+        if (idx+1) % 10 == 0 or idx == len(all_articles)-1:
+            print(f"[INFO]  -> {idx+1}/{len(all_articles)} articles chunkés. Total chunks: {len(all_chunks)}")
+    print(f"[INFO] Total chunks à indexer : {len(all_chunks)}")
 
     # 4. Indexer dans Chroma
+    print(f"[INFO] Indexation dans ChromaDB (collection '{collection_name}')...")
     client = chromadb.Client()
     collection = client.get_or_create_collection(collection_name)
     collection.add_documents(
         documents=[chunk.page_content for chunk in all_chunks],
         metadatas=[chunk.metadata for chunk in all_chunks]
     )
-    print(f"{len(all_chunks)} chunks indexés dans Chroma (collection '{collection_name}').")
+    print(f"[INFO] {len(all_chunks)} chunks indexés dans Chroma (collection '{collection_name}').")
     return all_chunks
