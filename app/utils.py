@@ -158,12 +158,29 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
 
     # 2. Scrape tous les articles de chaque catégorie
     all_articles = []
+    import os, json
+    os.makedirs("data", exist_ok=True)
     for i, url in enumerate(category_urls):
         print(f"[INFO] Scraping catégorie {i+1}/{len(category_urls)}: {url}")
         results = scrape_category_page(url, scrape_article)
         print(f"[INFO]  -> {len(results)} articles extraits.")
+        # Export JSON pour chaque article brut
+        for idx, article in enumerate(results):
+            # Nettoyage du titre pour le nom de fichier
+            safe_title = article.get('title', f"article_{i}_{idx}").replace("/", "_").replace("\\", "_").replace(" ", "_")[:50]
+            filename = f"data/article_{i}_{idx}_{safe_title}.json"
+            with open(filename, "w", encoding="utf-8") as f:
+                json.dump(article, f, ensure_ascii=False, indent=2)
         all_articles.extend(results)
     print(f"[INFO] Total articles extraits : {len(all_articles)}")
+
+    # [NOUVEAU] Sauvegarde les articles bruts en JSON pour archivage
+    import os, json
+    os.makedirs("data", exist_ok=True)
+    json_path = os.path.join("data", f"scraped_articles_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json")
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(all_articles, f, ensure_ascii=False, indent=2)
+    print(f"[INFO] Articles bruts sauvegardés dans {json_path}")
 
     # 3. Découpe les articles en chunks pour l'indexation
     print("[INFO] Découpage des articles en chunks...")
