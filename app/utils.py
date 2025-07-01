@@ -159,7 +159,7 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
     from bs4 import BeautifulSoup
     from langchain.text_splitter import RecursiveCharacterTextSplitter
     import chromadb
-    from app.utils import scrape_category_page, scrape_article, flatten_article
+    from utils import scrape_category_page, scrape_article, flatten_article
 
     print("[INFO] Récupération des URLs de catégories...")
     # 1. Récupérer les URLs de catégories
