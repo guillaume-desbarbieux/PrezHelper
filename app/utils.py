@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from datetime import datetime
 
-# Chargement du modèle BLIP (à faire une seule fois)
+# Chargement du modèle BLIP pour la génération de descriptions d'images (à faire une seule fois)
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 
@@ -45,7 +45,7 @@ def scrape_articles(urls, scraper_func, category_title=None, category_descriptio
 
 def scrape_category_page(category_url, scraper_func):
     """
-    Scrappe une page de catégorie : récupère le titre, la description et la liste des URLs d'articles,
+    Scrappe une page de catégorie : récupère le titre, la description et la liste des URLs d'articles,
     puis appelle scrape_articles avec ces informations.
     """
     import requests
@@ -77,6 +77,9 @@ def scrape_category_page(category_url, scraper_func):
     return scrape_articles(article_urls, scraper_func, category_title=title, category_description=description)
 
 def scrape_article(url):
+    """
+    Scrappe un article individuel et retourne un dictionnaire structuré (titre, contenu, images, etc).
+    """
     response = requests.get(url)
     if response.status_code != 200:
         print(f"Erreur lors du chargement de {url}")
@@ -106,7 +109,7 @@ def scrape_article(url):
         elif elem.name == 'img':
             img_url = elem.get('src')
             alt = elem.get('alt', '')
-            # Générer une description automatique de l'image
+            # Génère une description automatique de l'image
             description = describe_image_from_url(img_url)
             elements.append({'type': 'image', 'src': img_url, 'alt': alt, 'description': description})
 
@@ -152,7 +155,7 @@ def flatten_article(article):
 
 def full_scrape_and_index(collection_name="prezevent_articles"):
     """
-    Pipeline unitaire : scrape toutes les catégories, articles, prépare les chunks et indexe dans Chroma.
+    Pipeline complet : scrape toutes les catégories, articles, prépare les chunks et indexe dans Chroma.
     """
     import requests
     import json
@@ -162,14 +165,14 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
     from utils import scrape_category_page, scrape_article, flatten_article
 
     print("[INFO] Récupération des URLs de catégories...")
-    # 1. Récupérer les URLs de catégories
+    # 1. Récupère les URLs de catégories depuis la page d'accueil
     homepage = "https://help.prezevent.com/"
     resp = requests.get(homepage)
     soup = BeautifulSoup(resp.text, 'html.parser')
     category_urls = [a['href'] for a in soup.find_all('a', class_='category') if a.has_attr('href')]
     print(f"[INFO] {len(category_urls)} catégories trouvées.")
 
-    # 2. Scraper tous les articles
+    # 2. Scrape tous les articles de chaque catégorie
     all_articles = []
     for i, url in enumerate(category_urls):
         print(f"[INFO] Scraping catégorie {i+1}/{len(category_urls)}: {url}")
@@ -178,7 +181,7 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
         all_articles.extend(results)
     print(f"[INFO] Total articles extraits : {len(all_articles)}")
 
-    # 3. Préparer les chunks
+    # 3. Découpe les articles en chunks pour l'indexation
     print("[INFO] Découpage des articles en chunks...")
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
     all_chunks = []
@@ -192,7 +195,7 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
             print(f"[INFO]  -> {idx+1}/{len(all_articles)} articles chunkés. Total chunks: {len(all_chunks)}")
     print(f"[INFO] Total chunks à indexer : {len(all_chunks)}")
 
-    # 4. Indexer dans Chroma
+    # 4. Indexe les chunks dans ChromaDB
     print(f"[INFO] Indexation dans ChromaDB (collection '{collection_name}')...")
     client = chromadb.Client()
     collection = client.get_or_create_collection(collection_name)
