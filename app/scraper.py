@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from .utils import describe_image_from_url, describe_video_from_url
 
 def scrape_article(url):
     response = requests.get(url)
@@ -31,11 +32,15 @@ def scrape_article(url):
         elif elem.name == 'img':
             img_url = elem.get('src')
             alt = elem.get('alt', '')
-            elements.append({'type': 'image', 'src': img_url, 'alt': alt})
+            # Générer une description automatique de l'image
+            description = describe_image_from_url(img_url)
+            elements.append({'type': 'image', 'src': img_url, 'alt': alt, 'description': description})
 
         elif elem.name == 'iframe':
             src = elem.get('src')
-            elements.append({'type': 'iframe', 'src': src})
+            # Générer une description automatique de la vidéo si c'est un lien vidéo direct
+            description = describe_video_from_url(src)
+            elements.append({'type': 'iframe', 'src': src, 'description': description})
 
     return {
         'url': url,
@@ -50,3 +55,16 @@ result = scrape_article(article_url)
 # Affichage
 import json
 print(json.dumps(result, indent=2, ensure_ascii=False))
+if result:
+    print(f"Titre: {result['title']}")
+    for element in result['content']:
+        if element['type'] == 'paragraph':
+            print(f"Paragraphe: {element['content']}")
+        elif element['type'] == 'heading':
+            print(f"Titre: {element['content']}")
+        elif element['type'] == 'image':
+            print(f"Image: {element['src']} (alt: {element['alt']})")
+        elif element['type'] == 'iframe':
+            print(f"Iframe: {element['src']}")
+
+
