@@ -1,9 +1,7 @@
-from PIL import Image
 import requests
-from typing import List
-from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from datetime import datetime
+from bs4 import BeautifulSoup
 
 def scrape_articles(urls, scraper_func, category_title=None, category_description=None):
     """
@@ -65,7 +63,10 @@ def scrape_article(url):
     title = soup.find('h1').get_text(strip=True) if soup.find('h1') else 'Sans titre'
 
     # Corps de l'article
-    article_body = soup.find('div', class_='fullArticle')  # À adapter selon la classe exacte
+    # On cherche d'abord un <article id="fullArticle">, sinon fallback sur l'ancien sélecteur
+    article_body = soup.find('article', id='fullArticle')
+    if not article_body:
+        article_body = soup.find('div', class_='fullArticle')  # fallback pour compatibilité
 
     if not article_body:
         print("Pas de contenu trouvé dans cette page.")
@@ -73,7 +74,7 @@ def scrape_article(url):
 
     elements = []
 
-    for elem in article_body.find_all(['h3', 'p', 'img', 'iframe']):
+    for elem in article_body.find_all(['h3', 'p', 'img', 'iframe', 'ul', 'ol', 'li']):
         if elem.name == 'p':
             elements.append({'type': 'paragraph', 'content': elem.get_text(strip=True)})
 
@@ -83,12 +84,21 @@ def scrape_article(url):
         elif elem.name == 'img':
             img_url = elem.get('src')
             alt = elem.get('alt', '')
-            # On ne génère plus de description automatique, on stocke juste l'image et l'alt
             elements.append({'type': 'image', 'src': img_url, 'alt': alt})
 
         elif elem.name == 'iframe':
             src = elem.get('src')
             elements.append({'type': 'iframe', 'src': src, 'description': ''})  # Pas de description pour l'indexation RAG
+
+        elif elem.name in ['ul', 'ol']:
+            # Récupère chaque élément de liste
+            items = [li.get_text(strip=True) for li in elem.find_all('li')]
+            if items:
+                elements.append({'type': 'list', 'ordered': elem.name == 'ol', 'items': items})
+
+        elif elem.name == 'li':
+            # Si jamais un <li> est trouvé hors <ul>/<ol>
+            elements.append({'type': 'list_item', 'content': elem.get_text(strip=True)})
 
     return {
         'url': url,
@@ -98,7 +108,7 @@ def scrape_article(url):
 
 def flatten_article(article):
     """
-    Retourne un objet JSON avec le texte concaténé (titres, paragraphes, images sans description)
+    Retourne un objet JSON avec le texte concaténé (titres, paragraphes, listes, images sans description)
     et les métadonnées utiles (source, titre, date, urls images).
     """
     lines = []
@@ -113,12 +123,18 @@ def flatten_article(article):
                 lines.append(f"<image-alt>{alt}</image-alt>")
             if url:
                 image_urls.append(url)
+        elif block["type"] == "list":
+            prefix = "- " if not block.get('ordered', False) else "1. "
+            for item in block["items"]:
+                lines.append(f"{prefix}{item}")
+        elif block["type"] == "list_item":
+            lines.append(f"- {block['content']}")
     text = "\n\n".join(lines)
     metadata = {
         "source": article.get("url"),
         "title": article.get("title"),
         "scraped_at": datetime.utcnow().isoformat() + "Z",
-        "image_urls": image_urls
+        "image_urls": ",".join(image_urls)  # ChromaDB n'accepte pas les listes, on convertit en string
     }
     return {"text": text, "metadata": metadata}
 
@@ -127,8 +143,6 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
     Pipeline complet : scrape toutes les catégories, articles, prépare les chunks et indexe dans Chroma.
     """
     import requests
-    import json
-    from bs4 import BeautifulSoup
     from langchain.text_splitter import RecursiveCharacterTextSplitter
     import chromadb
     from utils import scrape_category_page, scrape_article, flatten_article
@@ -138,7 +152,8 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
     homepage = "https://help.prezevent.com/"
     resp = requests.get(homepage)
     soup = BeautifulSoup(resp.text, 'html.parser')
-    category_urls = [a['href'] for a in soup.find_all('a', class_='category') if a.has_attr('href')]
+    # Correction : rendre les URLs absolues
+    category_urls = [urljoin(homepage, a['href']) for a in soup.find_all('a', class_='category') if a.has_attr('href')]
     print(f"[INFO] {len(category_urls)} catégories trouvées.")
 
     # 2. Scrape tous les articles de chaque catégorie
@@ -168,7 +183,10 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
     print(f"[INFO] Indexation dans ChromaDB (collection '{collection_name}')...")
     client = chromadb.Client()
     collection = client.get_or_create_collection(collection_name)
-    collection.add_documents(
+    # Génère des IDs uniques pour chaque chunk
+    ids = [f"chunk_{i}" for i in range(len(all_chunks))]
+    collection.add(
+        ids=ids,
         documents=[chunk.page_content for chunk in all_chunks],
         metadatas=[chunk.metadata for chunk in all_chunks]
     )

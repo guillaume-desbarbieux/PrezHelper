@@ -68,6 +68,13 @@ if question:
             st.write(doc)
             if url != 'N/A':
                 st.markdown(f"[Ouvrir la source dans un nouvel onglet]({url})", unsafe_allow_html=True)
+            # Affichage des images associées à ce passage (dans l'expander)
+            image_urls_str = meta.get('image_urls', '')
+            image_urls = [url.strip() for url in image_urls_str.split(',') if url.strip()]
+            for img_url in image_urls:
+                if img_url.startswith('//'):
+                    img_url = 'https:' + img_url
+                st.image(img_url)
 
     # Si aucun passage pertinent n'est trouvé, message d'erreur et astuce
     if not passages:
