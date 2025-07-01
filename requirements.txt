@@ -15,10 +15,6 @@ tqdm
 gradio
 streamlit
 
-# Pour la description d'images et de vidéos (BLIP, PIL, torch, opencv, numpy, datetime)
-transformers
+# Pour l'affichage d'images (Pillow uniquement)
 Pillow
-torch>=2.6.0
-opencv-python
-numpy<2
 bs4

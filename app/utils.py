@@ -1,31 +1,9 @@
-from transformers import BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
 import requests
-import torch
-import cv2
-import numpy as np
 from typing import List
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from datetime import datetime
-
-# Chargement du modèle BLIP pour la génération de descriptions d'images (à faire une seule fois)
-processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
-model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
-
-def describe_image_from_url(url: str) -> str:
-    """
-    Télécharge une image et retourne une description générée par BLIP.
-    """
-    try:
-        image = Image.open(requests.get(url, stream=True).raw).convert('RGB')
-        inputs = processor(image, return_tensors="pt")
-        with torch.no_grad():
-            out = model.generate(**inputs)
-        caption = processor.decode(out[0], skip_special_tokens=True)
-        return caption
-    except Exception as e:
-        return f"[Erreur description image: {e}]"
 
 def scrape_articles(urls, scraper_func, category_title=None, category_description=None):
     """
@@ -48,10 +26,6 @@ def scrape_category_page(category_url, scraper_func):
     Scrappe une page de catégorie : récupère le titre, la description et la liste des URLs d'articles,
     puis appelle scrape_articles avec ces informations.
     """
-    import requests
-    from bs4 import BeautifulSoup
-    from urllib.parse import urljoin
-
     response = requests.get(category_url)
     if response.status_code != 200:
         print(f"Erreur lors du chargement de {category_url}")
@@ -109,13 +83,11 @@ def scrape_article(url):
         elif elem.name == 'img':
             img_url = elem.get('src')
             alt = elem.get('alt', '')
-            # Génère une description automatique de l'image
-            description = describe_image_from_url(img_url)
-            elements.append({'type': 'image', 'src': img_url, 'alt': alt, 'description': description})
+            # On ne génère plus de description automatique, on stocke juste l'image et l'alt
+            elements.append({'type': 'image', 'src': img_url, 'alt': alt})
 
         elif elem.name == 'iframe':
             src = elem.get('src')
-            # description = describe_video_from_url(src)  # Désactivé car peu utile pour l'indexation RAG
             elements.append({'type': 'iframe', 'src': src, 'description': ''})  # Pas de description pour l'indexation RAG
 
     return {
@@ -126,21 +98,19 @@ def scrape_article(url):
 
 def flatten_article(article):
     """
-    Retourne un objet JSON avec le texte concaténé (titres, paragraphes, descriptions d'images)
-    et les métadonnées utiles (source, titre, date, urls/descriptions images).
+    Retourne un objet JSON avec le texte concaténé (titres, paragraphes, images sans description)
+    et les métadonnées utiles (source, titre, date, urls images).
     """
     lines = []
     image_urls = []
-    image_descriptions = []
     for block in article.get("content", []):
         if block["type"] in ["heading", "paragraph"]:
             lines.append(block["content"])
         elif block["type"] == "image":
-            desc = block.get("description", "")
             url = block.get("src", "")
-            if desc:
-                lines.append(f"<image-description>{desc}</image-description>")
-                image_descriptions.append(desc)
+            alt = block.get("alt", "")
+            if alt:
+                lines.append(f"<image-alt>{alt}</image-alt>")
             if url:
                 image_urls.append(url)
     text = "\n\n".join(lines)
@@ -148,8 +118,7 @@ def flatten_article(article):
         "source": article.get("url"),
         "title": article.get("title"),
         "scraped_at": datetime.utcnow().isoformat() + "Z",
-        "image_urls": image_urls,
-        "image_descriptions": image_descriptions
+        "image_urls": image_urls
     }
     return {"text": text, "metadata": metadata}
 
