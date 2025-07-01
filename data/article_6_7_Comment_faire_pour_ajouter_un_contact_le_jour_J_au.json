@@ -1,0 +1,54 @@
+{
+  "url": "https://help.prezevent.com/article/22-ajout-lors-du-checkin",
+  "title": "Comment faire pour ajouter un contact le jour J au moment du check'in ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Parfois, certains invités s'inscrivent au dernier moment ou sur le moment même."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Pour permettre l'ajout des inscrits lors du check'in, cliquez sur le bouton coulissant en dessous de \"Permettre l'ajout d'inscrits lors du check'in\" de votre interface Administrateur (Image 1)",
+        "Ainsi les hôtes et hôtesses d'accueil auront un menu \"Ajout\" en bas à droite sur leur interface de check'in (Image 2)"
+      ]
+    },
+    {
+      "type": "list_item",
+      "content": "Pour permettre l'ajout des inscrits lors du check'in, cliquez sur le bouton coulissant en dessous de \"Permettre l'ajout d'inscrits lors du check'in\" de votre interface Administrateur (Image 1)"
+    },
+    {
+      "type": "list_item",
+      "content": "Ainsi les hôtes et hôtesses d'accueil auront un menu \"Ajout\" en bas à droite sur leur interface de check'in (Image 2)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Votre base de contacts sera mise à jour automatiquement. Même les badges et Qr-Codes des nouveaux inscrits seront générés instantanément."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c4a0c84eb3266332c6b/file-Mim2zbRBhv.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Le jour J, rendez-vous sur la plateforme de check'in et cliquez sur l'icône de droite dans la bar de menu. Renseignez ensuite les informations nécessaires et passez la personne présente."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64479cc4d50b2033bd2414f1/file-ozYOMDZsjv.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Check'in des participants",
+  "category_description": "Définir un code, accès web et mobile, les options, les sessions, les filtres"
+}

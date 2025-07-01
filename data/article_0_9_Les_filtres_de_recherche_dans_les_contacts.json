@@ -1,0 +1,33 @@
+{
+  "url": "https://help.prezevent.com/article/71-les-filtres-de-recherche",
+  "title": "Les filtres de recherche dans les contacts",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Dans le menu CONTACTS, retrouver le bouton Filtres en haut de page"
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/67a245a85d470948ccdd043d/file-4RrGwNPTmT.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "et ensuite SELECTIONNER le groupe recherché ou RENSEIGNER la valeur recherchée."
+    },
+    {
+      "type": "paragraph",
+      "content": "Sélectionner un groupe revient à choisir un segment de contact."
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour supprimer les filtres, il vous suffit de cocher la croix rouge à côté de l'icône Filtre."
+    }
+  ],
+  "category_title": "Gestion des Contacts",
+  "category_description": "Paramétrages, importer et exporter les contacts, segments, modification groupée, ..."
+}

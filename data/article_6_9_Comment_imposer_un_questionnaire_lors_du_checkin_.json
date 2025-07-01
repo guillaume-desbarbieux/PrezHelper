@@ -1,0 +1,33 @@
+{
+  "url": "https://help.prezevent.com/article/23-questionnaire",
+  "title": "Comment imposer un questionnaire lors du checkin ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Pour ajouter un questionnaire lors du check'in, appuyez sur le bouton coulissant \"Questionnaire lors du check'in\". Cette fonction sert à mettre à jour ou compléter les fiches des inscrits."
+    },
+    {
+      "type": "paragraph",
+      "content": "Par exemple, une fois qu'une personne est noté présente sur la tablette, sa fiche s'ouvre et vous pouvez demander si elle reste déjeuner ou non."
+    },
+    {
+      "type": "paragraph",
+      "content": "Spécial Covid : vous pouvez demander à l'inscrit s'il présente des symptômes de fièvre ou de toux, et autres questions que vous jugeriez utilessans utiliser de papier."
+    },
+    {
+      "type": "paragraph",
+      "content": "N'oubliez pas d'enregistrer vos modifications"
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c5b0c84eb3266332c6c/file-QJkEaTt2Ol.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Check'in des participants",
+  "category_description": "Définir un code, accès web et mobile, les options, les sessions, les filtres"
+}

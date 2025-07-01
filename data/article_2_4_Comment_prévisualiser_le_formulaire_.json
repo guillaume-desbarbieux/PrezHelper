@@ -1,0 +1,21 @@
+{
+  "url": "https://help.prezevent.com/article/59-comment-previsualiser-le-formualire",
+  "title": "Comment prévisualiser le formulaire ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Lorsque vous avez terminé de construire votre formulaire de contacts, appuyez sur l’icône oeil en haut à droite. Cela vous permettra de visualiser le formulaire de la façon dont vos contacts l'appercevront"
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7daa87eb7a63c30e3f9c1/file-0doPjfYBZ5.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Formulaire d'inscription",
+  "category_description": "Activer un formulaire, modifier, iframe, quotas, liste d'attente, ..."
+}

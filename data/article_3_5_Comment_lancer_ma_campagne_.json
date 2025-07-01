@@ -1,0 +1,64 @@
+{
+  "url": "https://help.prezevent.com/article/33-lancement-de-la-campagne",
+  "title": "Comment lancer ma campagne ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Une fois que vous avez créer et modifier votre modèle, et que vous avez regarder un aperçu afin de voir si le design et les informations correspondent à vos envies et votre événement."
+    },
+    {
+      "type": "paragraph",
+      "content": "Avant de lancer votre campagne de mail ou sms, il est important de réaliser un test, permettant d'assurer le bon fonctionnement des boutons, corriger l'oublie d'un lien éventuel, corriger des fautes, etc. Pour pouvoir espérer la venue de votre liste de contacts, mieux vaut ne pas trop se précipiter et envoyer un message clair et esthétique."
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour vous envoyer un email test, rendez-vous sur l'onglet CAMPAGNES et cliquez sur le bouton \"Envoyer un test\". Vous pouvez alors choisir à qui envoyer ce test en effectuant une recherche par nom."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7c6b60c84eb3266332cef/file-Io883Eg71e.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Une fois le test effectué, vous pouvez envoyer la campagne aux contacts concernés. Pour cela, dans l'onglet CAMPAGNES, cliquez sur les 3 points encadrés ci-dessous, puis sélectionnés le bouton \"Envoyer\". Enfin, un dernier pop up s'affichera afin de confirmer l'action."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7c9b87eb7a63c30e3f99a/file-WwCq7bxAM0.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Enfin, il est également possible de programmer l'envoie de sa campagne automatiquement. Pour cela, rendez-vous sur la page Campagneet, cliquez sur les trois points et sélectionnez le bouton \"Paramètres\". Vous êtes alors redirigé vers la page de modification de la campagne. Rendez-vous sur la fenêtre Envoie encadrée ci-dessous et choisissez la date et l'heure de l'envoie."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6447867540ac037159fb177d/file-ZiNqBWQHAe.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "N'oubliez pas d'enregistrer les modifications avant de fermer la page."
+    },
+    {
+      "type": "iframe",
+      "src": "https://www.loom.com/embed/8826bec89d8e4cf59fea46ddc353f8ca",
+      "description": ""
+    }
+  ],
+  "category_title": "Campagnes email et sms",
+  "category_description": "Campagne classique ou auto, paramètres, segment d'envoi, l'éditeur, les stats, ..."
+}

@@ -1,0 +1,21 @@
+{
+  "url": "https://help.prezevent.com/article/41-verifier-le-formulaire",
+  "title": "Comment vérifier le formulaire d’inscription ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Tout comme la campagne d'emailing, le formulaire doit faire l'objet d'un test avant l'envoie à votre liste de contacts. Pour prévisualiser le formulaire en condition réelle, activez le formulaire d'inscription en appuyant sur les boutons encadrés ci-dessous."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7da477eb7a63c30e3f9c0/file-FQyTvm8ygn.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Formulaire d'inscription",
+  "category_description": "Activer un formulaire, modifier, iframe, quotas, liste d'attente, ..."
+}

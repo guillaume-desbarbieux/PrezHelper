@@ -1,0 +1,43 @@
+{
+  "url": "https://help.prezevent.com/article/72-envoyer-un-email-de-relance",
+  "title": "Envoyer un email de relance, un email de rappel",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Vous avez déjà envoyer des invitations et vous avez déjà des inscrits à l'événement. Il s'agit ici d'envoyerune campagne à tous ceux qui n'ont pas répondupour les relancer."
+    },
+    {
+      "type": "paragraph",
+      "content": "Donc, dans les paramètres de votre campagne, vous allez cette fois-ci envoyer une campagne \"par groupe\" (= cible) en précisant lestatut d'inscription \"sans réponse\". L'email ne sera pas envoyé à ceux qui ont répondu \"oui\", \"peut-être\", et \"ne vient pas\"."
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/66447a630aaf8a27e593c24d/file-3feonsViHj.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Si vous voulez envoyerune relance sur un groupe en particulier, alors vous ajoutez votre groupe comme suit :"
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/664479990aaf8a27e593c24b/file-TeJIYfWhMA.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Votre événement approche, il s'agit d'écrire à vos participants pour leur rappeler la date, le lieu et/ou le programme."
+    },
+    {
+      "type": "paragraph",
+      "content": "Même principe que l'email de relance, c'est un envoi à un groupe en particulier. Ce groupe correspond à ceux qui ont lestatut d'inscription \"Oui\"."
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/66448253340e4261ee1c4d34/file-6StSvhQgsc.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Campagnes email et sms",
+  "category_description": "Campagne classique ou auto, paramètres, segment d'envoi, l'éditeur, les stats, ..."
+}

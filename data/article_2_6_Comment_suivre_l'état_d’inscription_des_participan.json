@@ -1,0 +1,21 @@
+{
+  "url": "https://help.prezevent.com/article/38-suivi",
+  "title": "Comment suivre l'état d’inscription des participants ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Lorsqu'un contact répond au formulaire, le suivi se met automatiquement à jour et en temps réel et est disponible sur la page CONTACTS, en haut de l'écran. Les états par défaut sont : “Oui”, “Ne vient pas”, “Sans réponse”, “Peut-être”."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7de247eb7a63c30e3f9c8/file-KzllT8Oz9V.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Formulaire d'inscription",
+  "category_description": "Activer un formulaire, modifier, iframe, quotas, liste d'attente, ..."
+}

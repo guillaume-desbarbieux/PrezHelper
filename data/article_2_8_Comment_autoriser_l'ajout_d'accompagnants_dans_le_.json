@@ -1,0 +1,38 @@
+{
+  "url": "https://help.prezevent.com/article/60-comment-autoriser-lajout-d-inscrits-dans-le-formulaire",
+  "title": "Comment autoriser l'ajout d'accompagnants dans le formulaire ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Autorisez, ou non, la venue d'un ou plusieurs accompagnants avec un de vos invités. Tout comme pour les inscriptions, vous pouvez limiter le nombre d'accompagnants en mettant en place un quota."
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour cela, il suffit de se rendre sur le menu “Inscriptions” de la plateforme et cocher la case “Proposer d’inscrire d’autres invités” et de décider d’un quota du nombre d’inscrits autorisés en plus."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64392297ad20e8714a50d7a0/file-jSg7FAvNxr.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Lors des inscriptions, la personne ayant reçu l’invitation pourra remplir ses informations. Une fois son inscription enregistrée, elle pourra, si elle le souhaite, accéder à un lien lui permettant d’inscrire une tiers personne et de renseigner les informations que vous aurez décidé d’imposer."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/643922b37133de139103e6dd/file-0pwhZ1cHuZ.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Formulaire d'inscription",
+  "category_description": "Activer un formulaire, modifier, iframe, quotas, liste d'attente, ..."
+}

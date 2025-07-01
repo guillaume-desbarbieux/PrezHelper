@@ -1,0 +1,50 @@
+{
+  "url": "https://help.prezevent.com/article/63-comment-tester-ma-campagne",
+  "title": "Comment tester ma campagne ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Une fois que vous avez créé et modifié votre modèle, et que vous avez regardé un aperçu afin de voir si le design et les informations correspondent à vos envies et votre événement, l'heure est venue de tester cette campagne afin de vous assurer que celle-ci fonctionne."
+    },
+    {
+      "type": "paragraph",
+      "content": "Avant de lancer votre campagne de mail ou sms, il est important de réaliser un test, vérifier tous les liens, les boutons, corriger un oubli, une faute."
+    },
+    {
+      "type": "paragraph",
+      "content": "ATTENTION"
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour envoyer un Email test, votre contact avec votre email doit être présent dans la liste des contact de l'événement. Sinon le bouton est grisé."
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour vous envoyer un email test, rendez-vous sur l'onglet CAMPAGNES et cliquez sur le bouton \"Envoyer un test\". Vous pouvez alors choisir à qui envoyer ce test en effectuant une recherche par nom."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64393a6e37fd073d73d6c83e/file-Uf9yxIkuPP.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Vous pouvez alors choisir à qui envoyer ce test en effectuant une recherche par nom dans le pop-up qui apparaît ensuite."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/664f0d295173914f806c0cc2/file-pCiWC5Qn2G.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Campagnes email et sms",
+  "category_description": "Campagne classique ou auto, paramètres, segment d'envoi, l'éditeur, les stats, ..."
+}

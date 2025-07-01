@@ -1,0 +1,59 @@
+{
+  "url": "https://help.prezevent.com/article/35-campagne-classique",
+  "title": "Qu’est-ce qu’une campagne classique ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Les campagnes classiques sont des campagnes email ou sms envoyées à vos contacts pour les inscriptions, les informations liées à l'événement ou toute autre information."
+    },
+    {
+      "type": "paragraph",
+      "content": "Remplissez les informations de votre campagne : le nom (si c'est un premier envoi, une relance..), si vous envoyez par email ou par sms, l'objet de votre mail, le nom de l'expéditeur (vous), et à quelle adresse mail on peut vous répondre (au lieu du *****.com)."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78d0b26cb8547dcb0dee9/file-7uqvFLF392.png",
+      "alt": ""
+    },
+    {
+      "type": "heading",
+      "content": "Envoi"
+    },
+    {
+      "type": "paragraph",
+      "content": "Choisissez d'envoyer votre mail à tous les contacts de l'événement, à un groupe  (sélectionnez des critères tels que la présence, ou le statut), ou à des contacts en particulier en cliquant sur \"Personnalisé\"."
+    },
+    {
+      "type": "paragraph",
+      "content": "Puis décidez de programmer l'envoi à une date précise ou de l'envoyer manuellement quand vous voulez."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78d164bd6801a6e91be1e/file-zk3eGxNqEX.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Il est également possible pour vous de programmer l'envoie automatique des emails via cette même page et cliquez sur le bouton \"Programmez l'envoi à une date\" et choisissez la date et l'heure."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64479512d50b2033bd2414ec/file-82yhoxRbw2.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Campagnes email et sms",
+  "category_description": "Campagne classique ou auto, paramètres, segment d'envoi, l'éditeur, les stats, ..."
+}

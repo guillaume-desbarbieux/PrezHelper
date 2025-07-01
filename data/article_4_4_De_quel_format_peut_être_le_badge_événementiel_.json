@@ -1,0 +1,62 @@
+{
+  "url": "https://help.prezevent.com/article/29-format-du-badge",
+  "title": "De quel format peut être le badge événementiel ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Lorsque vous vous rendez sur la page d'édition du badge, notre plateforme vous propose, par défaut, de personnaliser un badge au format A4. Si ce n'est pas le format que vous souhaitez, pas de panique ! Il suffit de cliquer sur les trois point, en haut et à droite de votre écran, puis de sélectionner l'onglet \"Changer le format\"."
+    },
+    {
+      "type": "paragraph",
+      "content": "Les différents formats de badges existant sur notre plateforme sont :"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Format CB",
+        "Format étiquette (91x38 mm)",
+        "Format étiquette (55x35mm)",
+        "Format étiquette (70x32mm)",
+        "Format A4 pliable",
+        "Format A6",
+        "Format A7"
+      ]
+    },
+    {
+      "type": "list_item",
+      "content": "Format CB"
+    },
+    {
+      "type": "list_item",
+      "content": "Format étiquette (91x38 mm)"
+    },
+    {
+      "type": "list_item",
+      "content": "Format étiquette (55x35mm)"
+    },
+    {
+      "type": "list_item",
+      "content": "Format étiquette (70x32mm)"
+    },
+    {
+      "type": "list_item",
+      "content": "Format A4 pliable"
+    },
+    {
+      "type": "list_item",
+      "content": "Format A6"
+    },
+    {
+      "type": "list_item",
+      "content": "Format A7"
+    },
+    {
+      "type": "iframe",
+      "src": "https://www.loom.com/embed/6efef36adbbd43ea92c44dab14cf20b0",
+      "description": ""
+    }
+  ],
+  "category_title": "Badges",
+  "category_description": "à faire en dernier"
+}

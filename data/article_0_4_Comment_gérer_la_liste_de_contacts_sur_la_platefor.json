@@ -1,0 +1,68 @@
+{
+  "url": "https://help.prezevent.com/article/45-gestion-de-la-liste-existante",
+  "title": "Comment gérer la liste de contacts sur la plateforme ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Vous pouvez modifier votre liste de contact ou les informations de vos contacts après les avoir ajouté manuellement ou après avoir importer votre liste de contacts Excel."
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour gérer l'affichage de vos champs personnalisés, cliquez sur l'icône fenêtre dans la barre des champs à droite. Vous pouvez modifier l'ordre des colonnes pour afficher sur l'interface de votre liste de contact différents champs. Changez les champs en cliquant sur les listes déroulantes et déplacez les champs grâce en faisant glisser les 3 barres horizontales là où vous le souhaitez. Appuyez sur \"Valider\" une fois que vous avez fini."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b2a4bd6801a6e91be16/file-JlmqA6azcT.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Si vous voulez chercher un contact parmi une centaine de noms, vous pouvez cliquez sur la barre de rechercher en haut à droite et entrer le nom de la personne."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b434bd6801a6e91be17/file-dqt2FL84Zq.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour modifier ou supprimer un contact déjà enregistré, cliquez sur les 3 points à droite du contact, puis appuyez sur modifier pour changer des informations à propos du contact ou supprimer ou l'enlever de la liste de contact."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b511f7c4c45e9fbb6e1/file-54J2YWIIOb.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour trier vos contacts, vous pouvez appuyez sur un champ sur la barre des champs en bleu, et trier par ordre croissant ou décroissant en appuyant sur la flèche à gauche (flèche en haut: ordre alphabétique croissant)."
+    },
+    {
+      "type": "paragraph",
+      "content": "Filtrer ses contacts est utile lorsque la liste est longue, et que vous avez besoin de chercher des invités selon un champ précis (présence, entreprise, inscription à la réception de vos mails, participation à un diner par exemple). Appuyez sur \"Filtres\" à gauche de la barre de recherche par nom. Vous pourrez choisir plusieurs filtres en cliquant sur \"plus de filtres\"."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b657eb7a63c30e3f900/file-qFYt1THjdk.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Gestion des Contacts",
+  "category_description": "Paramétrages, importer et exporter les contacts, segments, modification groupée, ..."
+}

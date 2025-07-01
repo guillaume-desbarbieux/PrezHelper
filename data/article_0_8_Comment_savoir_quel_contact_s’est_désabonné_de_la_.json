@@ -1,0 +1,55 @@
+{
+  "url": "https://help.prezevent.com/article/53-comment-savoir-quel-contact-s-est-desabonne-de-la-liste-de-diffusion-d-email",
+  "title": "Comment savoir quel contact s’est désabonné de la liste de diffusion d’email ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Pour voir les désinscrits à vos mails afin de les enlever de votre liste de contacts pour la campagne d'emailing, vous devez isoler ces contacts en utilisant les filtres."
+    },
+    {
+      "type": "paragraph",
+      "content": "Allez dans l'onglet CONTACTS de l'événement, puis cliquez sur \"Filtres” en haut à côté de la barre de recherche."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64390e9037fd073d73d6c816/file-K1IS5LXqwH.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Cliquez sur \"Plus de filtres\" et descendez jusqu'à voir \"Inscription emails\"."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64390ef64b12852670453052/file-wddRyZUogZ.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Cochez \"Non\" et fermer l'onglet pour que les contacts ayant choisi d'être désinscrits s'affichent."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64390f5337fd073d73d6c819/file-uKBstZkorR.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Remarque : Dans le cas ci-dessus, on remarque en arrière plan qu'aucun contact ne s'affiche en arrière plan. Bonne nouvelle ! Personne ne s'est désabonné de la liste de diffusion."
+    }
+  ],
+  "category_title": "Gestion des Contacts",
+  "category_description": "Paramétrages, importer et exporter les contacts, segments, modification groupée, ..."
+}

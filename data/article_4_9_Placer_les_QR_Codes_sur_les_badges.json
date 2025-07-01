@@ -1,0 +1,46 @@
+{
+  "url": "https://help.prezevent.com/article/74-tout-savoir-sur-les-qr-codes",
+  "title": "Placer les QR Codes sur les badges",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Le QR Code est essentiel pour lecheck incar il permet un processus rapide, précis et sécurisé d'enregistrement des participants à l'événement."
+    },
+    {
+      "type": "paragraph",
+      "content": "Dans l'onglet \"Badges\", vous pouvez maintenant intégrer un QR Code directement sur les badges de vos participants. En utilisant notreéditeur de badges intuitif, personnalisez votre badge en y plaçant le QR Code nominatif où vous le souhaitez."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6644bd280aaf8a27e593c289/file-1XRbHAMlIb.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Dans l'onglet \"Campagnes\", vous avez la possibilité de programmer l'envoi d'e-mails contenant un QR Code suite à une inscription à votre événement. Il vous suffit deparamétrer l'envoi en fonction d'un changement de statut d'inscription ou d'une nouvelle inscription(statut d'inscription \"oui\")."
+    },
+    {
+      "type": "paragraph",
+      "content": "Ensuite, utilisez notre éditeur visuel et allez dans \"Modules\" pour ajouter le QR Code du participant."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6644bb8e340e4261ee1c4d76/file-Z6v6ucTJdi.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Les QR Codes sont nominatifs et générés automatiquement suite à l'ajout de contact dans Prezevent."
+    }
+  ],
+  "category_title": "Badges",
+  "category_description": "à faire en dernier"
+}

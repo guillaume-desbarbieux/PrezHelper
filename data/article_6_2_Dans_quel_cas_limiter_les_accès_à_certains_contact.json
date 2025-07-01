@@ -1,0 +1,25 @@
+{
+  "url": "https://help.prezevent.com/article/67-dans-quel-cas-limiter-les-acces-a-certains-contacts",
+  "title": "Dans quel cas limiter les accès à certains contacts ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Limiter l’accès à un certain nombre de contacts consiste à mettre en place un quota personnalisé. Cela peut être pertinent dans le cas de conférences, d’ateliers ou de tables rondes où les places sont limitées."
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour mettre en place l’accès limité à certains contacts, il suffit de se rendre dans le menu “Check’in”, de sélectionner la sessions dans laquelle vous souhaitez mettre en place une limitation d’entrées puis de sélectionner le bouton “Oui” dans “Limiter la sessions à certains contacts” puis choisissez la liste de personnes notifiée par un critère particulier (statut, dîner, entreprise…)."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6439426bad20e8714a50d7b7/file-HaHc9262X6.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Check'in des participants",
+  "category_description": "Définir un code, accès web et mobile, les options, les sessions, les filtres"
+}

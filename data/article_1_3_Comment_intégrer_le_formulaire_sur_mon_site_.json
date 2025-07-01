@@ -1,0 +1,59 @@
+{
+  "url": "https://help.prezevent.com/article/57-comment-integrer-le-formulaire-sur-mon-site",
+  "title": "Comment intégrer le formulaire sur mon site ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Dans un premier temps, rendez-vous dans l’onglet “Site web” puis dans la page “Site web de l’événement”."
+    },
+    {
+      "type": "paragraph",
+      "content": "Débutez alors la construction du site web événementiel facilement grâce à notre éditeur en drag and drop. Dans le menu s’affichant sur la droite, sélectionnez “Bouton” dans la partie éléments."
+    },
+    {
+      "type": "paragraph",
+      "content": "Placez le bouton où vous le souhaitez sur la page de votre site web en construction. En cliquant sur ce bouton, un menu s’affiche à droite de l’écran. Personnalisez alors ce bouton en modifiant la couleur, la taille, la forme, le texte et en cochant la case pour intégrer le bouton d'inscription."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64391a24ad20e8714a50d79b/file-3AGqwNbQLv.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Il est également possible d'intégrer le formulaire de contact sur un site web déjà existant. Pour cela, rendez-vous sur la page Formulaire et cliquez sur l'icône ancre qui fait apparaître une page sur la droite de l'écran."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/644780cdd50b2033bd2414e5/file-kbeElVYGDz.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Sur la fenêtre qui s'affiche sur la droite, il vous suffit alors de copier-coller le code du formulaire, pour l'intégrer au code de votre site web."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64478291cdec2a73488119bc/file-oSGV2NTbFm.png",
+      "alt": ""
+    },
+    {
+      "type": "iframe",
+      "src": "https://www.loom.com/embed/26b92f79155a4139a009c1a7f073448e",
+      "description": ""
+    }
+  ],
+  "category_title": "Site web evenementiel"
+}

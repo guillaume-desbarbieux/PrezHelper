@@ -1,0 +1,53 @@
+{
+  "url": "https://help.prezevent.com/article/26-impression-sur-place",
+  "title": "Impression sur place et en direct",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Chez Prezevent, nous mettons à disposition nos conseils et nos outils afin d'assurer la réussite de votre événement."
+    },
+    {
+      "type": "heading",
+      "content": "Impression au check'in de l'invité"
+    },
+    {
+      "type": "paragraph",
+      "content": "L'impression In Live est couplée au Check'in : l'impression des badges se lancent automatiquement lorsqu'une personne est notée présente."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "dans le menu \"check'in\" de votre interface admin, appuyez sur le bouton  \"Activer l'impression des badges\".",
+        "lancer le logiciel Pz Printer, sélectionnez votre événement et l'imprimante connectée à votre PC.",
+        "lancer le Check'in sur vos tablettes, choisissez le PC à associer"
+      ]
+    },
+    {
+      "type": "list_item",
+      "content": "dans le menu \"check'in\" de votre interface admin, appuyez sur le bouton  \"Activer l'impression des badges\"."
+    },
+    {
+      "type": "list_item",
+      "content": "lancer le logiciel Pz Printer, sélectionnez votre événement et l'imprimante connectée à votre PC."
+    },
+    {
+      "type": "list_item",
+      "content": "lancer le Check'in sur vos tablettes, choisissez le PC à associer"
+    },
+    {
+      "type": "paragraph",
+      "content": "Ce procédé complète aussi très bien les impressions en amont pour ceux qui ont oublié leur badge, pour ceux dont le badge comporte une erreur et qu'il faut refaire, et enfin pour ceux qui n'étaient pas inscrit et à qui on souhaite donner un badge."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c6c7eb7a63c30e3f903/file-xNZ5dBBYuS.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Impression des badges"
+}

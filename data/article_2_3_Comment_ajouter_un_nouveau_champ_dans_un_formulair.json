@@ -1,0 +1,89 @@
+{
+  "url": "https://help.prezevent.com/article/40-personnalisation-du-formulaire",
+  "title": "Comment ajouter un nouveau champ dans un formulaire ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Lorsque vous arrivez sur la page d'édition du formulaire, cliquez sur l'icône crayon se trouvant sur une des cases à remplir puis décidez d'insérer un bouton, un texte explicatif, etc. De même, vous pouvez obliger la réponses à certaines questions du formulaire avec l'astérisque ou bien de rendre le champ non modifiable, c'est-à-dire prérempli avec les informations du contact indiquées dans la liste."
+    },
+    {
+      "type": "paragraph",
+      "content": "Tous les libellés des champs peuvent être personnalisés."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7cfd74bd6801a6e91bec8/file-OfIp7FijUo.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Vous pouvez également modifier l'en-tête du formulaire et y insérer une image en modifiant les éléments du code HTML que vous trouverez dans l'icône rouage des paramètres."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7d1754bd6801a6e91becc/file-z1sc1maFcm.png",
+      "alt": ""
+    },
+    {
+      "type": "heading",
+      "content": "Ajout de champs personnalisés"
+    },
+    {
+      "type": "paragraph",
+      "content": "Par défaut, les champs présents dans le formulaire d'inscription seront les suivant : \"Prénom\", \"Nom\", \"Email\" et \"Statut\". Cependant, vous pouvez personnaliser ses champs et même en ajouter selon vos besoins."
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour cela, rendez-vous sur l'onglet CONTACTS du menu à gauche de l'écran. Cliquez ensuite sur l'icône rouage en haut à droite de l'écran."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7d4144bd6801a6e91bed2/file-P4aBUuHhq7.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Dans la page qui s'affiche, vous pouvez alors modifier le libellé des champs préexistants, les supprimer et en ajouter de nouveaux. Pour l'ajout d'un nouveau champ, indiquez le type de réponse attendue (texte libre, oui / non, etc) et décidez de la réponse apportée par défaut qui pourra être modifiée par l'invité."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7d6d20c84eb3266332d15/file-6h7tlPol4O.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Veillez à bien enregistrer vos modifications avant toute nouvelle action !"
+    },
+    {
+      "type": "paragraph",
+      "content": "Une fois cette étape réalisée, vous pouvez retourner sur l'onglet INSCRIPTIONS et cliquer sur le bouton \"+\" pour ajouter les nouveaux champs souhaités. N'oubliez pas de confirmer l'ajout en cliquant sur le bouton \"OK\"."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7d96b26cb8547dcb0df9a/file-1G7jATppcX.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Formulaire d'inscription",
+  "category_description": "Activer un formulaire, modifier, iframe, quotas, liste d'attente, ..."
+}

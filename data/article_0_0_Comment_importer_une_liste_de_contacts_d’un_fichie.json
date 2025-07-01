@@ -1,0 +1,127 @@
+{
+  "url": "https://help.prezevent.com/article/44-creation-de-la-liste-par-import-de-fichier",
+  "title": "Comment importer une liste de contacts d’un fichier excel  ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Avant un import Excel, assurez vous d'avoir crée dans Prezevent tous les champs dont vous avez besoin ."
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour importer un (ou plusieurs) fichier Excel, celui-ci doit :"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "format .xlsx (pas .xls version 97-2003 par exemple)",
+        "1ère ligne d'une feuille correspond au entête de colonne",
+        "2ème ligne commence la liste de contact et est ininterrompue jusqu'à la fin de la liste (pas de ligne vide au milieu)",
+        "pas de formules, pas d'images"
+      ]
+    },
+    {
+      "type": "list_item",
+      "content": "format .xlsx (pas .xls version 97-2003 par exemple)"
+    },
+    {
+      "type": "list_item",
+      "content": "1ère ligne d'une feuille correspond au entête de colonne"
+    },
+    {
+      "type": "list_item",
+      "content": "2ème ligne commence la liste de contact et est ininterrompue jusqu'à la fin de la liste (pas de ligne vide au milieu)"
+    },
+    {
+      "type": "list_item",
+      "content": "pas de formules, pas d'images"
+    },
+    {
+      "type": "paragraph",
+      "content": "Cliquez sur l'icône d'importation en haut à droite puis sélectionnez votre fichier Excel sous le bon format."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b1626cb8547dcb0dedb/file-D6D47MvSM9.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Vous arriverez ensuite dans une fenêtre avec l'onglet \"Association\". A gauche, se trouveront les champs que vous avez entré dans votre Excel. Au milieu, sont affichés les informations du 1er contact pour que vous visualisiez les champs. A droite, choisissez les bons champs correspondant aux champs de Prezevent pour que les informations correspondent aux bonnes catégories dans la liste de contact Prezevent."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63ee23b5e669fb108d6ff2bd/file-yvZ8wTClJ5.png",
+      "alt": "Etape 2 de l'import d'un fichier excel : association des champs"
+    },
+    {
+      "type": "paragraph",
+      "content": "Enfin, vous arrivez au résumé."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Le nombre de contacts importés est renseigné. Si le nombre de lignes est plus important que ce que vous avez dans votre fichier, c'est que des lignes vides vont être importées.Dans ce cas, annulez la procédure en cliquant hors de la popup et supprimez dans l'Excel quelques lignes qui sont en dessous de votre dernier contact (même si elles sont vides elles peuvent caché des données)Recommencez l'import et vérifiez que le nombre de ligne (contacts) soit correct.",
+        "Dans ce cas, annulez la procédure en cliquant hors de la popup et supprimez dans l'Excel quelques lignes qui sont en dessous de votre dernier contact (même si elles sont vides elles peuvent caché des données)",
+        "Recommencez l'import et vérifiez que le nombre de ligne (contacts) soit correct.",
+        "Il vous est demandé si vous souhaitez supprimer les contacts existants."
+      ]
+    },
+    {
+      "type": "list_item",
+      "content": "Le nombre de contacts importés est renseigné. Si le nombre de lignes est plus important que ce que vous avez dans votre fichier, c'est que des lignes vides vont être importées.Dans ce cas, annulez la procédure en cliquant hors de la popup et supprimez dans l'Excel quelques lignes qui sont en dessous de votre dernier contact (même si elles sont vides elles peuvent caché des données)Recommencez l'import et vérifiez que le nombre de ligne (contacts) soit correct."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Dans ce cas, annulez la procédure en cliquant hors de la popup et supprimez dans l'Excel quelques lignes qui sont en dessous de votre dernier contact (même si elles sont vides elles peuvent caché des données)",
+        "Recommencez l'import et vérifiez que le nombre de ligne (contacts) soit correct."
+      ]
+    },
+    {
+      "type": "list_item",
+      "content": "Dans ce cas, annulez la procédure en cliquant hors de la popup et supprimez dans l'Excel quelques lignes qui sont en dessous de votre dernier contact (même si elles sont vides elles peuvent caché des données)"
+    },
+    {
+      "type": "list_item",
+      "content": "Recommencez l'import et vérifiez que le nombre de ligne (contacts) soit correct."
+    },
+    {
+      "type": "list_item",
+      "content": "Il vous est demandé si vous souhaitez supprimer les contacts existants."
+    },
+    {
+      "type": "paragraph",
+      "content": "Attention : La suppression est irréversible !!"
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/67a239251227cb29e33b2888/file-yMsLNwOD74.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Astuce : dans le cas où l'import ne fonctionne pas, copier-coller vos contacts et les entêtes dans un nouveau fichier Excel."
+    },
+    {
+      "type": "paragraph",
+      "content": "Cas extrême : copier + collage spécial sur les valeurs. Cela peut être nécessaire quand un fichier a été travaillé dans tous les sens et que des restes de formules traînent encore dedans sans qu'on le voit."
+    }
+  ],
+  "category_title": "Gestion des Contacts",
+  "category_description": "Paramétrages, importer et exporter les contacts, segments, modification groupée, ..."
+}

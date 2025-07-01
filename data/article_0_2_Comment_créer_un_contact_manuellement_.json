@@ -1,0 +1,72 @@
+{
+  "url": "https://help.prezevent.com/article/10-liste-de-contacts",
+  "title": "Comment créer un contact manuellement ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Une fois connecté sur notre plateforme Prezevent, créez un nouvel événement ou cliquez sur votre événement déjà existant. Ensuite, allez sur l'onglet \"CONTACTS\", se trouvant à gauche."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78a517eb7a63c30e3f8fd/file-tRiK89SmsG.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Vous pouvez ajouter vos contacts un par un manuellement si vous le souhaitez, ou si vous voulez compléter une liste existante."
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour cela, cliquez sur le bouton rose \"Nouveau contact\"."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6439083a37fd073d73d6c812/file-X127vj2awW.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Une fenêtre à droite va s'afficher. Remplissez manuellement les champs de votre contact."
+    },
+    {
+      "type": "paragraph",
+      "content": "Dans \"Statut\", sélectionnez dans la liste déroulante si la personne a précisé qu'elle serait présente ou non, ou qu'elle n'a pas répondu."
+    },
+    {
+      "type": "paragraph",
+      "content": "Vous pouvez préciser si le contact désire recevoir des mails de votre part ou non."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/643908b1ad20e8714a50d786/file-NqCRAuxAGD.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Une fois fini, appuyez sur le bouton ENREGISTRER pour que le contact s'ajoute."
+    },
+    {
+      "type": "paragraph",
+      "content": "Voilà, votre contact est créée ! Faites cette action autant de fois que vous voulez, mais si c'est trop long, vous pouvez importer une liste de contacts Excel."
+    },
+    {
+      "type": "iframe",
+      "src": "https://www.loom.com/embed/0a80549fc485409ba9aff345bf5454ab",
+      "description": ""
+    }
+  ],
+  "category_title": "Gestion des Contacts",
+  "category_description": "Paramétrages, importer et exporter les contacts, segments, modification groupée, ..."
+}

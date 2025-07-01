@@ -1,0 +1,61 @@
+{
+  "url": "https://help.prezevent.com/article/34-statistiques",
+  "title": "Comment voir les statistiques de ma campagne ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Après avoir envoyé votre mail, vous pouvez consulter les statistiques d'envoi et d'ouverture. Ils s'affichent directement sur votre interface:"
+    },
+    {
+      "type": "paragraph",
+      "content": "- le total des mails envoyés et le nombre de mails délivrés"
+    },
+    {
+      "type": "paragraph",
+      "content": "- le nombre de mails bloqués"
+    },
+    {
+      "type": "paragraph",
+      "content": "- le nombre de mails ouverts et de mails cliqués"
+    },
+    {
+      "type": "paragraph",
+      "content": "- le nombre de mails en spam et le nombre de personnes qui se sont désinscrits de la newsletter"
+    },
+    {
+      "type": "paragraph",
+      "content": "Pour exporter ces statistiques, cliquez sur les trois points à droite, et sélectionnez \"Statistiques\". Vous pourrez exporter vos statistiques sous forme de fichier excel."
+    },
+    {
+      "type": "paragraph",
+      "content": "- \"bounced\": les soft bounces (boite pleine ou inactive) et les hard bounces (email ou nom de domaine inexistant)."
+    },
+    {
+      "type": "paragraph",
+      "content": "- \"bloqués\":  email bloqué car n'a aucune chance d’arriver jusqu’au destinataire selon Mailjet."
+    },
+    {
+      "type": "paragraph",
+      "content": "- \"désincriptions\": les destinataires ne veulent plus recevoir de mail."
+    },
+    {
+      "type": "paragraph",
+      "content": "Plus d'infoici"
+    },
+    {
+      "type": "paragraph",
+      "content": "Vous devez supprimer leurs mails dans la liste de contact pour qu'ils ne reçoivent plus de mail. Dans la liste de contact, cliquez dans \"Filtres\" et cochez \"Non\" aux \"Inscription emails\"pour voir les désinscrits aux mails et les enlever."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78cfe1f7c4c45e9fbb6e8/file-r4ZKOhGfVw.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Campagnes email et sms",
+  "category_description": "Campagne classique ou auto, paramètres, segment d'envoi, l'éditeur, les stats, ..."
+}

@@ -159,7 +159,12 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
     # 2. Scrape tous les articles de chaque catégorie
     all_articles = []
     import os, json
-    os.makedirs("data", exist_ok=True)
+    # Création robuste du dossier data/
+    if os.path.exists("data"):
+        if not os.path.isdir("data"):
+            raise RuntimeError("Un fichier nommé 'data' existe déjà. Supprimez-le ou renommez-le pour permettre la création du dossier.")
+    else:
+        os.makedirs("data")
     for i, url in enumerate(category_urls):
         print(f"[INFO] Scraping catégorie {i+1}/{len(category_urls)}: {url}")
         results = scrape_category_page(url, scrape_article)
@@ -175,8 +180,6 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
     print(f"[INFO] Total articles extraits : {len(all_articles)}")
 
     # [NOUVEAU] Sauvegarde les articles bruts en JSON pour archivage
-    import os, json
-    os.makedirs("data", exist_ok=True)
     json_path = os.path.join("data", f"scraped_articles_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json")
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(all_articles, f, ensure_ascii=False, indent=2)

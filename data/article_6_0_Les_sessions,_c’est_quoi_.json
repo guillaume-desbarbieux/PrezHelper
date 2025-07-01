@@ -1,0 +1,53 @@
+{
+  "url": "https://help.prezevent.com/article/19-les-sessions",
+  "title": "Les sessions, c’est quoi ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Définition"
+    },
+    {
+      "type": "paragraph",
+      "content": "Une session est un point de contrôlesur la liste des participants avec ou sans filtre sur celle-ci."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Par exemple, un event sur 2 jours aura 2 sessions : 1 session pour le jour 1 et une autre pour le jour 2.",
+        "Idem, si l'event est composé d'ateliers que l'on souhaite connaître la participation, on fera autant de session qu'il existe d'atelier."
+      ]
+    },
+    {
+      "type": "list_item",
+      "content": "Par exemple, un event sur 2 jours aura 2 sessions : 1 session pour le jour 1 et une autre pour le jour 2."
+    },
+    {
+      "type": "list_item",
+      "content": "Idem, si l'event est composé d'ateliers que l'on souhaite connaître la participation, on fera autant de session qu'il existe d'atelier."
+    },
+    {
+      "type": "paragraph",
+      "content": "Image 1 : Créez les sessions dont vous avez besoin dans votreinterface de gestion, Menu Check'in."
+    },
+    {
+      "type": "paragraph",
+      "content": "Image 2 :Les émargeursdevront choisir la session correspondante à leur point de contrôle dans le Menu Home del'interface de Check'in"
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c1d7eb7a63c30e3f902/file-3luGRKKqHM.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "Sur l'interface de Check'in, il faudra choisir la session avant de procéder à l'émargement"
+    }
+  ],
+  "category_title": "Check'in des participants",
+  "category_description": "Définir un code, accès web et mobile, les options, les sessions, les filtres"
+}

@@ -1,0 +1,42 @@
+{
+  "url": "https://help.prezevent.com/article/68-comment-passer-present-les-participants",
+  "title": "Comment passer présent les participants ?",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": "Il existe deux façons de passer présent les participants."
+    },
+    {
+      "type": "paragraph",
+      "content": "La première manière et la plus rapide, est le scan de Qr-code. En amont de l’événement, vous aurez certainement envoyer un qr-code nominatif dans un mail de confirmation d’inscription ou dans un badge A4 que vous aurez envoyé par mail."
+    },
+    {
+      "type": "paragraph",
+      "content": "Le jour J, depuis l’application Prezevent disponible sur mobiles et tablettes, rendez-vous sur le menu Scan QR puis émargez en une fraction de secondes les invités se présentant avec leurs QR-codes imprimés ou sur leurs smartphones."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64394454ad20e8714a50d7b9/file-SQSR4p94D0.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "content": "La deuxième façon d’émarger les participants est la recherche par nom. Toujours sur l’application native, rendez-vous sur le menu “Search” puis tapez le nom de la personne se présentant devant vous puis appuyez sur l’icône tick à côté du nom de la personne pour la noter présente."
+    },
+    {
+      "type": "paragraph",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "src": "//d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/643945c9ad20e8714a50d7bd/file-Mh05Zzj6za.png",
+      "alt": ""
+    }
+  ],
+  "category_title": "Check'in des participants",
+  "category_description": "Définir un code, accès web et mobile, les options, les sessions, les filtres"
+}
