@@ -14,6 +14,7 @@ tqdm
 
 # Optionnel : affichage local ou CLI
 gradio
+streamlit
 
 # Pour la description d'images et de vidéos (BLIP, PIL, torch, opencv, numpy, datetime)
 transformers
