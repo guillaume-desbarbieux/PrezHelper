@@ -1,70 +1,31 @@
+from app.utils import scrape_category_page, scrape_article
+import json
 import requests
 from bs4 import BeautifulSoup
-from app.utils import describe_image_from_url, describe_video_from_url
 
-def scrape_article(url):
-    response = requests.get(url)
-    if response.status_code != 200:
-        print(f"Erreur lors du chargement de {url}")
-        return None
+# Récupération automatique des URLs de catégories
+homepage = "https://help.prezevent.com/"
+resp = requests.get(homepage)
+soup = BeautifulSoup(resp.text, 'html.parser')
+category_urls = [a['href'] for a in soup.find_all('a', class_='category') if a.has_attr('href')]
 
-    soup = BeautifulSoup(response.text, 'html.parser')
+all_results = []
+for url in category_urls:
+    results = scrape_category_page(url, scrape_article)
+    all_results.extend(results)
 
-    # Titre principal
-    title = soup.find('h1').get_text(strip=True) if soup.find('h1') else 'Sans titre'
+# Stockage pour usage futur (exemple : sauvegarde JSON, à adapter pour DB réelle)
+with open("data/prezevent_scraped.json", "w", encoding="utf-8") as f:
+    json.dump(all_results, f, ensure_ascii=False, indent=2)
 
-    # Corps de l'article
-    article_body = soup.find('div', class_='fullArticle')  # À adapter selon la classe exacte
+print(f"{len(all_results)} articles scrappés et stockés.")
 
-    if not article_body:
-        print("Pas de contenu trouvé dans cette page.")
-        return None
-
-    elements = []
-
-    for elem in article_body.find_all(['h3', 'p', 'img', 'iframe']):
-        if elem.name == 'p':
-            elements.append({'type': 'paragraph', 'content': elem.get_text(strip=True)})
-
-        elif elem.name == 'h3':
-            elements.append({'type': 'heading', 'content': elem.get_text(strip=True)})
-
-        elif elem.name == 'img':
-            img_url = elem.get('src')
-            alt = elem.get('alt', '')
-            # Générer une description automatique de l'image
-            description = describe_image_from_url(img_url)
-            elements.append({'type': 'image', 'src': img_url, 'alt': alt, 'description': description})
-
-        elif elem.name == 'iframe':
-            src = elem.get('src')
-            # Générer une description automatique de la vidéo si c'est un lien vidéo direct
-            description = describe_video_from_url(src)
-            elements.append({'type': 'iframe', 'src': src, 'description': description})
-
-    return {
-        'url': url,
-        'title': title,
-        'content': elements
-    }
-
-# Exemple d'utilisation
-article_url = 'https://help.prezevent.com/article/18-site-web-evenementiel'  # remplace avec une vraie URL
-result = scrape_article(article_url)
-
-# Affichage
-import json
-print(json.dumps(result, indent=2, ensure_ascii=False))
-if result:
-    print(f"Titre: {result['title']}")
-    for element in result['content']:
-        if element['type'] == 'paragraph':
-            print(f"Paragraphe: {element['content']}")
-        elif element['type'] == 'heading':
-            print(f"Titre: {element['content']}")
-        elif element['type'] == 'image':
-            print(f"Image: {element['src']} (alt: {element['alt']})")
-        elif element['type'] == 'iframe':
-            print(f"Iframe: {element['src']}")
+# Affichage d'un résumé pour vérification
+print("\nRésumé des articles :")
+print(f"Nombre d'articles : {len(all_results)}")
+for art in all_results:
+    print(f"- URL : {art.get('url')}")
+    print(f"  Titre : {art.get('title')}")
+    print(f"  Nombre d'éléments : {len(art.get('content', []))}")
 
 
