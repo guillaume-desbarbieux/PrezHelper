@@ -20,7 +20,7 @@ def ask_question(question, top_k=3):
         results = collection.query(
             query_texts=[question],
             n_results=top_k,
-            include=["distances"]
+            include=["documents", "metadatas", "distances"]
         )
         # Vérification de la structure minimale attendue
         if not results or 'documents' not in results or not results['documents'] or not results['documents'][0]:
