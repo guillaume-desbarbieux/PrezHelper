@@ -181,7 +181,7 @@ def full_scrape_and_index(collection_name="prezevent_articles"):
 
     # 4. Indexe les chunks dans ChromaDB
     print(f"[INFO] Indexation dans ChromaDB (collection '{collection_name}')...")
-    client = chromadb.Client()
+    client = chromadb.PersistentClient(path="chroma")
     collection = client.get_or_create_collection(collection_name)
     # Génère des IDs uniques pour chaque chunk
     ids = [f"chunk_{i}" for i in range(len(all_chunks))]

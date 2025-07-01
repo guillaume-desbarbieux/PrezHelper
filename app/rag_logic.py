@@ -10,7 +10,7 @@ def ask_question(question, top_k=3):
     - top_k : nombre de résultats à retourner
     Retourne un dictionnaire avec documents, metadatas, scores, distances.
     """
-    client = chromadb.Client()
+    client = chromadb.PersistentClient(path="chroma")
     collection = client.get_or_create_collection(COLLECTION_NAME)
     results = collection.query(
         query_texts=[question],
