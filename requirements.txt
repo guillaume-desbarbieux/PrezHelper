@@ -15,9 +15,10 @@ tqdm
 # Optionnel : affichage local ou CLI
 gradio
 
-# Pour la description d'images et de vidéos (BLIP, PIL, torch, opencv, numpy)
+# Pour la description d'images et de vidéos (BLIP, PIL, torch, opencv, numpy, datetime)
 transformers
 Pillow
 torch
 opencv-python
 numpy<2
+bs4

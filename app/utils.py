@@ -7,6 +7,7 @@ import numpy as np
 from typing import List
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+from datetime import datetime
 
 # Chargement du modèle BLIP (à faire une seule fois)
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
@@ -169,12 +170,40 @@ def scrape_article(url):
 
         elif elem.name == 'iframe':
             src = elem.get('src')
-            # Générer une description automatique de la vidéo si c'est un lien vidéo direct
-            description = describe_video_from_url(src)
-            elements.append({'type': 'iframe', 'src': src, 'description': description})
+            # description = describe_video_from_url(src)  # Désactivé car peu utile pour l'indexation RAG
+            elements.append({'type': 'iframe', 'src': src, 'description': ''})  # Pas de description pour l'indexation RAG
 
     return {
         'url': url,
         'title': title,
         'content': elements
     }
+
+def flatten_article(article):
+    """
+    Retourne un objet JSON avec le texte concaténé (titres, paragraphes, descriptions d'images)
+    et les métadonnées utiles (source, titre, date, urls/descriptions images).
+    """
+    lines = []
+    image_urls = []
+    image_descriptions = []
+    for block in article.get("content", []):
+        if block["type"] in ["heading", "paragraph"]:
+            lines.append(block["content"])
+        elif block["type"] == "image":
+            desc = block.get("description", "")
+            url = block.get("src", "")
+            if desc:
+                lines.append(f"<image-description>{desc}</image-description>")
+                image_descriptions.append(desc)
+            if url:
+                image_urls.append(url)
+    text = "\n\n".join(lines)
+    metadata = {
+        "source": article.get("url"),
+        "title": article.get("title"),
+        "scraped_at": datetime.utcnow().isoformat() + "Z",
+        "image_urls": image_urls,
+        "image_descriptions": image_descriptions
+    }
+    return {"text": text, "metadata": metadata}
