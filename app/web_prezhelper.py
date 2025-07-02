@@ -100,6 +100,13 @@ if 'top_docs' not in st.session_state:
     st.session_state['top_docs'] = []
     st.session_state['top_scores'] = []
 
+def extraire_titre_et_contenu(doc):
+    titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
+    titre = titre_match.group(1).strip() if titre_match else ""
+    contenu_match = re.search(r"Contenu\s*:\s*(.*)", doc, flags=re.DOTALL)
+    contenu = contenu_match.group(1).strip() if contenu_match else ""
+    return titre, contenu
+
 # Sidebar : paramètres RAG
 st.sidebar.markdown("---")
 st.sidebar.header("Paramètres RAG")
@@ -107,21 +114,41 @@ top_k = st.sidebar.number_input(
     "Nombre de documents pertinents (top_k)", min_value=1, max_value=10, value=3, step=1
 )
 min_score = st.sidebar.slider(
-    "Score minimal de pertinence (cosinus)", min_value=0.0, max_value=1.0, value=0.0, step=0.01
+    "Score minimal de pertinence (cosinus)", min_value=0.0, max_value=1.0, value=0.3, step=0.01
+)
+relative_margin = st.sidebar.slider(
+    "Marge relative (écart au meilleur score)", min_value=0.0, max_value=1.0, value=0.3, step=0.01,
+    help="Un document n'est retenu que si son score >= max_score - relative_margin."
+)
+alpha = st.sidebar.slider(
+    "Poids du titre (alpha)", min_value=0.0, max_value=1.0, value=0.7, step=0.05,
+    help="Score mixte = alpha * score_titre + (1-alpha) * score_contenu"
 )
 
 # Bouton pour déclencher uniquement la recherche de documents pertinents
-show_docs = st.button("Afficher les 3 documents les plus pertinents (RAG)")
+show_docs = st.button("Afficher les documents les plus pertinents (RAG)")
 
 if show_docs and question:
     with st.spinner("Recherche des documents les plus pertinents dans la base documentaire..."):
         embedder = get_embedder()
         q_emb = embedder.encode(question, convert_to_tensor=True)
-        doc_embs = embedder.encode(corpus_docs, convert_to_tensor=True, show_progress_bar=False)
-        hits = util.cos_sim(q_emb, doc_embs)[0].cpu().numpy()
-        # Filtrage par score minimal
-        idx_sorted = hits.argsort()[::-1]
-        filtered = [(i, hits[i]) for i in idx_sorted if hits[i] >= min_score]
+        scores = []
+        titres = []
+        for doc in corpus_docs:
+            titre, contenu = extraire_titre_et_contenu(doc)
+            titres.append(titre)
+            titre_emb = embedder.encode(titre, convert_to_tensor=True)
+            contenu_emb = embedder.encode(contenu, convert_to_tensor=True)
+            score_titre = util.cos_sim(q_emb, titre_emb).item()
+            score_contenu = util.cos_sim(q_emb, contenu_emb).item()
+            score_mixte = alpha * score_titre + (1 - alpha) * score_contenu
+            scores.append(score_mixte)
+        max_score = max(scores) if scores else 0.0
+        idx_sorted = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
+        filtered = [
+            (i, scores[i]) for i in idx_sorted
+            if scores[i] >= min_score and scores[i] >= max_score - relative_margin
+        ]
         top_filtered = filtered[:top_k]
         st.session_state['top_docs'] = [corpus_docs[i] for i, _ in top_filtered]
         st.session_state['top_scores'] = [score for _, score in top_filtered]
@@ -130,7 +157,7 @@ if show_docs and question:
             titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
             titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
             st.markdown(f"**{i+1}. {titre}**  ")
-            st.markdown(f"Score de similarité : `{st.session_state['top_scores'][i]:.4f}`")
+            st.markdown(f"Score mixte : `{st.session_state['top_scores'][i]:.4f}`")
             st.text_area("Contenu", doc, height=120)
 
 if question and selected:
