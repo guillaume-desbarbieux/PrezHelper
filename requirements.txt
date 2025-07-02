@@ -1,18 +1,4 @@
-# Scraping
-requests
-beautifulsoup4
-trafilatura
-
-# RAG
-langchain
-chromadb
-sentence-transformers
-
-tqdm
-
-# Optionnel : affichage local ou CLI
 streamlit
-
-# Pour l'affichage d'images (Pillow uniquement)
-Pillow
-bs4
+openai
+requests
+tqdm
