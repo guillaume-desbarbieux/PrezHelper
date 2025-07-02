@@ -3,3 +3,7 @@ openai
 requests
 tqdm
 tiktoken
+beautifulsoup4
+chromadb
+langchain
+sentence-transformers

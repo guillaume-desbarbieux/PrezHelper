@@ -67,7 +67,8 @@ def estimate_cost(input_tokens, output_tokens, model="gpt-4o"):
 # Sélection du ou des modèles à utiliser
 model_options = [
     ("gpt-3.5-turbo-1106", "GPT-3.5 Turbo (1106)"),
-    ("gpt-4o", "GPT-4o")
+    ("gpt-4o", "GPT-4o"),
+    ("rag-gpt-4o", "RAG + GPT-4o (démo)")
 ]
 model_labels = [label for _, label in model_options]
 model_keys = [key for key, _ in model_options]
@@ -95,6 +96,10 @@ if question and selected:
                 cols = st.columns(len(selected))
                 for idx, model_name in enumerate(selected):
                     with cols[idx]:
+                        if model_name == "rag-gpt-4o":
+                            st.warning("La logique RAG n'est plus disponible dans cette version. Cette option est une démo/placeholder.")
+                            st.info("Pour réactiver le RAG, il faut restaurer la logique ChromaDB et l'indexation des embeddings.")
+                            continue
                         try:
                             client = openai.OpenAI(api_key=openai_api_key)
                             messages = [
