@@ -8,7 +8,11 @@ st.set_page_config(page_title="PrezHelper IA", layout="centered")
 st.title("PrezHelper IA")
 
 # Paramètre : introduction personnalisable du prompt envoyé au LLM
-prompt_intro = "Tu es un assistant expert de Prezevent. Tu ne réponds qu'à partir des documents ci-dessous."
+prompt_intro = (
+    "Tu es un assistant expert de Prezevent. Tu ne réponds qu'à partir des documents ci-dessous. "
+    "Quand tu réponds, indique toujours en fin de réponse le ou les articles utilisés sous la forme :\n"
+    "📄 Source : [Titre de l’article](URL)"
+)
 
 # Chargement du corpus documentaire
 @st.cache_data(show_spinner=False)
