@@ -34,17 +34,18 @@ if question:
             # Construction du prompt complet
             full_prompt = (
                 prompt_intro +
-                "\n\nQUESTION:\n" +
+                "\n\n[QUESTION UTILISATEUR]:\n" +
                 question +
-                "\n\nDOCUMENTATION:\n" +
-                corpus
+                "\n\n[CONTEXTE DOCUMENTAIRE]:\n" +
+                corpus +
+                "\n\n[REPONSE ATTENDUE]:\n"
             )
             if not openai_api_key:
                 st.error("Veuillez renseigner votre clé API OpenAI dans la sidebar.")
             else:
                 try:
-                    openai.api_key = openai_api_key
-                    response = openai.ChatCompletion.create(
+                    client = openai.OpenAI(api_key=openai_api_key)
+                    response = client.chat.completions.create(
                         model="gpt-3.5-turbo",
                         messages=[
                             {"role": "system", "content": prompt_intro},
