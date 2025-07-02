@@ -3,8 +3,8 @@ import streamlit as st
 from llm_logic import generate_answer_ollama  # Fonction pour générer une réponse avec le LLM
 
 # Configuration de la page Streamlit
-st.set_page_config(page_title="RAG Prezevent - Recherche", layout="centered")
-st.title("Recherche RAG Prezevent")
+st.set_page_config(page_title="PrezHelper IA", layout="centered")
+st.title("PrezHelper IA")
 
 # Sidebar pour les paramètres avancés
 st.sidebar.header("Paramètres avancés")
@@ -18,7 +18,7 @@ prompt_intro = st.sidebar.text_area(
 # Chargement du corpus documentaire
 @st.cache_data(show_spinner=False)
 def load_corpus():
-    with open("data/corpus_llm.txt", "r", encoding="utf-8") as f:
+    with open("data/corpus_llm_light.txt", "r", encoding="utf-8") as f:
         return f.read()
 corpus = load_corpus()
 
@@ -34,7 +34,7 @@ if question:
                  "\n\nQUESTION:\n" +
                 question +
                 "\n\nDOCUMENTATION:\n" +
-                corpus +
+                corpus
             )
             answer = generate_answer_ollama(full_prompt)
         st.success("Réponse générée par le LLM ci-dessous.")
