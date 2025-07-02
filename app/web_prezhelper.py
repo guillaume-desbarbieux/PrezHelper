@@ -95,59 +95,88 @@ def load_corpus_docs():
     return docs
 corpus_docs = load_corpus_docs()
 
+# Variables globales pour stocker les résultats RAG
+if 'top_docs' not in st.session_state:
+    st.session_state['top_docs'] = []
+    st.session_state['top_scores'] = []
+
+# Sidebar : paramètres RAG
+st.sidebar.markdown("---")
+st.sidebar.header("Paramètres RAG")
+top_k = st.sidebar.number_input(
+    "Nombre de documents pertinents (top_k)", min_value=1, max_value=10, value=3, step=1
+)
+min_score = st.sidebar.slider(
+    "Score minimal de pertinence (cosinus)", min_value=0.0, max_value=1.0, value=0.0, step=0.01
+)
+
+# Bouton pour déclencher uniquement la recherche de documents pertinents
+show_docs = st.button("Afficher les 3 documents les plus pertinents (RAG)")
+
+if show_docs and question:
+    with st.spinner("Recherche des documents les plus pertinents dans la base documentaire..."):
+        embedder = get_embedder()
+        q_emb = embedder.encode(question, convert_to_tensor=True)
+        doc_embs = embedder.encode(corpus_docs, convert_to_tensor=True, show_progress_bar=False)
+        hits = util.cos_sim(q_emb, doc_embs)[0].cpu().numpy()
+        # Filtrage par score minimal
+        idx_sorted = hits.argsort()[::-1]
+        filtered = [(i, hits[i]) for i in idx_sorted if hits[i] >= min_score]
+        top_filtered = filtered[:top_k]
+        st.session_state['top_docs'] = [corpus_docs[i] for i, _ in top_filtered]
+        st.session_state['top_scores'] = [score for _, score in top_filtered]
+    with st.expander("🔎 Debug : Documents les plus pertinents (RAG)"):
+        for i, doc in enumerate(st.session_state['top_docs']):
+            titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
+            titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
+            st.markdown(f"**{i+1}. {titre}**  ")
+            st.markdown(f"Score de similarité : `{st.session_state['top_scores'][i]:.4f}`")
+            st.text_area("Contenu", doc, height=120)
+
 if question and selected:
     if st.button("Générer une réponse LLM à partir de la documentation"):
-        with st.spinner("Recherche des 3 documents les plus pertinents dans la base documentaire..."):
-            embedder = get_embedder()
-            # Embedding de la question
-            q_emb = embedder.encode(question, convert_to_tensor=True)
-            # Embedding des documents
-            doc_embs = embedder.encode(corpus_docs, convert_to_tensor=True, show_progress_bar=False)
-            # Similarité cosinus
-            hits = util.cos_sim(q_emb, doc_embs)[0].cpu().numpy()
-            top_idx = hits.argsort()[-3:][::-1]
-            top_docs = [corpus_docs[i] for i in top_idx]
-            top_scores = [hits[i] for i in top_idx]
-            rag_corpus = "\n\n".join(top_docs)
-        with st.expander("🔎 Debug : Documents les plus pertinents (RAG)"):
-            for i, doc in enumerate(top_docs):
-                # Extraction du titre
-                titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
-                titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
-                st.markdown(f"**{i+1}. {titre}**  ")
-                st.markdown(f"Score de similarité : `{top_scores[i]:.4f}`")
-                st.text_area("Contenu", doc, height=120)
-        with st.spinner("Génération de la réponse par ChatGPT à partir des documents sélectionnés..."):
-            cols = st.columns(len(selected))
-            for idx, model_name in enumerate(selected):
-                with cols[idx]:
-                    try:
-                        client = openai.OpenAI(api_key=openai_api_key)
-                        rag_prompt = (
-                            f"Voici la question d'un utilisateur :\n{question}\n\n"
-                            f"Voici les documents pertinents à ta disposition :\n{rag_corpus}\n\n"
-                            "ATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente."
-                        )
-                        messages = [
-                            {"role": "system", "content": prompt_intro},
-                            {"role": "user", "content": rag_prompt}
-                        ]
-                        start = time.time()
-                        response = client.chat.completions.create(
-                            model=model_name if model_name != "rag-gpt-4o" else "gpt-4o",
-                            messages=messages,
-                            max_tokens=800,
-                            temperature=0.2
-                        )
-                        elapsed = time.time() - start
-                        answer = response.choices[0].message.content
-                        input_tokens = count_tokens(messages, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
-                        output_tokens = count_tokens(answer, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
-                        total_tokens = input_tokens + output_tokens
-                        cost = estimate_cost(input_tokens, output_tokens, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
-                        st.success(f"Réponse générée par {model_name}")
-                        st.subheader(f"Réponse {model_name} :")
-                        st.write(answer)
-                        st.info(f"Input tokens : {input_tokens} | Output tokens : {output_tokens} | Total : {total_tokens} | Coût estimé : ${cost} | Temps de réponse : {elapsed:.2f}s")
-                    except Exception as e:
-                        st.error(f"Erreur {model_name} : {e}")
+        if not st.session_state['top_docs']:
+            st.warning("Veuillez d'abord afficher les documents pertinents (RAG) avec le bouton dédié.")
+        else:
+            rag_corpus = "\n\n".join(st.session_state['top_docs'])
+            with st.expander("🔎 Debug : Documents les plus pertinents (RAG)"):
+                for i, doc in enumerate(st.session_state['top_docs']):
+                    titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
+                    titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
+                    st.markdown(f"**{i+1}. {titre}**  ")
+                    st.markdown(f"Score de similarité : `{st.session_state['top_scores'][i]:.4f}`")
+                    st.text_area("Contenu", doc, height=120)
+            with st.spinner("Génération de la réponse par ChatGPT à partir des documents sélectionnés..."):
+                cols = st.columns(len(selected))
+                for idx, model_name in enumerate(selected):
+                    with cols[idx]:
+                        try:
+                            client = openai.OpenAI(api_key=openai_api_key)
+                            rag_prompt = (
+                                f"Voici la question d'un utilisateur :\n{question}\n\n"
+                                f"Voici les documents pertinents à ta disposition :\n{rag_corpus}\n\n"
+                                "ATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente."
+                            )
+                            messages = [
+                                {"role": "system", "content": prompt_intro},
+                                {"role": "user", "content": rag_prompt}
+                            ]
+                            start = time.time()
+                            response = client.chat.completions.create(
+                                model=model_name if model_name != "rag-gpt-4o" else "gpt-4o",
+                                messages=messages,
+                                max_tokens=800,
+                                temperature=0.2
+                            )
+                            elapsed = time.time() - start
+                            answer = response.choices[0].message.content
+                            input_tokens = count_tokens(messages, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
+                            output_tokens = count_tokens(answer, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
+                            total_tokens = input_tokens + output_tokens
+                            cost = estimate_cost(input_tokens, output_tokens, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
+                            st.success(f"Réponse générée par {model_name}")
+                            st.subheader(f"Réponse {model_name} :")
+                            st.write(answer)
+                            st.info(f"Input tokens : {input_tokens} | Output tokens : {output_tokens} | Total : {total_tokens} | Coût estimé : ${cost} | Temps de réponse : {elapsed:.2f}s")
+                        except Exception as e:
+                            st.error(f"Erreur {model_name} : {e}")
