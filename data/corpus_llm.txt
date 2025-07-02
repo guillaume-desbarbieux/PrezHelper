@@ -1,5 +1,7 @@
+[DOCUMENT]
 Titre : Comment importer une liste de contacts d’un fichier excel  ?
 URL : https://help.prezevent.com/article/44-creation-de-la-liste-par-import-de-fichier
+Contenu :
 Avant un import Excel, assurez vous d'avoir crée dans Prezevent tous les champs dont vous avez besoin .
 Pour importer un (ou plusieurs) fichier Excel, celui-ci doit :
 - format .xlsx (pas .xls version 97-2003 par exemple)
@@ -12,11 +14,8 @@ Pour importer un (ou plusieurs) fichier Excel, celui-ci doit :
 - pas de formules, pas d'images
 Cliquez sur l'icône d'importation en haut à droite puis sélectionnez votre fichier Excel sous le bon format.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b1626cb8547dcb0dedb/file-D6D47MvSM9.png]
 Vous arriverez ensuite dans une fenêtre avec l'onglet "Association". A gauche, se trouveront les champs que vous avez entré dans votre Excel. Au milieu, sont affichés les informations du 1er contact pour que vous visualisiez les champs. A droite, choisissez les bons champs correspondant aux champs de Prezevent pour que les informations correspondent aux bonnes catégories dans la liste de contact Prezevent.
 
-[Image: Etape 2 de l'import d'un fichier excel : association des champs]
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63ee23b5e669fb108d6ff2bd/file-yvZ8wTClJ5.png]
 Enfin, vous arrivez au résumé.
 - Le nombre de contacts importés est renseigné. Si le nombre de lignes est plus important que ce que vous avez dans votre fichier, c'est que des lignes vides vont être importées.Dans ce cas, annulez la procédure en cliquant hors de la popup et supprimez dans l'Excel quelques lignes qui sont en dessous de votre dernier contact (même si elles sont vides elles peuvent caché des données)Recommencez l'import et vérifiez que le nombre de ligne (contacts) soit correct.
 - Dans ce cas, annulez la procédure en cliquant hors de la popup et supprimez dans l'Excel quelques lignes qui sont en dessous de votre dernier contact (même si elles sont vides elles peuvent caché des données)
@@ -30,52 +29,47 @@ Enfin, vous arrivez au résumé.
 - Il vous est demandé si vous souhaitez supprimer les contacts existants.
 Attention : La suppression est irréversible !!
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/67a239251227cb29e33b2888/file-yMsLNwOD74.png]
 Astuce : dans le cas où l'import ne fonctionne pas, copier-coller vos contacts et les entêtes dans un nouveau fichier Excel.
 Cas extrême : copier + collage spécial sur les valeurs. Cela peut être nécessaire quand un fichier a été travaillé dans tous les sens et que des restes de formules traînent encore dedans sans qu'on le voit.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment exporter une liste de contacts ?
 URL : https://help.prezevent.com/article/47-exporter-la-liste-de-contacts
+Contenu :
 Vous pouvez exporter votre liste de contact sous forme de fichier xlsx. Pour cela, cliquez sur le 2e icône d'exportation en haut à droite. Choisissez soit d'exporter toute votre liste de contact en cochant la 1ère option "tous les contacts", soit de n'exporter qu'une partie de vos contacts en cochant "selon les filtres de la liste" si vous avez réglé au préalable des filtres.
 Ensuite, vous pouvez choisir d'exporter les données de source et d'horodatage de la création de vos contacts, c'est à dire la date de création et de dernière modification des contacts.
 Une fois que vous avez coché vos options, appuyez sur le bouton EXPORTER. Un fichier xlsx va s'enregistrer.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78baa4bd6801a6e91be19/file-jXL6IgOmYq.png]
 Sélectionnez les informations que vous souhaitez voir sur votre fichier Excel
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/644686b18d05ee6ec16cf90f/file-WiQlZVel4H.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment créer un contact manuellement ?
 URL : https://help.prezevent.com/article/10-liste-de-contacts
+Contenu :
 Une fois connecté sur notre plateforme Prezevent, créez un nouvel événement ou cliquez sur votre événement déjà existant. Ensuite, allez sur l'onglet "CONTACTS", se trouvant à gauche.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78a517eb7a63c30e3f8fd/file-tRiK89SmsG.png]
 Vous pouvez ajouter vos contacts un par un manuellement si vous le souhaitez, ou si vous voulez compléter une liste existante.
 Pour cela, cliquez sur le bouton rose "Nouveau contact".
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6439083a37fd073d73d6c812/file-X127vj2awW.png]
 Une fenêtre à droite va s'afficher. Remplissez manuellement les champs de votre contact.
 Dans "Statut", sélectionnez dans la liste déroulante si la personne a précisé qu'elle serait présente ou non, ou qu'elle n'a pas répondu.
 Vous pouvez préciser si le contact désire recevoir des mails de votre part ou non.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/643908b1ad20e8714a50d786/file-NqCRAuxAGD.png]
 Une fois fini, appuyez sur le bouton ENREGISTRER pour que le contact s'ajoute.
 Voilà, votre contact est créée ! Faites cette action autant de fois que vous voulez, mais si c'est trop long, vous pouvez importer une liste de contacts Excel.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment personnaliser les champs de contacts ?
 URL : https://help.prezevent.com/article/48-personnalisation-des-champs-de-contacts
+Contenu :
 En plus des champs Prénom/Nom/Email/Entreprise présents par défaut, vous pouvez créer vos champs personnalisés. Pour ce faire, rendez-vous sur la page contact de votre logiciel Prezevent et cliquez sur l'icône rouage en haut à droite de l'écran.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78bbb4bd6801a6e91be1a/file-UcNQtDULnN.png]
 Un onglet va alors apparaître à droite de l'écran. Pour ajouter un nouveau champ, cliquez alors sur :+ Ajouter un champ
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/644685ea8d05ee6ec16cf90d/file-iofJ9n9dKD.png]
 1/ Définissez leNOM DU CHAMP
 2/ Définissez leTYPE DU CHAMP:
 - texte (ex: Adresse)
@@ -85,142 +79,134 @@ Un onglet va alors apparaître à droite de l'écran. Pour ajouter un nouveau ch
 - image
 ...
 Attention : N'oubliez pas d'enregistrer vos modifications
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment gérer la liste de contacts sur la plateforme ?
 URL : https://help.prezevent.com/article/45-gestion-de-la-liste-existante
+Contenu :
 Vous pouvez modifier votre liste de contact ou les informations de vos contacts après les avoir ajouté manuellement ou après avoir importer votre liste de contacts Excel.
 Pour gérer l'affichage de vos champs personnalisés, cliquez sur l'icône fenêtre dans la barre des champs à droite. Vous pouvez modifier l'ordre des colonnes pour afficher sur l'interface de votre liste de contact différents champs. Changez les champs en cliquant sur les listes déroulantes et déplacez les champs grâce en faisant glisser les 3 barres horizontales là où vous le souhaitez. Appuyez sur "Valider" une fois que vous avez fini.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b2a4bd6801a6e91be16/file-JlmqA6azcT.png]
 Si vous voulez chercher un contact parmi une centaine de noms, vous pouvez cliquez sur la barre de rechercher en haut à droite et entrer le nom de la personne.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b434bd6801a6e91be17/file-dqt2FL84Zq.png]
 Pour modifier ou supprimer un contact déjà enregistré, cliquez sur les 3 points à droite du contact, puis appuyez sur modifier pour changer des informations à propos du contact ou supprimer ou l'enlever de la liste de contact.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b511f7c4c45e9fbb6e1/file-54J2YWIIOb.png]
 Pour trier vos contacts, vous pouvez appuyez sur un champ sur la barre des champs en bleu, et trier par ordre croissant ou décroissant en appuyant sur la flèche à gauche (flèche en haut: ordre alphabétique croissant).
 Filtrer ses contacts est utile lorsque la liste est longue, et que vous avez besoin de chercher des invités selon un champ précis (présence, entreprise, inscription à la réception de vos mails, participation à un diner par exemple). Appuyez sur "Filtres" à gauche de la barre de recherche par nom. Vous pourrez choisir plusieurs filtres en cliquant sur "plus de filtres".
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b657eb7a63c30e3f900/file-qFYt1THjdk.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment visualiser le badge d’un contact ?
 URL : https://help.prezevent.com/article/52-comment-visualiser-le-badge-d-un-contact
+Contenu :
 Dans la fenêtre "Contacts" de l'événement, cliquez sur les 3 points à droite du contact puis choisissez "Voir le badge" pour afficher le badge généré par notre éditeur de badges, avec les informations de l'invité.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b734bd6801a6e91be18/file-H2m1yo0Cm4.png]
 Cette fonctionnalité vous permet d'accéder au badge nominatif du contact et de l'imprimer individuellement si l'invité l'a oublié ou perdu.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment consulter le formulaire d’un contact ?
 URL : https://help.prezevent.com/article/54-comment-consulter-le-formulaire-d-un-contact
+Contenu :
 Dans la fenêtre CONTACTS de l'événement, cliquez sur les 3 points à droite du contact puis choisissez "Voir le formulaire" pour afficher les informations remplies par le contact si vous avez envoyé un formulaire.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b8e26cb8547dcb0dedc/file-bMfb5FPkBV.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment vérifier la présence de contacts doublons dans la liste des contacts ?
 URL : https://help.prezevent.com/article/46-detection-des-doublons
+Contenu :
 Il est possible d'avoir des contacts en double. Pour éviter cela, allez dans la fenêtre CONTACTS de l'événement et cliquez en haut à droite sur la 3e icône de "personnes" (et éviter d'envoyer 2 fois une invitation à la même personne). Une fenêtre s'affiche à droite et vous pourrez détecter les doublons selon les emails, prénoms, etc...
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78b9c0c84eb3266332c68/file-Yx8hA2RwnS.png]
 Une fenêtre va alors apparaître à droite de l'écran et vous pourrez ainsi visualiser les contacts renseignés en double dans votre liste. Identifiez les doublons selon leur nom, leur adresse email ou encore leur entreprise puis supprimez le contact dont vous n'aurez pas besoin.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6446889e59e2f42e804e4cd6/file-lin4DioaWp.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment savoir quel contact s’est désabonné de la liste de diffusion d’email ?
 URL : https://help.prezevent.com/article/53-comment-savoir-quel-contact-s-est-desabonne-de-la-liste-de-diffusion-d-email
+Contenu :
 Pour voir les désinscrits à vos mails afin de les enlever de votre liste de contacts pour la campagne d'emailing, vous devez isoler ces contacts en utilisant les filtres.
 Allez dans l'onglet CONTACTS de l'événement, puis cliquez sur "Filtres” en haut à côté de la barre de recherche.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64390e9037fd073d73d6c816/file-K1IS5LXqwH.png]
 Cliquez sur "Plus de filtres" et descendez jusqu'à voir "Inscription emails".
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64390ef64b12852670453052/file-wddRyZUogZ.png]
 Cochez "Non" et fermer l'onglet pour que les contacts ayant choisi d'être désinscrits s'affichent.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64390f5337fd073d73d6c819/file-uKBstZkorR.png]
 Remarque : Dans le cas ci-dessus, on remarque en arrière plan qu'aucun contact ne s'affiche en arrière plan. Bonne nouvelle ! Personne ne s'est désabonné de la liste de diffusion.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Les filtres de recherche dans les contacts
 URL : https://help.prezevent.com/article/71-les-filtres-de-recherche
+Contenu :
 Dans le menu CONTACTS, retrouver le bouton Filtres en haut de page
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/67a245a85d470948ccdd043d/file-4RrGwNPTmT.png]
 et ensuite SELECTIONNER le groupe recherché ou RENSEIGNER la valeur recherchée.
 Sélectionner un groupe revient à choisir un segment de contact.
 Pour supprimer les filtres, il vous suffit de cocher la croix rouge à côté de l'icône Filtre.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment éditer le site web de mon événement ?
 URL : https://help.prezevent.com/article/18-site-web-evenementiel
+Contenu :
 Le site événementiel est un très bon outil de communication qui vous permet de rassembler l'intégralité des informations concernant votre événement professionnel.
 Sur notre logiciel, rendez-vous dans l’onglet “Site Web”, puis sur la page Site web de l’événement. Cliquez sur le bouton “Modifier le site”.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/643911047133de139103e6cd/file-cUp2tCF4Jw.png]
 Personnalisez facilement votre site à partir d'un template ou votre code HTML et ajoutez des éléments en drag and drop.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment mettre en ligne mon site web événementiel ?
 URL : https://help.prezevent.com/article/55-comment-mettre-en-ligne-mon-site-web-evenementiel
+Contenu :
 Afin de mettre en ligne votre site web événementiel en ligne, il vous suffit de vous rendre sur la plateforme et de vous rendre sur le menu “Inscriptions”, puis de cliquer sur Site web de l’événement.
 Une fois votre site construit, il vous suffit de cliquer sur le bouton permettant d’activer le site en ligne.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/643917434b1285267045305e/file-HTnkM8DWIc.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment suivre les performances de mon site web événementiel ?
 URL : https://help.prezevent.com/article/56-comment-suivre-les-performances-de-mon-site-web-evenementiel
+Contenu :
 Afin de suivre les performances de votre site web événementiel, il vous suffit de renseigner vos identifiants Google Analytics/Tag Manager dans le menu Site web de l’événement de la plateforme.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/67a33875891bd654d0a68955/file-J1Xd8iwfWU.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment intégrer le formulaire sur mon site ?
 URL : https://help.prezevent.com/article/57-comment-integrer-le-formulaire-sur-mon-site
+Contenu :
 Dans un premier temps, rendez-vous dans l’onglet “Site web” puis dans la page “Site web de l’événement”.
 Débutez alors la construction du site web événementiel facilement grâce à notre éditeur en drag and drop. Dans le menu s’affichant sur la droite, sélectionnez “Bouton” dans la partie éléments.
 Placez le bouton où vous le souhaitez sur la page de votre site web en construction. En cliquant sur ce bouton, un menu s’affiche à droite de l’écran. Personnalisez alors ce bouton en modifiant la couleur, la taille, la forme, le texte et en cochant la case pour intégrer le bouton d'inscription.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64391a24ad20e8714a50d79b/file-3AGqwNbQLv.png]
 Il est également possible d'intégrer le formulaire de contact sur un site web déjà existant. Pour cela, rendez-vous sur la page Formulaire et cliquez sur l'icône ancre qui fait apparaître une page sur la droite de l'écran.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/644780cdd50b2033bd2414e5/file-kbeElVYGDz.png]
 Sur la fenêtre qui s'affiche sur la droite, il vous suffit alors de copier-coller le code du formulaire, pour l'intégrer au code de votre site web.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64478291cdec2a73488119bc/file-oSGV2NTbFm.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment déployer le formulaire d’inscription ?
 URL : https://help.prezevent.com/article/39-deploiement-du-formulaire
+Contenu :
 Votre formulaire est à présent prêt. Il ne vous reste qu'à le déployer afin d'avoir les informations souhaitées pour pouvoir adapter l'organisation de votre événement.
 Pour cela, vous avez deux possibilités.
 Dans un premier temps, vous pouvez intégrer le formulaire d'inscription à l'email d'invitation à l'aide d'un bouton cliquable.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7e20d26cb8547dcb0dfac/file-D1KXz15ofk.png]
 Dans un second temps, il est également possible pour vous d'embarquer l'iframe du formulaire sur vos sites web et tracker la provenance des inscriptions.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Quelles sont  les fonctionnalités du formulaire d'inscription ?
 URL : https://help.prezevent.com/article/42-fonctionnalites
+Contenu :
 Tout comme pour les badges et les campagnes, le formulaire peut faire l'objet d'une segmentation.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7daf90c84eb3266332d1e/file-FgX4VZJrkj.png]
 Accès au formulaire
 En cochant "OUI" sur le bouton "Ouvrir les inscriptions à tout le monde", vous autorisez l'accès à des personnes non incluses dans votre liste de contacts. Au contraire, donnez accès au formulaire uniquement à votre liste d'invités en laissant le bouton grisé.
 Les quotas
@@ -229,126 +215,114 @@ La liste d'attente
 La liste d'attente est un statut qui vous permet de contacter les premiers contacts de celle-ci afin de leur expliquer que des places se sont libérées et qu'ils peuvent, s'ils le souhaitent, s'inscrire pour de bon à votre événement.
 Vous pouvez accéder au statut de "Liste d'attente" en haut de la page CONTACTS.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7de5f7eb7a63c30e3f9c9/file-vXWf9ueZUx.png]
 Les accompagnants
 Autorisez, ou non, la venue d'un ou plusieurs accompagnants avec un de vos invités. Tout comme pour les inscriptions, vous pouvez limiter le nombre d'accompagnants en mettant en place un quota.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7daf90c84eb3266332d1e/file-FgX4VZJrkj.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment éditer un formulaire de contact ?
 URL : https://help.prezevent.com/article/15-formulaire-inscription
+Contenu :
 Le formulaire d’inscription Prezevent vous permet de collecter les informations nécessaires à l’organisation et à la scénographie de la rencontre professionnelle. Il vous permet de suivre l'activité de vos invités et de pouvoir anticiper une meilleure gestion le jour J. Pour créer votre formulaire de contact, rendez-vous sur l'onglet SITE WEB du menu à gauche de l'écran.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7cc8c1f7c4c45e9fbb789/file-8QzukWNIxx.png]
 Avec notre éditeur Prezevent, personnaliser votre formulaire n'a jamais été aussi simple. Pour cela, cliquez sur le bouton "Modifier le formulaire". Et débutez la personnalisation de votre formulaire, comme expliqué dans l'articleComment ajouter un nouveau champ dans un formulaire.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment ajouter un nouveau champ dans un formulaire ?
 URL : https://help.prezevent.com/article/40-personnalisation-du-formulaire
+Contenu :
 Lorsque vous arrivez sur la page d'édition du formulaire, cliquez sur l'icône crayon se trouvant sur une des cases à remplir puis décidez d'insérer un bouton, un texte explicatif, etc. De même, vous pouvez obliger la réponses à certaines questions du formulaire avec l'astérisque ou bien de rendre le champ non modifiable, c'est-à-dire prérempli avec les informations du contact indiquées dans la liste.
 Tous les libellés des champs peuvent être personnalisés.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7cfd74bd6801a6e91bec8/file-OfIp7FijUo.png]
 Vous pouvez également modifier l'en-tête du formulaire et y insérer une image en modifiant les éléments du code HTML que vous trouverez dans l'icône rouage des paramètres.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7d1754bd6801a6e91becc/file-z1sc1maFcm.png]
 Ajout de champs personnalisés
 Par défaut, les champs présents dans le formulaire d'inscription seront les suivant : "Prénom", "Nom", "Email" et "Statut". Cependant, vous pouvez personnaliser ses champs et même en ajouter selon vos besoins.
 Pour cela, rendez-vous sur l'onglet CONTACTS du menu à gauche de l'écran. Cliquez ensuite sur l'icône rouage en haut à droite de l'écran.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7d4144bd6801a6e91bed2/file-P4aBUuHhq7.png]
 Dans la page qui s'affiche, vous pouvez alors modifier le libellé des champs préexistants, les supprimer et en ajouter de nouveaux. Pour l'ajout d'un nouveau champ, indiquez le type de réponse attendue (texte libre, oui / non, etc) et décidez de la réponse apportée par défaut qui pourra être modifiée par l'invité.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7d6d20c84eb3266332d15/file-6h7tlPol4O.png]
 Veillez à bien enregistrer vos modifications avant toute nouvelle action !
 Une fois cette étape réalisée, vous pouvez retourner sur l'onglet INSCRIPTIONS et cliquer sur le bouton "+" pour ajouter les nouveaux champs souhaités. N'oubliez pas de confirmer l'ajout en cliquant sur le bouton "OK".
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7d96b26cb8547dcb0df9a/file-1G7jATppcX.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment prévisualiser le formulaire ?
 URL : https://help.prezevent.com/article/59-comment-previsualiser-le-formualire
+Contenu :
 Lorsque vous avez terminé de construire votre formulaire de contacts, appuyez sur l’icône oeil en haut à droite. Cela vous permettra de visualiser le formulaire de la façon dont vos contacts l'appercevront
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7daa87eb7a63c30e3f9c1/file-0doPjfYBZ5.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment vérifier le formulaire d’inscription ?
 URL : https://help.prezevent.com/article/41-verifier-le-formulaire
+Contenu :
 Tout comme la campagne d'emailing, le formulaire doit faire l'objet d'un test avant l'envoie à votre liste de contacts. Pour prévisualiser le formulaire en condition réelle, activez le formulaire d'inscription en appuyant sur les boutons encadrés ci-dessous.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7da477eb7a63c30e3f9c0/file-FQyTvm8ygn.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment suivre l'état d’inscription des participants ?
 URL : https://help.prezevent.com/article/38-suivi
+Contenu :
 Lorsqu'un contact répond au formulaire, le suivi se met automatiquement à jour et en temps réel et est disponible sur la page CONTACTS, en haut de l'écran. Les états par défaut sont : “Oui”, “Ne vient pas”, “Sans réponse”, “Peut-être”.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7de247eb7a63c30e3f9c8/file-KzllT8Oz9V.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment intégrer le formulaire sur mon site web événementiel?
 URL : https://help.prezevent.com/article/58-comment-integrer-le-formulaire-sur-mon-site-web-evenementiel
+Contenu :
 Dans un premier temps, rendez-vous dans l’onglet “Interactions” puis dans la page “Site web de l’événement”.
 Débutez alors la construction du site web événementiel facilement grâce à notre éditeur en drag and drop. Dans le menu s’affichant sur la droite, sélectionnez “Bouton” dans la partie éléments. Placez le bouton où vous le souhaitez sur la page de votre site web en construction.
 En cliquant sur ce bouton, un menu s’affiche à droite de l’écran. Personnalisez alors ce bouton en modifiant la couleur, la taille, la forme, le texte et cliquez sur le bouton d'inscription qui relie automatiquement le bouton au lien du formulaire d'inscription.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64391f067133de139103e6dc/file-G7e1Gc4D5x.png]
 Si votre site web existe déjà, une autre méthode existe afin d'embarquer le formulaire sur votre site web. Pour cela, rendez-vous sur la page formulaire et cliquez sur l'icône encre pour ouvrire une nouvelle fenêtre sur la droite de l'écran.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6447902840ac037159fb1783/file-MmdOhth3ud.png]
 Sur la page qui s'affiche, copiez le code du formulaire et collez le dans code de votre site web.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64479082f3d5b34208a7ef61/file-KQ8zMVVILF.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment autoriser l'ajout d'accompagnants dans le formulaire ?
 URL : https://help.prezevent.com/article/60-comment-autoriser-lajout-d-inscrits-dans-le-formulaire
+Contenu :
 Autorisez, ou non, la venue d'un ou plusieurs accompagnants avec un de vos invités. Tout comme pour les inscriptions, vous pouvez limiter le nombre d'accompagnants en mettant en place un quota.
 Pour cela, il suffit de se rendre sur le menu “Inscriptions” de la plateforme et cocher la case “Proposer d’inscrire d’autres invités” et de décider d’un quota du nombre d’inscrits autorisés en plus.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64392297ad20e8714a50d7a0/file-jSg7FAvNxr.png]
 Lors des inscriptions, la personne ayant reçu l’invitation pourra remplir ses informations. Une fois son inscription enregistrée, elle pourra, si elle le souhaite, accéder à un lien lui permettant d’inscrire une tiers personne et de renseigner les informations que vous aurez décidé d’imposer.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/643922b37133de139103e6dd/file-0pwhZ1cHuZ.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : A quoi servent les formulaires multiples ?
 URL : https://help.prezevent.com/article/69-a-quoi-servent-les-formulaires-multiples
+Contenu :
 Les formulaires de contacts multiples permettent de gérer l'organisation des différents groupes de participants lors de votre événement professionnel.
 Afin de générer vos différents formulaires, rendez-vous sur l'onglet formulaire de notre plateforme et cliquez sur le bouton en haut à droite de l'écran et sélectionnez le bouton "Ajouter un formulaire".
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/644637cb35387a4818397399/file-yX26Xx4Dbe.png]
 Ensuite, personnalisez votre formulaire comme expliquer dansl'articlesur l'édition de formulaire.
 Enfin, pour cibler les formulaires aux différents contacts, il suffit d'éditer une campagne marketing et d'y inclure un bouton d'inscription, qui s'affichent tous dans l'éditeur d'email sous le nom que vous leur avez donné. Cliquez sur l'onglet Modules de la page qui s'affiche à droite dans l'éditeur d'email.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64478ce940ac037159fb177f/file-rDxNMnwVNV.png]
 Faites autant de campagnes que souhaité et personnalisez les boutons d'inscription avec les liens des différents formulaires ciblés pour les différents types de participants.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Campagnes email étape par étape
 URL : https://help.prezevent.com/article/11-campagnes-email-et-sms
+Contenu :
 Dans notre éditeur, vous pouvez réaliser des campagnes d'envois ou des campagnes de notifications. Connectez-vous à l'application et créez ou accédez à votre événement. Allez dans l'onglet "Campagnes".
 Les campagnes d'envoi s'apparentent à des campagnes marketing traditionnelles dans lesquelles vous pouvez inviter vos contacts à participer à votre événement.
 Les campagnes de notifications vous permettent d'envoyer automatiquement des emails ou sms selon les actions de vos contacts comme pour envoyer des messages de bienvenue à vos invités par exemple.
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c9826cb8547dcb0dee4/file-OdGnx1PFx3.png]
 Pour créer votre campagne d'emailing classique,  allez dans la catégorie "Campagnes" de votre événement dans notre application, puis dans campagnes d'envoi.
 Cliquez sur "Nouveau message", puis choisissez CAMPAGNE CLASSIQUE si vous voulez créer une campagne d'envoi.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78ca74bd6801a6e91be1c/file-XrlwFrxVS5.png]
 Paramètres d'une campagne email
 1/ Information
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64412ff1ad20e8714a50dff7/file-pXhG8Itfgm.png]
 - Nom de la campagne : non visible, cette information est pour vous
 - Objet : visible par vos destinataires
 - Nom de l'expéditeur : visible, c'est le nom de votre société ou prénom nom de l'expéditeur
@@ -358,15 +332,11 @@ Paramètres d'une campagne email
 - Nom de l'expéditeur : visible, c'est le nom de votre société ou prénom nom de l'expéditeur
 - Adresse retour : optionnel, mettez une adresse de contact pour les retours d'email
 2/ Envoi
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64412fd737fd073d73d6d093/file-4K8kx3VSAX.png]
 Envoyer à tous vos contacts
 Envoyer à un segment précis
 Envoyer à des contacts qui vous renseigner un à un
 3/ Modèle
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/644130dcad20e8714a50dffa/file-zysSGBpMPN.png]
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/644131fd91f91f0beedfd230/file-Lv7ACuMcwr.png]
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6441333737fd073d73d6d099/file-efl1VCYNqJ.png]
 Les modules sont des éléments pré-programmés dédiés à votre événement.
 On compte 5 modules:
 1/ Bouton d'inscription
@@ -383,17 +353,16 @@ Choisir les contacts
 Cliquez sur les trois points à droite, puis sélectionnez "Paramètres".
 Allez sur l'onglet "Envoi" et vous pourrez modifier les contacts à qui vous devez envoyer votre mail.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78cdb0c84eb3266332c6e/file-wfDUzet2xF.png]
 Aperçu du mail
 Pour avoir un aperçu de votre mail avant son envoi, vous pouvez vous envoyer un test ou bien cliquer sur les trois points à droite puis sélectionnez "Version en ligne".
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78ce84bd6801a6e91be1d/file-wHrSzD78ZE.png]
 Envoyer les badges par email
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment voir les statistiques de ma campagne ?
 URL : https://help.prezevent.com/article/34-statistiques
+Contenu :
 Après avoir envoyé votre mail, vous pouvez consulter les statistiques d'envoi et d'ouverture. Ils s'affichent directement sur votre interface:
 - le total des mails envoyés et le nombre de mails délivrés
 - le nombre de mails bloqués
@@ -406,100 +375,92 @@ Pour exporter ces statistiques, cliquez sur les trois points à droite, et séle
 Plus d'infoici
 Vous devez supprimer leurs mails dans la liste de contact pour qu'ils ne reçoivent plus de mail. Dans la liste de contact, cliquez dans "Filtres" et cochez "Non" aux "Inscription emails"pour voir les désinscrits aux mails et les enlever.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78cfe1f7c4c45e9fbb6e8/file-r4ZKOhGfVw.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Campagne auto
 URL : https://help.prezevent.com/article/36-campagne-auto
+Contenu :
 Si vous voulez souhaitez créer une campagne auto , cliquez sur "Nouveau message" dans la fenêtre "Campagnes" de l'application. Celle-ci correspond à une campagne de notifications qui vous permet d'envoyer automatiquement des emails ou sms selon les actions de vos contacts comme pour envoyer des messages de bienvenue à vos invités par exemple.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78d244bd6801a6e91be1f/file-vmZX5NzOBG.png]
 Sélectionnez ensuite "campagne auto" . Vous pourrez ainsi paramétrer votre campagne ( Nom de la campagne, Canal d'envoi, Objet , … ) dans l'onglet " Informations ".
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/67b353d2863afd1d85d8cd20/file-jjzs7nRszE.png]
 Cliquez par la suite sur l'onglet "Notification" afin de configurer cette dernière. En sélectionnant la liste déroulante vous aurez le choix entre trois principales options:
 -"Nouvelle inscription à l'évènement" afin de notifier dès lors qu'une personne extérieure à la liste des contacts existante s'y ajoute avec un formulaire d'inscription ouvert sur Internet par exemple.
 -"Modification du statut du contact" pour envoyer une notification quand le statut du contact change, quand un invité passe de "sans réponse " à "oui " entre autres.
 -"Contact marqué présent" dans le but de notifier au moment de l'accueil quand un contact s'est présenté à l'évènement et a bien été émargé afin de prévenir les organisateurs ou envoyer des renseignements à ce dernier notamment.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/67b354140c6b087f22b27941/file-cc8oWVlg1u.png]
 Puis, Il vous faudra choisir les contacts à l'origine de la notification. Vous pouvez sélectionnez "Tous les contacts " ou "Par groupe ". Cette fonctionnalité vous permettra de choisir un groupe parmi les contacts selon un ou plusieurs critères qui sera à l'origine de la notification.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment intégrer le formulaire de contact dans l’email ?
 URL : https://help.prezevent.com/article/62-comment-integrer-le-formulaire-de-contact-dans-l-email
+Contenu :
 Pour rediriger l'invité vers le formulaire d'inscription à partir de votre mail d'invitation, allez dans l'éditeur d'invitation. Dans l'icône "open blocks" (4 blocs) tout à droite, vous pouvez ajouter un bouton "S'inscrire" en le faisant glisser sur votre page.
 Pour ajouter un lien, cliquez sur votre bouton et allez dans l'icône Paramètres (les rouages) en haut à droite vous pourrez ajouter un lien.
 Pour que les informations du contact soient pré-remplies,  le bouton "S'inscrire" doit pointer vers la page d'inscription comme actuellement MAIS dans le lien, mettez à la fin /?contact_id={{inscrit.id}} pour que les infos de contacts soient pré-remplies (et que l'on sache du coup que tel inscrit vient de tel ou tel groupe).
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Envoyer un email de relance, un email de rappel
 URL : https://help.prezevent.com/article/72-envoyer-un-email-de-relance
+Contenu :
 Vous avez déjà envoyer des invitations et vous avez déjà des inscrits à l'événement. Il s'agit ici d'envoyerune campagne à tous ceux qui n'ont pas répondupour les relancer.
 Donc, dans les paramètres de votre campagne, vous allez cette fois-ci envoyer une campagne "par groupe" (= cible) en précisant lestatut d'inscription "sans réponse". L'email ne sera pas envoyé à ceux qui ont répondu "oui", "peut-être", et "ne vient pas".
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/66447a630aaf8a27e593c24d/file-3feonsViHj.png]
 Si vous voulez envoyerune relance sur un groupe en particulier, alors vous ajoutez votre groupe comme suit :
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/664479990aaf8a27e593c24b/file-TeJIYfWhMA.png]
 Votre événement approche, il s'agit d'écrire à vos participants pour leur rappeler la date, le lieu et/ou le programme.
 Même principe que l'email de relance, c'est un envoi à un groupe en particulier. Ce groupe correspond à ceux qui ont lestatut d'inscription "Oui".
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/66448253340e4261ee1c4d34/file-6StSvhQgsc.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment lancer ma campagne ?
 URL : https://help.prezevent.com/article/33-lancement-de-la-campagne
+Contenu :
 Une fois que vous avez créer et modifier votre modèle, et que vous avez regarder un aperçu afin de voir si le design et les informations correspondent à vos envies et votre événement.
 Avant de lancer votre campagne de mail ou sms, il est important de réaliser un test, permettant d'assurer le bon fonctionnement des boutons, corriger l'oublie d'un lien éventuel, corriger des fautes, etc. Pour pouvoir espérer la venue de votre liste de contacts, mieux vaut ne pas trop se précipiter et envoyer un message clair et esthétique.
 Pour vous envoyer un email test, rendez-vous sur l'onglet CAMPAGNES et cliquez sur le bouton "Envoyer un test". Vous pouvez alors choisir à qui envoyer ce test en effectuant une recherche par nom.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7c6b60c84eb3266332cef/file-Io883Eg71e.png]
 Une fois le test effectué, vous pouvez envoyer la campagne aux contacts concernés. Pour cela, dans l'onglet CAMPAGNES, cliquez sur les 3 points encadrés ci-dessous, puis sélectionnés le bouton "Envoyer". Enfin, un dernier pop up s'affichera afin de confirmer l'action.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7c9b87eb7a63c30e3f99a/file-WwCq7bxAM0.png]
 Enfin, il est également possible de programmer l'envoie de sa campagne automatiquement. Pour cela, rendez-vous sur la page Campagneet, cliquez sur les trois points et sélectionnez le bouton "Paramètres". Vous êtes alors redirigé vers la page de modification de la campagne. Rendez-vous sur la fenêtre Envoie encadrée ci-dessous et choisissez la date et l'heure de l'envoie.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6447867540ac037159fb177d/file-ZiNqBWQHAe.png]
 N'oubliez pas d'enregistrer les modifications avant de fermer la page.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment tester ma campagne ?
 URL : https://help.prezevent.com/article/63-comment-tester-ma-campagne
+Contenu :
 Une fois que vous avez créé et modifié votre modèle, et que vous avez regardé un aperçu afin de voir si le design et les informations correspondent à vos envies et votre événement, l'heure est venue de tester cette campagne afin de vous assurer que celle-ci fonctionne.
 Avant de lancer votre campagne de mail ou sms, il est important de réaliser un test, vérifier tous les liens, les boutons, corriger un oubli, une faute.
 ATTENTION
 Pour envoyer un Email test, votre contact avec votre email doit être présent dans la liste des contact de l'événement. Sinon le bouton est grisé.
 Pour vous envoyer un email test, rendez-vous sur l'onglet CAMPAGNES et cliquez sur le bouton "Envoyer un test". Vous pouvez alors choisir à qui envoyer ce test en effectuant une recherche par nom.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64393a6e37fd073d73d6c83e/file-Uf9yxIkuPP.png]
 Vous pouvez alors choisir à qui envoyer ce test en effectuant une recherche par nom dans le pop-up qui apparaît ensuite.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/664f0d295173914f806c0cc2/file-pCiWC5Qn2G.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Qu’est-ce qu’une campagne classique ?
 URL : https://help.prezevent.com/article/35-campagne-classique
+Contenu :
 Les campagnes classiques sont des campagnes email ou sms envoyées à vos contacts pour les inscriptions, les informations liées à l'événement ou toute autre information.
 Remplissez les informations de votre campagne : le nom (si c'est un premier envoi, une relance..), si vous envoyez par email ou par sms, l'objet de votre mail, le nom de l'expéditeur (vous), et à quelle adresse mail on peut vous répondre (au lieu du *****.com).
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78d0b26cb8547dcb0dee9/file-7uqvFLF392.png]
 Envoi
 Choisissez d'envoyer votre mail à tous les contacts de l'événement, à un groupe  (sélectionnez des critères tels que la présence, ou le statut), ou à des contacts en particulier en cliquant sur "Personnalisé".
 Puis décidez de programmer l'envoi à une date précise ou de l'envoyer manuellement quand vous voulez.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78d164bd6801a6e91be1e/file-zk3eGxNqEX.png]
 Il est également possible pour vous de programmer l'envoie automatique des emails via cette même page et cliquez sur le bouton "Programmez l'envoi à une date" et choisissez la date et l'heure.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64479512d50b2033bd2414ec/file-82yhoxRbw2.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment respecter la norme RGPD ?
 URL : https://help.prezevent.com/article/37-desinscription
+Contenu :
 N'oubliez pas d'insérer un lien pour que les destinataires de vos campagnes qui ne sont plus intéressés puissent se désinscrivent de votre liste d'envoi. C'est une question de bon sens et c'est aussi une obligation du RGPD sur le Mass Mailing (campagnes envoyées à plus de 100 adresses email)
 Pour placer un lien de désinscription dans l'email, 2 méthodes sont possibles :
 - insérez lien hypertexte {{inscrit.optin_url}} dans votre email
@@ -507,73 +468,66 @@ Pour placer un lien de désinscription dans l'email, 2 méthodes sont possibles 
 - insérez lien hypertexte {{inscrit.optin_url}} dans votre email
 - glisser déplacer directement le bloc "Lien de désabonnement" dans votre email
 
-[Image: Editeur d'email Prezevent]
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63e9fd9ecd3e3454f2cdb49f/file-DPzpVXPOY3.png]
 Certains destinataires utilisent les options de leur boite mail et non le bouton de désinscription que vous proposez dans l'email. Ceux là se retrouvent dans lesstatistiques de délivrabilitéde vos campagnes avec la mention Spams et Désinscriptions
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63ea01038ae59c3643e34511/file-oO4JXVtIuo.png]
 Dans leMenu Contact, cliquez sur "Filtres", plus dans "plus de filtres", et cochez "Non" aux "Inscription emails" pour voir les désinscrits aux mails.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63e9fe3f8ae59c3643e3450e/file-KffQtmcen0.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment éditer un badge ?
 URL : https://help.prezevent.com/article/13-edition-des-badges
+Contenu :
 Notre éditeur de projets événementiels vous offre la possibilité de designer vos badges. Pour ce faire, rendez-vous dans l'onglet BADGES se trouvant dans le menu déroulant à gauche de l'écran.
 Le badge est un outil ayant toute son importance pour des évènements corporate, des forum, des salons, des congrès et autres. Notre éditeur vous permet de réaliser des badges100 % personnalisés, s'adaptant à tous vos besoins.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7937b0c84eb3266332c76/file-a31nLS5uyQ.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment personnaliser le badge ?
 URL : https://help.prezevent.com/article/30-personnalisation-du-badge
+Contenu :
 Afin de réaliser des badges bien construits, vous pouvez vous aider de l'affichage d'une règle découpant votre badge en 4 parts égales, en cliquant sur le bouton "Voir la règle" sur le menu de l'éditeur de badge.
 Insérer un texte
 A présent, à vous de jouer ! Nous vous proposons un large choix de composants que vous pouvez décider d'inclure, ou non, sur votre badge. Faites apparaître, les nom et prénom de l'invité, son entreprise, son statut (VIP, Prestataire, Presse...), le nom et la date de l'évènement et bien d'autres.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d79c537eb7a63c30e3f92e/file-iJfJNEyRAU.png]
 Vous définirez l'emplacement de variables de type {{firstName}} {{lastName}} qui s'adapteront automatiquement aux informations du contact au moment de l'impression du badge.
 Ensuite, adaptez la typographie et intégrez la charte graphique de votre marque ou événement sur la badge en décidant de la couleur, de la taille, de la police, de l'emplacement ou du style de votre texte.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d79dab7eb7a63c30e3f92f/file-bGJ6Ran1zz.png]
 Insérer une image ou un logo
 Votre équipe a prévu un visuel personnalisé pour les badges ? Insérez directement le masque sur le badge en cliquant sur l'icône carré à droite du bouton "Image à insérer". Par cette même fonction, décidez d'importer un logo, une forme spécifique, une image, etc.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d79f057eb7a63c30e3f934/file-ECbkaRjpaj.png]
 Insérer une forme
 Lors d'un événement de networking, il peut être judicieux de différencier les différents types d'invités. Cela peut être réaliser par l'ajout d'un bandeau de couleur en bas du badge mettant en avant le nom de l'invité ainsi que son statut (presse, VIP, fournisseur, collaborateur...).
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7a0411f7c4c45e9fbb72c/file-yWUSBWH7fZ.png]
 Insérer un Qr-code
 Le Qr-code est un outil important pour un check'in rapide et efficace. Il peut être intégré dans un emailing ou directement sur le badge du participant afin qu'il puisse accéder à l'événement et aux différents points de contrôles par simple scan depuis notre application de check'in digital.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7a08f0c84eb3266332c95/file-ErLLQWtjGq.png]
 Chaque Qr-code est unique et relié aux informations du contact. Il s'édite automatiquement lors de l'impression des badges nominatifs.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment faire une segmentation de catégorie ?
 URL : https://help.prezevent.com/article/27-segmentation
+Contenu :
 Dans un premier temps, nommez votre badge. Cette nomination ne sera visible que par vous et pourra vous permettre de faire la différences entre vos différents modèles de badges si vous décidez d'en créer plusieurs.
 Ensuite, choisissez d'éditer le même badge pour l'ensemble de la liste, ou bien segmentez votre liste de contacts selon des critères que vous aurez définit (entreprise, statut, poste...).
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d796da1f7c4c45e9fbb71b/file-RVFPJrF7MQ.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment designer mon badge ?
 URL : https://help.prezevent.com/article/28-design-du-badge
+Contenu :
 Pour commencer la personnalisation de votre badge, rendez-vous sur l'onglet "Accéder à l'éditeur de badges", situé en haut et à droite de votre écran.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d798ca26cb8547dcb0df10/file-GdpPkFNWca.png]
 Ensuite, utilisez notre éditeur en drag and drop afin de personnaliser à souhait, votre badge événementiel.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : De quel format peut être le badge événementiel ?
 URL : https://help.prezevent.com/article/29-format-du-badge
+Contenu :
 Lorsque vous vous rendez sur la page d'édition du badge, notre plateforme vous propose, par défaut, de personnaliser un badge au format A4. Si ce n'est pas le format que vous souhaitez, pas de panique ! Il suffit de cliquer sur les trois point, en haut et à droite de votre écran, puis de sélectionner l'onglet "Changer le format".
 Les différents formats de badges existant sur notre plateforme sont :
 - Format CB
@@ -590,87 +544,86 @@ Les différents formats de badges existant sur notre plateforme sont :
 - Format A4 pliable
 - Format A6
 - Format A7
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment prévisualiser le badge ?
 URL : https://help.prezevent.com/article/31-previsualisation
+Contenu :
 Une fois votre design établit, vous avez la possibilité de prévisualiser les badges en cliquant sur l'icône œil, en haut à droite de votre écran.
 Vous pouvez alors voir si les composants sont de bonne taille et si les éléments sont en harmonie, les uns avec les autres.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7a1780c84eb3266332c97/file-7HV4JCTPpo.png]
 Par ailleurs, si vous cherchez à visualiser le badge d'une personne en particulier, allez dans le menu contact, recherchez le contact dans la bar de recherche puis cliquez sur les trois points à droite du contact puis sélectionnez le bouton "Voir le badge". Vous serez alors rediriger vers une page présentant le badge nominatif de la personne.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64479944cdec2a73488119d4/file-vBfqH0LRTb.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment enregistrer le badge ?
 URL : https://help.prezevent.com/article/32-enregistrement
+Contenu :
 Vous êtes satisfait du badge que vous venez de réaliser ? Pensez à enregistrer le modèle en appuyant sur l'icône en haut à droite afin de conserver une version qui pourra vous inspirer pour vos prochains événements !
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7a2461f7c4c45e9fbb730/file-R5wzKggxF8.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : A-t-on besoin de faire du publipostage ?
 URL : https://help.prezevent.com/article/64-a-t-on-besoin-de-faire-du-publipostage
+Contenu :
 Pour tout type de format, Prezevent vous propose une impression des badges en amont de votre événement afin de proposer une accueil rapide et efficace des invités.
 Si vous avez une imprimante à badges, vous pouvez réaliser cette étape seuls. Il vous suffit de relier votre imprimante à votre ordinateur sur lequel est ouverte votre session sur notre plateforme. Pour le reste, c'est très simple, appuyez sur le bouton "Imprimer les badges" et patientez le temps de l'impression.
 Sinon, nous nous occupons de l'impression.
 Avec Prezevent, pas de publipostage. Tout est automatisé !
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment retirer les en-têtes sur les badges A4 ?
 URL : https://help.prezevent.com/article/70-comment-retirer-les-en-tetes-sur-les-badges-a4
+Contenu :
 Les badges A4 sont des modèles de badge imprimés, en général, par les participants chez eux.
 Les paramètres d'impression peuvent être différents d'un ordinateur à un autre. C'est pourquoi, de temps à autres, il est possible de voir apparaître des en-têtes et pieds de pages au nom de Prezevent.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64ba6448c2f5ed048130cae1/file-w9d4aRVIfD.png]
 Pour supprimer ces en-tête et pied de page, il suffit de cliquer sur "Plus de paramètres" et décochez l'option "En-têtes et pieds de page" comme dans la vidéo ci-dessous.
 
-[Image URL: https://cdn.loom.com/sessions/thumbnails/314d56e5136d4157bf32c4500ae2825e-with-play.gif]
 N'hésitez pas à ajouter une petite Nota Bene en dessous du bouton cliquable menant au téléchargement du badge indiquant cette manipulation.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Placer les QR Codes sur les badges
 URL : https://help.prezevent.com/article/74-tout-savoir-sur-les-qr-codes
+Contenu :
 Le QR Code est essentiel pour lecheck incar il permet un processus rapide, précis et sécurisé d'enregistrement des participants à l'événement.
 Dans l'onglet "Badges", vous pouvez maintenant intégrer un QR Code directement sur les badges de vos participants. En utilisant notreéditeur de badges intuitif, personnalisez votre badge en y plaçant le QR Code nominatif où vous le souhaitez.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6644bd280aaf8a27e593c289/file-1XRbHAMlIb.png]
 Dans l'onglet "Campagnes", vous avez la possibilité de programmer l'envoi d'e-mails contenant un QR Code suite à une inscription à votre événement. Il vous suffit deparamétrer l'envoi en fonction d'un changement de statut d'inscription ou d'une nouvelle inscription(statut d'inscription "oui").
 Ensuite, utilisez notre éditeur visuel et allez dans "Modules" pour ajouter le QR Code du participant.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6644bb8e340e4261ee1c4d76/file-Z6v6ucTJdi.png]
 Les QR Codes sont nominatifs et générés automatiquement suite à l'ajout de contact dans Prezevent.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Impression en amont de l'événement
 URL : https://help.prezevent.com/article/25-impression-en-amont
+Contenu :
 Pour tout type de format, Prezevent vous propose une impression des badges en amont de votre événement afin de proposer une accueil rapide et efficace des invités.
 Si vous avez une imprimante à badges, vous pouvez réaliser cette étape seuls. Il vous suffit de relier votre imprimante à votre ordinateur sur lequel est ouverte votre session sur notre plateforme. Pour le reste, c'est très simple, appuyez sur le bouton "Imprimer les badges" et patientez le temps de l'impression.
 Sinon, nous nous occupons de l'impression.
 Avec Prezevent, pas de publipostage. Tout est automatisé !
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7bece7eb7a63c30e3f953/file-3WsoT9QlyH.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : L'impression du badge par l'invité
 URL : https://help.prezevent.com/article/14-impression-des-badges
+Contenu :
 Une fois votre badge édité et personnalisé, 3 stratégies peuvent être adoptées pour l'impression des badges de vos invités.
 Dans le cas d'un format A4, le badge de votre invité peut être intégré dans une campagne emailing, par l'utilisation d'un bouton CTA afin qu'il puisse le télécharger et l'imprimer lui-même avant l'événement. Il se présentera alors avec, ce qui fluidifie l'accueil des participants car seul un scan du Qr-code présent sur l'invitation est nécessaire.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d7a56f0c84eb3266332c9e/file-rsGaMSe8Fi.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Impression sur place et en direct
 URL : https://help.prezevent.com/article/26-impression-sur-place
+Contenu :
 Chez Prezevent, nous mettons à disposition nos conseils et nos outils afin d'assurer la réussite de votre événement.
 Impression au check'in de l'invité
 L'impression In Live est couplée au Check'in : l'impression des badges se lancent automatiquement lorsqu'une personne est notée présente.
@@ -682,12 +635,12 @@ L'impression In Live est couplée au Check'in : l'impression des badges se lance
 - lancer le Check'in sur vos tablettes, choisissez le PC à associer
 Ce procédé complète aussi très bien les impressions en amont pour ceux qui ont oublié leur badge, pour ceux dont le badge comporte une erreur et qu'il faut refaire, et enfin pour ceux qui n'étaient pas inscrit et à qui on souhaite donner un badge.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c6c7eb7a63c30e3f903/file-xNZ5dBBYuS.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Les sessions, c’est quoi ?
 URL : https://help.prezevent.com/article/19-les-sessions
+Contenu :
 Définition
 Une session est un point de contrôlesur la liste des participants avec ou sans filtre sur celle-ci.
 - Par exemple, un event sur 2 jours aura 2 sessions : 1 session pour le jour 1 et une autre pour le jour 2.
@@ -697,88 +650,84 @@ Une session est un point de contrôlesur la liste des participants avec ou sans 
 Image 1 : Créez les sessions dont vous avez besoin dans votreinterface de gestion, Menu Check'in.
 Image 2 :Les émargeursdevront choisir la session correspondante à leur point de contrôle dans le Menu Home del'interface de Check'in
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c1d7eb7a63c30e3f902/file-3luGRKKqHM.png]
 Sur l'interface de Check'in, il faudra choisir la session avant de procéder à l'émargement
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment activer la fonctionnalité de checkin ?
 URL : https://help.prezevent.com/article/12-cherkin
+Contenu :
 Pour gérer le check'in lors de l'accueil de votre événement, connectez-vous dans l'application Prezevent et cliquez sur l'onglet "Check in".
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78be41f7c4c45e9fbb6e2/file-8mjbzuwql2.png]
 Pour définir des accès aux hôtes et hôtesses d'accueil, définissez un code d'accès à l'interface de check'in dans Paramères / Accès à l'application.
 Notez que l'url d'accès est visible ici, et qu'elle se termine par le "slug" de l'événement (modifiable).
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78bf226cb8547dcb0dedd/file-rYMaVNKNUv.png]
 Accès via une page web
 Dans le menu Check'in, cliquez sur le bouton "Accéder à l'interface de Check'in" et renseigner le code.
 Sinon, ouvrez la page app(.)prezevent(.)com, renseigner le "slug" (nom de l'événement) et le code
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c0626cb8547dcb0dede/file-fMDalutglp.png]
 Accès via l'app IOS / Android
 Téléchargez l'app Prezevent Check'in sur les stores Apple et Android.
 Renseignez le slug et le code de l'événement
 Le slug se trouve dans votre interface de gestion, Menu Paramètres, Accès à l'application. C'est le texte (sans espace) qui se trouve à droite de l'url.
 L'app native ne permet pas de prendre les signatures des participants, ni de lancer l'impression automatique des badges.
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Dans quel cas limiter les accès à certains contacts ?
 URL : https://help.prezevent.com/article/67-dans-quel-cas-limiter-les-acces-a-certains-contacts
+Contenu :
 Limiter l’accès à un certain nombre de contacts consiste à mettre en place un quota personnalisé. Cela peut être pertinent dans le cas de conférences, d’ateliers ou de tables rondes où les places sont limitées.
 Pour mettre en place l’accès limité à certains contacts, il suffit de se rendre dans le menu “Check’in”, de sélectionner la sessions dans laquelle vous souhaitez mettre en place une limitation d’entrées puis de sélectionner le bouton “Oui” dans “Limiter la sessions à certains contacts” puis choisissez la liste de personnes notifiée par un critère particulier (statut, dîner, entreprise…).
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6439426bad20e8714a50d7b7/file-HaHc9262X6.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment passer présent les participants ?
 URL : https://help.prezevent.com/article/68-comment-passer-present-les-participants
+Contenu :
 Il existe deux façons de passer présent les participants.
 La première manière et la plus rapide, est le scan de Qr-code. En amont de l’événement, vous aurez certainement envoyer un qr-code nominatif dans un mail de confirmation d’inscription ou dans un badge A4 que vous aurez envoyé par mail.
 Le jour J, depuis l’application Prezevent disponible sur mobiles et tablettes, rendez-vous sur le menu Scan QR puis émargez en une fraction de secondes les invités se présentant avec leurs QR-codes imprimés ou sur leurs smartphones.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64394454ad20e8714a50d7b9/file-SQSR4p94D0.png]
 La deuxième façon d’émarger les participants est la recherche par nom. Toujours sur l’application native, rendez-vous sur le menu “Search” puis tapez le nom de la personne se présentant devant vous puis appuyez sur l’icône tick à côté du nom de la personne pour la noter présente.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/643945c9ad20e8714a50d7bd/file-Mh05Zzj6za.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment accéder à l’application de check’in ?
 URL : https://help.prezevent.com/article/66-comment-acceder-a-l-application-de-check-in
+Contenu :
 L’émargement digital peut être réalisé à la fois depuis notre logiciel SaaS mais aussi via l'application native disponible sur AppStore et GooglePlay.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64393f8691f91f0beedfca0f/file-gVMYBoLfbu.png]
 Dans le cas où vous souhaitez effectuer le check’in depuis une tablette ou  un smartphone (via l’application), il faudra d’abord accéder aux paramètres de l’application depuis la plateforme dans l’onglet "Paramètres". Ensuite, dans cet onglet, choisissez un identifiant pour accéder à votre événement. Par ailleurs, définissez un mot de passe pour 1 ou plusieurs intervenants.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/6439406b37fd073d73d6c846/file-NG6dhw27Kj.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Accompagnants : compter les +1
 URL : https://help.prezevent.com/article/20-autoriser-les-accompagnants
+Contenu :
 On peut autoriser les accompagnants des invités à émerger aussi avec la fonctionnalité "Autoriser les accompagnants" en cliquant sur le bouton coulissant en dessous de cette fonctionnalité.
 Décompter les accompagnants des invités permet de connaître le nombre de présents total à l'événement.
 Cas d'usage :
 quand les invités viennent accompagnés de leur conjoint ou d'un collègue et qu'il n'est pas nécessaire de les enregistrer de manière nominative.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c280c84eb3266332c6a/file-8lJB2vf8li.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Dois-je faire émarger avec une signature ou sans ?
 URL : https://help.prezevent.com/article/21-emargement-avec-ou-sans-signature
+Contenu :
 Décidez si l'émargement de vos invités se fera avec ou sans signature. Pour activer la signature électronique, appuyez sur le bouton coulissant sous ""Emargement".
 Une fois les modifications faites, n'oubliez pas de cliquer sur "Enregistrer".
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c3226cb8547dcb0dee1/file-84ADVqkzoD.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment faire pour ajouter un contact le jour J au moment du check'in ?
 URL : https://help.prezevent.com/article/22-ajout-lors-du-checkin
+Contenu :
 Parfois, certains invités s'inscrivent au dernier moment ou sur le moment même.
 - Pour permettre l'ajout des inscrits lors du check'in, cliquez sur le bouton coulissant en dessous de "Permettre l'ajout d'inscrits lors du check'in" de votre interface Administrateur (Image 1)
 - Ainsi les hôtes et hôtesses d'accueil auront un menu "Ajout" en bas à droite sur leur interface de check'in (Image 2)
@@ -786,29 +735,26 @@ Parfois, certains invités s'inscrivent au dernier moment ou sur le moment même
 - Ainsi les hôtes et hôtesses d'accueil auront un menu "Ajout" en bas à droite sur leur interface de check'in (Image 2)
 Votre base de contacts sera mise à jour automatiquement. Même les badges et Qr-Codes des nouveaux inscrits seront générés instantanément.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c4a0c84eb3266332c6b/file-Mim2zbRBhv.png]
 Le jour J, rendez-vous sur la plateforme de check'in et cliquez sur l'icône de droite dans la bar de menu. Renseignez ensuite les informations nécessaires et passez la personne présente.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/64479cc4d50b2033bd2414f1/file-ozYOMDZsjv.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Quels sont les différents types de comptage ?
 URL : https://help.prezevent.com/article/24-type-de-comptage
+Contenu :
 Choisissez de voir les présents lors du check'in selon les contacts avec les statuts  "peut-être" ou "confirmés", ou si vous voulez voir les présents parmi tous les contacts.
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c7426cb8547dcb0dee3/file-KjVsKvmyIQ.png]
+[/DOCUMENT]
 
-========================================
-
+[DOCUMENT]
 Titre : Comment imposer un questionnaire lors du checkin ?
 URL : https://help.prezevent.com/article/23-questionnaire
+Contenu :
 Pour ajouter un questionnaire lors du check'in, appuyez sur le bouton coulissant "Questionnaire lors du check'in". Cette fonction sert à mettre à jour ou compléter les fiches des inscrits.
 Par exemple, une fois qu'une personne est noté présente sur la tablette, sa fiche s'ouvre et vous pouvez demander si elle reste déjeuner ou non.
 Spécial Covid : vous pouvez demander à l'inscrit s'il présente des symptômes de fièvre ou de toux, et autres questions que vous jugeriez utilessans utiliser de papier.
 N'oubliez pas d'enregistrer vos modifications
 
-[Image URL: //d33v4339jhl8k0.cloudfront.net/docs/assets/63ca5241ae2ac446a09d4b9c/images/63d78c5b0c84eb3266332c6c/file-QJkEaTt2Ol.png]
-
-========================================
+[/DOCUMENT]
 

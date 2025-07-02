@@ -17,7 +17,7 @@ prompt_intro = (
 # Chargement du corpus documentaire
 @st.cache_data(show_spinner=False)
 def load_corpus():
-    with open("data/corpus_llm_gpt_optimized.txt", "r", encoding="utf-8") as f:
+    with open("data/corpus_llm.txt", "r", encoding="utf-8") as f:
         return f.read()
 corpus = load_corpus()
 
