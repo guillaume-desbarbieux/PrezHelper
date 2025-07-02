@@ -1,4 +1,4 @@
-## Comment importer une liste de contacts d’un fichier excel  ?
+# Section : Comment importer une liste de contacts d’un fichier excel  ?
 Avant un import Excel, assurez vous d'avoir crée dans Prezevent tous les champs dont vous avez besoin .
 Pour importer un (ou plusieurs) fichier Excel, celui-ci doit :
 - format .xlsx (pas .xls version 97-2003 par exemple)
@@ -29,7 +29,7 @@ Attention : La suppression est irréversible !!
 Astuce : dans le cas où l'import ne fonctionne pas, copier-coller vos contacts et les entêtes dans un nouveau fichier Excel.
 Cas extrême : copier + collage spécial sur les valeurs. Cela peut être nécessaire quand un fichier a été travaillé dans tous les sens et que des restes de formules traînent encore dedans sans qu'on le voit.
 
-## Comment exporter une liste de contacts ?
+# Section : Comment exporter une liste de contacts ?
 Vous pouvez exporter votre liste de contact sous forme de fichier xlsx. Pour cela, cliquez sur le 2e icône d'exportation en haut à droite. Choisissez soit d'exporter toute votre liste de contact en cochant la 1ère option "tous les contacts", soit de n'exporter qu'une partie de vos contacts en cochant "selon les filtres de la liste" si vous avez réglé au préalable des filtres.
 Ensuite, vous pouvez choisir d'exporter les données de source et d'horodatage de la création de vos contacts, c'est à dire la date de création et de dernière modification des contacts.
 Une fois que vous avez coché vos options, appuyez sur le bouton EXPORTER. Un fichier xlsx va s'enregistrer.
@@ -37,7 +37,7 @@ Une fois que vous avez coché vos options, appuyez sur le bouton EXPORTER. Un fi
 Sélectionnez les informations que vous souhaitez voir sur votre fichier Excel
 
 
-## Comment créer un contact manuellement ?
+# Section : Comment créer un contact manuellement ?
 Une fois connecté sur notre plateforme Prezevent, créez un nouvel événement ou cliquez sur votre événement déjà existant. Ensuite, allez sur l'onglet "CONTACTS", se trouvant à gauche.
 
 Vous pouvez ajouter vos contacts un par un manuellement si vous le souhaitez, ou si vous voulez compléter une liste existante.
@@ -50,7 +50,7 @@ Vous pouvez préciser si le contact désire recevoir des mails de votre part ou 
 Une fois fini, appuyez sur le bouton ENREGISTRER pour que le contact s'ajoute.
 Voilà, votre contact est créée ! Faites cette action autant de fois que vous voulez, mais si c'est trop long, vous pouvez importer une liste de contacts Excel.
 
-## Comment personnaliser les champs de contacts ?
+# Section : Comment personnaliser les champs de contacts ?
 En plus des champs Prénom/Nom/Email/Entreprise présents par défaut, vous pouvez créer vos champs personnalisés. Pour ce faire, rendez-vous sur la page contact de votre logiciel Prezevent et cliquez sur l'icône rouage en haut à droite de l'écran.
 
 Un onglet va alors apparaître à droite de l'écran. Pour ajouter un nouveau champ, cliquez alors sur :+ Ajouter un champ
@@ -65,7 +65,7 @@ Un onglet va alors apparaître à droite de l'écran. Pour ajouter un nouveau ch
 ...
 Attention : N'oubliez pas d'enregistrer vos modifications
 
-## Comment gérer la liste de contacts sur la plateforme ?
+# Section : Comment gérer la liste de contacts sur la plateforme ?
 Vous pouvez modifier votre liste de contact ou les informations de vos contacts après les avoir ajouté manuellement ou après avoir importer votre liste de contacts Excel.
 Pour gérer l'affichage de vos champs personnalisés, cliquez sur l'icône fenêtre dans la barre des champs à droite. Vous pouvez modifier l'ordre des colonnes pour afficher sur l'interface de votre liste de contact différents champs. Changez les champs en cliquant sur les listes déroulantes et déplacez les champs grâce en faisant glisser les 3 barres horizontales là où vous le souhaitez. Appuyez sur "Valider" une fois que vous avez fini.
 
@@ -77,22 +77,22 @@ Pour trier vos contacts, vous pouvez appuyez sur un champ sur la barre des champ
 Filtrer ses contacts est utile lorsque la liste est longue, et que vous avez besoin de chercher des invités selon un champ précis (présence, entreprise, inscription à la réception de vos mails, participation à un diner par exemple). Appuyez sur "Filtres" à gauche de la barre de recherche par nom. Vous pourrez choisir plusieurs filtres en cliquant sur "plus de filtres".
 
 
-## Comment visualiser le badge d’un contact ?
+# Section : Comment visualiser le badge d’un contact ?
 Dans la fenêtre "Contacts" de l'événement, cliquez sur les 3 points à droite du contact puis choisissez "Voir le badge" pour afficher le badge généré par notre éditeur de badges, avec les informations de l'invité.
 
 Cette fonctionnalité vous permet d'accéder au badge nominatif du contact et de l'imprimer individuellement si l'invité l'a oublié ou perdu.
 
-## Comment consulter le formulaire d’un contact ?
+# Section : Comment consulter le formulaire d’un contact ?
 Dans la fenêtre CONTACTS de l'événement, cliquez sur les 3 points à droite du contact puis choisissez "Voir le formulaire" pour afficher les informations remplies par le contact si vous avez envoyé un formulaire.
 
 
-## Comment vérifier la présence de contacts doublons dans la liste des contacts ?
+# Section : Comment vérifier la présence de contacts doublons dans la liste des contacts ?
 Il est possible d'avoir des contacts en double. Pour éviter cela, allez dans la fenêtre CONTACTS de l'événement et cliquez en haut à droite sur la 3e icône de "personnes" (et éviter d'envoyer 2 fois une invitation à la même personne). Une fenêtre s'affiche à droite et vous pourrez détecter les doublons selon les emails, prénoms, etc...
 
 Une fenêtre va alors apparaître à droite de l'écran et vous pourrez ainsi visualiser les contacts renseignés en double dans votre liste. Identifiez les doublons selon leur nom, leur adresse email ou encore leur entreprise puis supprimez le contact dont vous n'aurez pas besoin.
 
 
-## Comment savoir quel contact s’est désabonné de la liste de diffusion d’email ?
+# Section : Comment savoir quel contact s’est désabonné de la liste de diffusion d’email ?
 Pour voir les désinscrits à vos mails afin de les enlever de votre liste de contacts pour la campagne d'emailing, vous devez isoler ces contacts en utilisant les filtres.
 Allez dans l'onglet CONTACTS de l'événement, puis cliquez sur "Filtres” en haut à côté de la barre de recherche.
 
@@ -102,29 +102,29 @@ Cochez "Non" et fermer l'onglet pour que les contacts ayant choisi d'être dési
 
 Remarque : Dans le cas ci-dessus, on remarque en arrière plan qu'aucun contact ne s'affiche en arrière plan. Bonne nouvelle ! Personne ne s'est désabonné de la liste de diffusion.
 
-## Les filtres de recherche dans les contacts
+# Section : Les filtres de recherche dans les contacts
 Dans le menu CONTACTS, retrouver le bouton Filtres en haut de page
 
 et ensuite SELECTIONNER le groupe recherché ou RENSEIGNER la valeur recherchée.
 Sélectionner un groupe revient à choisir un segment de contact.
 Pour supprimer les filtres, il vous suffit de cocher la croix rouge à côté de l'icône Filtre.
 
-## Comment éditer le site web de mon événement ?
+# Section : Comment éditer le site web de mon événement ?
 Le site événementiel est un très bon outil de communication qui vous permet de rassembler l'intégralité des informations concernant votre événement professionnel.
 Sur notre logiciel, rendez-vous dans l’onglet “Site Web”, puis sur la page Site web de l’événement. Cliquez sur le bouton “Modifier le site”.
 
 Personnalisez facilement votre site à partir d'un template ou votre code HTML et ajoutez des éléments en drag and drop.
 
-## Comment mettre en ligne mon site web événementiel ?
+# Section : Comment mettre en ligne mon site web événementiel ?
 Afin de mettre en ligne votre site web événementiel en ligne, il vous suffit de vous rendre sur la plateforme et de vous rendre sur le menu “Inscriptions”, puis de cliquer sur Site web de l’événement.
 Une fois votre site construit, il vous suffit de cliquer sur le bouton permettant d’activer le site en ligne.
 
 
-## Comment suivre les performances de mon site web événementiel ?
+# Section : Comment suivre les performances de mon site web événementiel ?
 Afin de suivre les performances de votre site web événementiel, il vous suffit de renseigner vos identifiants Google Analytics/Tag Manager dans le menu Site web de l’événement de la plateforme.
 
 
-## Comment intégrer le formulaire sur mon site ?
+# Section : Comment intégrer le formulaire sur mon site ?
 Dans un premier temps, rendez-vous dans l’onglet “Site web” puis dans la page “Site web de l’événement”.
 Débutez alors la construction du site web événementiel facilement grâce à notre éditeur en drag and drop. Dans le menu s’affichant sur la droite, sélectionnez “Bouton” dans la partie éléments.
 Placez le bouton où vous le souhaitez sur la page de votre site web en construction. En cliquant sur ce bouton, un menu s’affiche à droite de l’écran. Personnalisez alors ce bouton en modifiant la couleur, la taille, la forme, le texte et en cochant la case pour intégrer le bouton d'inscription.
@@ -134,14 +134,14 @@ Il est également possible d'intégrer le formulaire de contact sur un site web 
 Sur la fenêtre qui s'affiche sur la droite, il vous suffit alors de copier-coller le code du formulaire, pour l'intégrer au code de votre site web.
 
 
-## Comment déployer le formulaire d’inscription ?
+# Section : Comment déployer le formulaire d’inscription ?
 Votre formulaire est à présent prêt. Il ne vous reste qu'à le déployer afin d'avoir les informations souhaitées pour pouvoir adapter l'organisation de votre événement.
 Pour cela, vous avez deux possibilités.
 Dans un premier temps, vous pouvez intégrer le formulaire d'inscription à l'email d'invitation à l'aide d'un bouton cliquable.
 
 Dans un second temps, il est également possible pour vous d'embarquer l'iframe du formulaire sur vos sites web et tracker la provenance des inscriptions.
 
-## Quelles sont  les fonctionnalités du formulaire d'inscription ?
+# Section : Quelles sont  les fonctionnalités du formulaire d'inscription ?
 Tout comme pour les badges et les campagnes, le formulaire peut faire l'objet d'une segmentation.
 
 Accès au formulaire
@@ -156,12 +156,12 @@ Les accompagnants
 Autorisez, ou non, la venue d'un ou plusieurs accompagnants avec un de vos invités. Tout comme pour les inscriptions, vous pouvez limiter le nombre d'accompagnants en mettant en place un quota.
 
 
-## Comment éditer un formulaire de contact ?
+# Section : Comment éditer un formulaire de contact ?
 Le formulaire d’inscription Prezevent vous permet de collecter les informations nécessaires à l’organisation et à la scénographie de la rencontre professionnelle. Il vous permet de suivre l'activité de vos invités et de pouvoir anticiper une meilleure gestion le jour J. Pour créer votre formulaire de contact, rendez-vous sur l'onglet SITE WEB du menu à gauche de l'écran.
 
 Avec notre éditeur Prezevent, personnaliser votre formulaire n'a jamais été aussi simple. Pour cela, cliquez sur le bouton "Modifier le formulaire". Et débutez la personnalisation de votre formulaire, comme expliqué dans l'articleComment ajouter un nouveau champ dans un formulaire.
 
-## Comment ajouter un nouveau champ dans un formulaire ?
+# Section : Comment ajouter un nouveau champ dans un formulaire ?
 Lorsque vous arrivez sur la page d'édition du formulaire, cliquez sur l'icône crayon se trouvant sur une des cases à remplir puis décidez d'insérer un bouton, un texte explicatif, etc. De même, vous pouvez obliger la réponses à certaines questions du formulaire avec l'astérisque ou bien de rendre le champ non modifiable, c'est-à-dire prérempli avec les informations du contact indiquées dans la liste.
 Tous les libellés des champs peuvent être personnalisés.
 
@@ -177,19 +177,19 @@ Veillez à bien enregistrer vos modifications avant toute nouvelle action !
 Une fois cette étape réalisée, vous pouvez retourner sur l'onglet INSCRIPTIONS et cliquer sur le bouton "+" pour ajouter les nouveaux champs souhaités. N'oubliez pas de confirmer l'ajout en cliquant sur le bouton "OK".
 
 
-## Comment prévisualiser le formulaire ?
+# Section : Comment prévisualiser le formulaire ?
 Lorsque vous avez terminé de construire votre formulaire de contacts, appuyez sur l’icône oeil en haut à droite. Cela vous permettra de visualiser le formulaire de la façon dont vos contacts l'appercevront
 
 
-## Comment vérifier le formulaire d’inscription ?
+# Section : Comment vérifier le formulaire d’inscription ?
 Tout comme la campagne d'emailing, le formulaire doit faire l'objet d'un test avant l'envoie à votre liste de contacts. Pour prévisualiser le formulaire en condition réelle, activez le formulaire d'inscription en appuyant sur les boutons encadrés ci-dessous.
 
 
-## Comment suivre l'état d’inscription des participants ?
+# Section : Comment suivre l'état d’inscription des participants ?
 Lorsqu'un contact répond au formulaire, le suivi se met automatiquement à jour et en temps réel et est disponible sur la page CONTACTS, en haut de l'écran. Les états par défaut sont : “Oui”, “Ne vient pas”, “Sans réponse”, “Peut-être”.
 
 
-## Comment intégrer le formulaire sur mon site web événementiel?
+# Section : Comment intégrer le formulaire sur mon site web événementiel?
 Dans un premier temps, rendez-vous dans l’onglet “Interactions” puis dans la page “Site web de l’événement”.
 Débutez alors la construction du site web événementiel facilement grâce à notre éditeur en drag and drop. Dans le menu s’affichant sur la droite, sélectionnez “Bouton” dans la partie éléments. Placez le bouton où vous le souhaitez sur la page de votre site web en construction.
 En cliquant sur ce bouton, un menu s’affiche à droite de l’écran. Personnalisez alors ce bouton en modifiant la couleur, la taille, la forme, le texte et cliquez sur le bouton d'inscription qui relie automatiquement le bouton au lien du formulaire d'inscription.
@@ -199,14 +199,14 @@ Si votre site web existe déjà, une autre méthode existe afin d'embarquer le f
 Sur la page qui s'affiche, copiez le code du formulaire et collez le dans code de votre site web.
 
 
-## Comment autoriser l'ajout d'accompagnants dans le formulaire ?
+# Section : Comment autoriser l'ajout d'accompagnants dans le formulaire ?
 Autorisez, ou non, la venue d'un ou plusieurs accompagnants avec un de vos invités. Tout comme pour les inscriptions, vous pouvez limiter le nombre d'accompagnants en mettant en place un quota.
 Pour cela, il suffit de se rendre sur le menu “Inscriptions” de la plateforme et cocher la case “Proposer d’inscrire d’autres invités” et de décider d’un quota du nombre d’inscrits autorisés en plus.
 
 Lors des inscriptions, la personne ayant reçu l’invitation pourra remplir ses informations. Une fois son inscription enregistrée, elle pourra, si elle le souhaite, accéder à un lien lui permettant d’inscrire une tiers personne et de renseigner les informations que vous aurez décidé d’imposer.
 
 
-## A quoi servent les formulaires multiples ?
+# Section : A quoi servent les formulaires multiples ?
 Les formulaires de contacts multiples permettent de gérer l'organisation des différents groupes de participants lors de votre événement professionnel.
 Afin de générer vos différents formulaires, rendez-vous sur l'onglet formulaire de notre plateforme et cliquez sur le bouton en haut à droite de l'écran et sélectionnez le bouton "Ajouter un formulaire".
 
@@ -215,7 +215,7 @@ Enfin, pour cibler les formulaires aux différents contacts, il suffit d'éditer
 
 Faites autant de campagnes que souhaité et personnalisez les boutons d'inscription avec les liens des différents formulaires ciblés pour les différents types de participants.
 
-## Campagnes email étape par étape
+# Section : Campagnes email étape par étape
 Dans notre éditeur, vous pouvez réaliser des campagnes d'envois ou des campagnes de notifications. Connectez-vous à l'application et créez ou accédez à votre événement. Allez dans l'onglet "Campagnes".
 Les campagnes d'envoi s'apparentent à des campagnes marketing traditionnelles dans lesquelles vous pouvez inviter vos contacts à participer à votre événement.
 Les campagnes de notifications vous permettent d'envoyer automatiquement des emails ou sms selon les actions de vos contacts comme pour envoyer des messages de bienvenue à vos invités par exemple.
@@ -259,7 +259,7 @@ Pour avoir un aperçu de votre mail avant son envoi, vous pouvez vous envoyer un
 
 Envoyer les badges par email
 
-## Comment voir les statistiques de ma campagne ?
+# Section : Comment voir les statistiques de ma campagne ?
 Après avoir envoyé votre mail, vous pouvez consulter les statistiques d'envoi et d'ouverture. Ils s'affichent directement sur votre interface:
 - le total des mails envoyés et le nombre de mails délivrés
 - le nombre de mails bloqués
@@ -273,7 +273,7 @@ Plus d'infoici
 Vous devez supprimer leurs mails dans la liste de contact pour qu'ils ne reçoivent plus de mail. Dans la liste de contact, cliquez dans "Filtres" et cochez "Non" aux "Inscription emails"pour voir les désinscrits aux mails et les enlever.
 
 
-## Campagne auto
+# Section : Campagne auto
 Si vous voulez souhaitez créer une campagne auto , cliquez sur "Nouveau message" dans la fenêtre "Campagnes" de l'application. Celle-ci correspond à une campagne de notifications qui vous permet d'envoyer automatiquement des emails ou sms selon les actions de vos contacts comme pour envoyer des messages de bienvenue à vos invités par exemple.
 
 Sélectionnez ensuite "campagne auto" . Vous pourrez ainsi paramétrer votre campagne ( Nom de la campagne, Canal d'envoi, Objet , … ) dans l'onglet " Informations ".
@@ -285,24 +285,24 @@ Cliquez par la suite sur l'onglet "Notification" afin de configurer cette derni�
 
 Puis, Il vous faudra choisir les contacts à l'origine de la notification. Vous pouvez sélectionnez "Tous les contacts " ou "Par groupe ". Cette fonctionnalité vous permettra de choisir un groupe parmi les contacts selon un ou plusieurs critères qui sera à l'origine de la notification.
 
-## Comment intégrer le formulaire de contact dans l’email ?
+# Section : Comment intégrer le formulaire de contact dans l’email ?
 Pour rediriger l'invité vers le formulaire d'inscription à partir de votre mail d'invitation, allez dans l'éditeur d'invitation. Dans l'icône "open blocks" (4 blocs) tout à droite, vous pouvez ajouter un bouton "S'inscrire" en le faisant glisser sur votre page.
 Pour ajouter un lien, cliquez sur votre bouton et allez dans l'icône Paramètres (les rouages) en haut à droite vous pourrez ajouter un lien.
 Pour que les informations du contact soient pré-remplies,  le bouton "S'inscrire" doit pointer vers la page d'inscription comme actuellement MAIS dans le lien, mettez à la fin /?contact_id
 
-## {{inscrit.id}} pour que les infos de contacts soient pré-remplies (et que l'on sache du coup que tel inscrit vient de tel ou tel groupe).
+# Section : {{inscrit.id}} pour que les infos de contacts soient pré-remplies (et que l'on sache du coup que tel inscrit vient de tel ou tel groupe).
 
 
-## Envoyer un email de relance, un email de rappel
+# Section : Envoyer un email de relance, un email de rappel
 Vous avez déjà envoyer des invitations et vous avez déjà des inscrits à l'événement. Il s'agit ici d'envoyerune campagne à tous ceux qui n'ont pas répondupour les relancer.
 Donc, dans les paramètres de votre campagne, vous allez cette fois-ci envoyer une campagne "par groupe" (
 
-## cible) en précisant lestatut d'inscription "sans réponse". L'email ne sera pas envoyé à ceux qui ont répondu "oui", "peut-être", et "ne vient pas".
+# Section : cible) en précisant lestatut d'inscription "sans réponse". L'email ne sera pas envoyé à ceux qui ont répondu "oui", "peut-être", et "ne vient pas".
 Si vous voulez envoyerune relance sur un groupe en particulier, alors vous ajoutez votre groupe comme suit :
 Votre événement approche, il s'agit d'écrire à vos participants pour leur rappeler la date, le lieu et/ou le programme.
 Même principe que l'email de relance, c'est un envoi à un groupe en particulier. Ce groupe correspond à ceux qui ont lestatut d'inscription "Oui".
 
-## Comment lancer ma campagne ?
+# Section : Comment lancer ma campagne ?
 Une fois que vous avez créer et modifier votre modèle, et que vous avez regarder un aperçu afin de voir si le design et les informations correspondent à vos envies et votre événement.
 Avant de lancer votre campagne de mail ou sms, il est important de réaliser un test, permettant d'assurer le bon fonctionnement des boutons, corriger l'oublie d'un lien éventuel, corriger des fautes, etc. Pour pouvoir espérer la venue de votre liste de contacts, mieux vaut ne pas trop se précipiter et envoyer un message clair et esthétique.
 Pour vous envoyer un email test, rendez-vous sur l'onglet CAMPAGNES et cliquez sur le bouton "Envoyer un test". Vous pouvez alors choisir à qui envoyer ce test en effectuant une recherche par nom.
@@ -313,7 +313,7 @@ Enfin, il est également possible de programmer l'envoie de sa campagne automati
 
 N'oubliez pas d'enregistrer les modifications avant de fermer la page.
 
-## Comment tester ma campagne ?
+# Section : Comment tester ma campagne ?
 Une fois que vous avez créé et modifié votre modèle, et que vous avez regardé un aperçu afin de voir si le design et les informations correspondent à vos envies et votre événement, l'heure est venue de tester cette campagne afin de vous assurer que celle-ci fonctionne.
 Avant de lancer votre campagne de mail ou sms, il est important de réaliser un test, vérifier tous les liens, les boutons, corriger un oubli, une faute.
 ATTENTION
@@ -323,7 +323,7 @@ Pour vous envoyer un email test, rendez-vous sur l'onglet CAMPAGNES et cliquez s
 Vous pouvez alors choisir à qui envoyer ce test en effectuant une recherche par nom dans le pop-up qui apparaît ensuite.
 
 
-## Qu’est-ce qu’une campagne classique ?
+# Section : Qu’est-ce qu’une campagne classique ?
 Les campagnes classiques sont des campagnes email ou sms envoyées à vos contacts pour les inscriptions, les informations liées à l'événement ou toute autre information.
 Remplissez les informations de votre campagne : le nom (si c'est un premier envoi, une relance..), si vous envoyez par email ou par sms, l'objet de votre mail, le nom de l'expéditeur (vous), et à quelle adresse mail on peut vous répondre (au lieu du *****.com).
 
@@ -334,7 +334,7 @@ Puis décidez de programmer l'envoi à une date précise ou de l'envoyer manuell
 Il est également possible pour vous de programmer l'envoie automatique des emails via cette même page et cliquez sur le bouton "Programmez l'envoi à une date" et choisissez la date et l'heure.
 
 
-## Comment respecter la norme RGPD ?
+# Section : Comment respecter la norme RGPD ?
 N'oubliez pas d'insérer un lien pour que les destinataires de vos campagnes qui ne sont plus intéressés puissent se désinscrivent de votre liste d'envoi. C'est une question de bon sens et c'est aussi une obligation du RGPD sur le Mass Mailing (campagnes envoyées à plus de 100 adresses email)
 Pour placer un lien de désinscription dans l'email, 2 méthodes sont possibles :
 - insérez lien hypertexte {{inscrit.optin_url}} dans votre email
@@ -347,12 +347,12 @@ Certains destinataires utilisent les options de leur boite mail et non le bouton
 Dans leMenu Contact, cliquez sur "Filtres", plus dans "plus de filtres", et cochez "Non" aux "Inscription emails" pour voir les désinscrits aux mails.
 
 
-## Comment éditer un badge ?
+# Section : Comment éditer un badge ?
 Notre éditeur de projets événementiels vous offre la possibilité de designer vos badges. Pour ce faire, rendez-vous dans l'onglet BADGES se trouvant dans le menu déroulant à gauche de l'écran.
 Le badge est un outil ayant toute son importance pour des évènements corporate, des forum, des salons, des congrès et autres. Notre éditeur vous permet de réaliser des badges100 % personnalisés, s'adaptant à tous vos besoins.
 
 
-## Comment personnaliser le badge ?
+# Section : Comment personnaliser le badge ?
 Afin de réaliser des badges bien construits, vous pouvez vous aider de l'affichage d'une règle découpant votre badge en 4 parts égales, en cliquant sur le bouton "Voir la règle" sur le menu de l'éditeur de badge.
 Insérer un texte
 A présent, à vous de jouer ! Nous vous proposons un large choix de composants que vous pouvez décider d'inclure, ou non, sur votre badge. Faites apparaître, les nom et prénom de l'invité, son entreprise, son statut (VIP, Prestataire, Presse...), le nom et la date de l'évènement et bien d'autres.
@@ -371,17 +371,17 @@ Le Qr-code est un outil important pour un check'in rapide et efficace. Il peut �
 
 Chaque Qr-code est unique et relié aux informations du contact. Il s'édite automatiquement lors de l'impression des badges nominatifs.
 
-## Comment faire une segmentation de catégorie ?
+# Section : Comment faire une segmentation de catégorie ?
 Dans un premier temps, nommez votre badge. Cette nomination ne sera visible que par vous et pourra vous permettre de faire la différences entre vos différents modèles de badges si vous décidez d'en créer plusieurs.
 Ensuite, choisissez d'éditer le même badge pour l'ensemble de la liste, ou bien segmentez votre liste de contacts selon des critères que vous aurez définit (entreprise, statut, poste...).
 
 
-## Comment designer mon badge ?
+# Section : Comment designer mon badge ?
 Pour commencer la personnalisation de votre badge, rendez-vous sur l'onglet "Accéder à l'éditeur de badges", situé en haut et à droite de votre écran.
 
 Ensuite, utilisez notre éditeur en drag and drop afin de personnaliser à souhait, votre badge événementiel.
 
-## De quel format peut être le badge événementiel ?
+# Section : De quel format peut être le badge événementiel ?
 Lorsque vous vous rendez sur la page d'édition du badge, notre plateforme vous propose, par défaut, de personnaliser un badge au format A4. Si ce n'est pas le format que vous souhaitez, pas de panique ! Il suffit de cliquer sur les trois point, en haut et à droite de votre écran, puis de sélectionner l'onglet "Changer le format".
 Les différents formats de badges existant sur notre plateforme sont :
 - Format CB
@@ -399,24 +399,24 @@ Les différents formats de badges existant sur notre plateforme sont :
 - Format A6
 - Format A7
 
-## Comment prévisualiser le badge ?
+# Section : Comment prévisualiser le badge ?
 Une fois votre design établit, vous avez la possibilité de prévisualiser les badges en cliquant sur l'icône œil, en haut à droite de votre écran.
 Vous pouvez alors voir si les composants sont de bonne taille et si les éléments sont en harmonie, les uns avec les autres.
 
 Par ailleurs, si vous cherchez à visualiser le badge d'une personne en particulier, allez dans le menu contact, recherchez le contact dans la bar de recherche puis cliquez sur les trois points à droite du contact puis sélectionnez le bouton "Voir le badge". Vous serez alors rediriger vers une page présentant le badge nominatif de la personne.
 
 
-## Comment enregistrer le badge ?
+# Section : Comment enregistrer le badge ?
 Vous êtes satisfait du badge que vous venez de réaliser ? Pensez à enregistrer le modèle en appuyant sur l'icône en haut à droite afin de conserver une version qui pourra vous inspirer pour vos prochains événements !
 
 
-## A-t-on besoin de faire du publipostage ?
+# Section : A-t-on besoin de faire du publipostage ?
 Pour tout type de format, Prezevent vous propose une impression des badges en amont de votre événement afin de proposer une accueil rapide et efficace des invités.
 Si vous avez une imprimante à badges, vous pouvez réaliser cette étape seuls. Il vous suffit de relier votre imprimante à votre ordinateur sur lequel est ouverte votre session sur notre plateforme. Pour le reste, c'est très simple, appuyez sur le bouton "Imprimer les badges" et patientez le temps de l'impression.
 Sinon, nous nous occupons de l'impression.
 Avec Prezevent, pas de publipostage. Tout est automatisé !
 
-## Comment retirer les en-têtes sur les badges A4 ?
+# Section : Comment retirer les en-têtes sur les badges A4 ?
 Les badges A4 sont des modèles de badge imprimés, en général, par les participants chez eux.
 Les paramètres d'impression peuvent être différents d'un ordinateur à un autre. C'est pourquoi, de temps à autres, il est possible de voir apparaître des en-têtes et pieds de pages au nom de Prezevent.
 
@@ -424,7 +424,7 @@ Pour supprimer ces en-tête et pied de page, il suffit de cliquer sur "Plus de p
 
 N'hésitez pas à ajouter une petite Nota Bene en dessous du bouton cliquable menant au téléchargement du badge indiquant cette manipulation.
 
-## Placer les QR Codes sur les badges
+# Section : Placer les QR Codes sur les badges
 Le QR Code est essentiel pour lecheck incar il permet un processus rapide, précis et sécurisé d'enregistrement des participants à l'événement.
 Dans l'onglet "Badges", vous pouvez maintenant intégrer un QR Code directement sur les badges de vos participants. En utilisant notreéditeur de badges intuitif, personnalisez votre badge en y plaçant le QR Code nominatif où vous le souhaitez.
 
@@ -433,19 +433,19 @@ Ensuite, utilisez notre éditeur visuel et allez dans "Modules" pour ajouter le 
 
 Les QR Codes sont nominatifs et générés automatiquement suite à l'ajout de contact dans Prezevent.
 
-## Impression en amont de l'événement
+# Section : Impression en amont de l'événement
 Pour tout type de format, Prezevent vous propose une impression des badges en amont de votre événement afin de proposer une accueil rapide et efficace des invités.
 Si vous avez une imprimante à badges, vous pouvez réaliser cette étape seuls. Il vous suffit de relier votre imprimante à votre ordinateur sur lequel est ouverte votre session sur notre plateforme. Pour le reste, c'est très simple, appuyez sur le bouton "Imprimer les badges" et patientez le temps de l'impression.
 Sinon, nous nous occupons de l'impression.
 Avec Prezevent, pas de publipostage. Tout est automatisé !
 
 
-## L'impression du badge par l'invité
+# Section : L'impression du badge par l'invité
 Une fois votre badge édité et personnalisé, 3 stratégies peuvent être adoptées pour l'impression des badges de vos invités.
 Dans le cas d'un format A4, le badge de votre invité peut être intégré dans une campagne emailing, par l'utilisation d'un bouton CTA afin qu'il puisse le télécharger et l'imprimer lui-même avant l'événement. Il se présentera alors avec, ce qui fluidifie l'accueil des participants car seul un scan du Qr-code présent sur l'invitation est nécessaire.
 
 
-## Impression sur place et en direct
+# Section : Impression sur place et en direct
 Chez Prezevent, nous mettons à disposition nos conseils et nos outils afin d'assurer la réussite de votre événement.
 Impression au check'in de l'invité
 L'impression In Live est couplée au Check'in : l'impression des badges se lancent automatiquement lorsqu'une personne est notée présente.
@@ -458,7 +458,7 @@ L'impression In Live est couplée au Check'in : l'impression des badges se lance
 Ce procédé complète aussi très bien les impressions en amont pour ceux qui ont oublié leur badge, pour ceux dont le badge comporte une erreur et qu'il faut refaire, et enfin pour ceux qui n'étaient pas inscrit et à qui on souhaite donner un badge.
 
 
-## Les sessions, c’est quoi ?
+# Section : Les sessions, c’est quoi ?
 Définition
 Une session est un point de contrôlesur la liste des participants avec ou sans filtre sur celle-ci.
 - Par exemple, un event sur 2 jours aura 2 sessions : 1 session pour le jour 1 et une autre pour le jour 2.
@@ -470,7 +470,7 @@ Image 2 :Les émargeursdevront choisir la session correspondante à leur point d
 
 Sur l'interface de Check'in, il faudra choisir la session avant de procéder à l'émargement
 
-## Comment activer la fonctionnalité de checkin ?
+# Section : Comment activer la fonctionnalité de checkin ?
 Pour gérer le check'in lors de l'accueil de votre événement, connectez-vous dans l'application Prezevent et cliquez sur l'onglet "Check in".
 
 Pour définir des accès aux hôtes et hôtesses d'accueil, définissez un code d'accès à l'interface de check'in dans Paramères / Accès à l'application.
@@ -486,12 +486,12 @@ Renseignez le slug et le code de l'événement
 Le slug se trouve dans votre interface de gestion, Menu Paramètres, Accès à l'application. C'est le texte (sans espace) qui se trouve à droite de l'url.
 L'app native ne permet pas de prendre les signatures des participants, ni de lancer l'impression automatique des badges.
 
-## Dans quel cas limiter les accès à certains contacts ?
+# Section : Dans quel cas limiter les accès à certains contacts ?
 Limiter l’accès à un certain nombre de contacts consiste à mettre en place un quota personnalisé. Cela peut être pertinent dans le cas de conférences, d’ateliers ou de tables rondes où les places sont limitées.
 Pour mettre en place l’accès limité à certains contacts, il suffit de se rendre dans le menu “Check’in”, de sélectionner la sessions dans laquelle vous souhaitez mettre en place une limitation d’entrées puis de sélectionner le bouton “Oui” dans “Limiter la sessions à certains contacts” puis choisissez la liste de personnes notifiée par un critère particulier (statut, dîner, entreprise…).
 
 
-## Comment passer présent les participants ?
+# Section : Comment passer présent les participants ?
 Il existe deux façons de passer présent les participants.
 La première manière et la plus rapide, est le scan de Qr-code. En amont de l’événement, vous aurez certainement envoyer un qr-code nominatif dans un mail de confirmation d’inscription ou dans un badge A4 que vous aurez envoyé par mail.
 Le jour J, depuis l’application Prezevent disponible sur mobiles et tablettes, rendez-vous sur le menu Scan QR puis émargez en une fraction de secondes les invités se présentant avec leurs QR-codes imprimés ou sur leurs smartphones.
@@ -499,25 +499,25 @@ Le jour J, depuis l’application Prezevent disponible sur mobiles et tablettes,
 La deuxième façon d’émarger les participants est la recherche par nom. Toujours sur l’application native, rendez-vous sur le menu “Search” puis tapez le nom de la personne se présentant devant vous puis appuyez sur l’icône tick à côté du nom de la personne pour la noter présente.
 
 
-## Comment accéder à l’application de check’in ?
+# Section : Comment accéder à l’application de check’in ?
 L’émargement digital peut être réalisé à la fois depuis notre logiciel SaaS mais aussi via l'application native disponible sur AppStore et GooglePlay.
 
 Dans le cas où vous souhaitez effectuer le check’in depuis une tablette ou  un smartphone (via l’application), il faudra d’abord accéder aux paramètres de l’application depuis la plateforme dans l’onglet "Paramètres". Ensuite, dans cet onglet, choisissez un identifiant pour accéder à votre événement. Par ailleurs, définissez un mot de passe pour 1 ou plusieurs intervenants.
 
 
-## Accompagnants : compter les +1
+# Section : Accompagnants : compter les +1
 On peut autoriser les accompagnants des invités à émerger aussi avec la fonctionnalité "Autoriser les accompagnants" en cliquant sur le bouton coulissant en dessous de cette fonctionnalité.
 Décompter les accompagnants des invités permet de connaître le nombre de présents total à l'événement.
 Cas d'usage :
 quand les invités viennent accompagnés de leur conjoint ou d'un collègue et qu'il n'est pas nécessaire de les enregistrer de manière nominative.
 
 
-## Dois-je faire émarger avec une signature ou sans ?
+# Section : Dois-je faire émarger avec une signature ou sans ?
 Décidez si l'émargement de vos invités se fera avec ou sans signature. Pour activer la signature électronique, appuyez sur le bouton coulissant sous ""Emargement".
 Une fois les modifications faites, n'oubliez pas de cliquer sur "Enregistrer".
 
 
-## Comment faire pour ajouter un contact le jour J au moment du check'in ?
+# Section : Comment faire pour ajouter un contact le jour J au moment du check'in ?
 Parfois, certains invités s'inscrivent au dernier moment ou sur le moment même.
 - Pour permettre l'ajout des inscrits lors du check'in, cliquez sur le bouton coulissant en dessous de "Permettre l'ajout d'inscrits lors du check'in" de votre interface Administrateur (Image 1)
 - Ainsi les hôtes et hôtesses d'accueil auront un menu "Ajout" en bas à droite sur leur interface de check'in (Image 2)
@@ -528,11 +528,11 @@ Votre base de contacts sera mise à jour automatiquement. Même les badges et Qr
 Le jour J, rendez-vous sur la plateforme de check'in et cliquez sur l'icône de droite dans la bar de menu. Renseignez ensuite les informations nécessaires et passez la personne présente.
 
 
-## Quels sont les différents types de comptage ?
+# Section : Quels sont les différents types de comptage ?
 Choisissez de voir les présents lors du check'in selon les contacts avec les statuts  "peut-être" ou "confirmés", ou si vous voulez voir les présents parmi tous les contacts.
 
 
-## Comment imposer un questionnaire lors du checkin ?
+# Section : Comment imposer un questionnaire lors du checkin ?
 Pour ajouter un questionnaire lors du check'in, appuyez sur le bouton coulissant "Questionnaire lors du check'in". Cette fonction sert à mettre à jour ou compléter les fiches des inscrits.
 Par exemple, une fois qu'une personne est noté présente sur la tablette, sa fiche s'ouvre et vous pouvez demander si elle reste déjeuner ou non.
 Spécial Covid : vous pouvez demander à l'inscrit s'il présente des symptômes de fièvre ou de toux, et autres questions que vous jugeriez utilessans utiliser de papier.
