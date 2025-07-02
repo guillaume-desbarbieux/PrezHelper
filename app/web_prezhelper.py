@@ -2,6 +2,7 @@
 import streamlit as st
 import openai
 import tiktoken
+import time
 
 # Configuration de la page Streamlit
 st.set_page_config(page_title="PrezHelper IA", layout="centered")
@@ -63,10 +64,22 @@ def estimate_cost(input_tokens, output_tokens, model="gpt-4o"):
     out_cost = COST_PER_1K_OUTPUT.get(model, 0.002)
     return round((input_tokens / 1000) * in_cost + (output_tokens / 1000) * out_cost, 6)
 
-if question:
+# Sélection du ou des modèles à utiliser
+model_options = [
+    ("gpt-3.5-turbo-1106", "GPT-3.5 Turbo (1106)"),
+    ("gpt-4o", "GPT-4o")
+]
+model_labels = [label for _, label in model_options]
+model_keys = [key for key, _ in model_options]
+selected = st.sidebar.multiselect(
+    "Modèles à comparer",
+    options=model_keys,
+    default=["gpt-4o"]
+)
+
+if question and selected:
     if st.button("Générer une réponse LLM à partir de la documentation"):
         with st.spinner("Génération de la réponse par ChatGPT à partir de la documentation complète..."):
-            # Construction du prompt complet
             full_prompt = (
                 "\n\n[INSTRUCTIONS SYSTEME]" +
                 prompt_intro +
@@ -79,28 +92,31 @@ if question:
             if not openai_api_key:
                 st.error("Veuillez renseigner votre clé API OpenAI dans la sidebar.")
             else:
-                try:
-                    client = openai.OpenAI(api_key=openai_api_key)
-                    model_name = "gpt-4o"
-                    messages = [
-                        {"role": "system", "content": prompt_intro},
-                        {"role": "user", "content": full_prompt}
-                    ]
-                    response = client.chat.completions.create(
-                        model=model_name,
-                        messages=messages,
-                        max_tokens=800,
-                        temperature=0.2
-                    )
-                    answer = response.choices[0].message.content
-                    # Comptage des tokens input/output
-                    input_tokens = count_tokens(messages, model=model_name)
-                    output_tokens = count_tokens(answer, model=model_name)
-                    total_tokens = input_tokens + output_tokens
-                    cost = estimate_cost(input_tokens, output_tokens, model=model_name)
-                    st.success("Réponse générée par ChatGPT ci-dessous.")
-                    st.subheader("Réponse générée par ChatGPT :")
-                    st.write(answer)
-                    st.info(f"Modèle : {model_name} | Input tokens : {input_tokens} | Output tokens : {output_tokens} | Total : {total_tokens} | Coût estimé : ${cost}")
-                except Exception as e:
-                    st.error(f"Erreur lors de l'appel à l'API OpenAI : {e}")
+                cols = st.columns(len(selected))
+                for idx, model_name in enumerate(selected):
+                    with cols[idx]:
+                        try:
+                            client = openai.OpenAI(api_key=openai_api_key)
+                            messages = [
+                                {"role": "system", "content": prompt_intro},
+                                {"role": "user", "content": full_prompt}
+                            ]
+                            start = time.time()
+                            response = client.chat.completions.create(
+                                model=model_name,
+                                messages=messages,
+                                max_tokens=800,
+                                temperature=0.2
+                            )
+                            elapsed = time.time() - start
+                            answer = response.choices[0].message.content
+                            input_tokens = count_tokens(messages, model=model_name)
+                            output_tokens = count_tokens(answer, model=model_name)
+                            total_tokens = input_tokens + output_tokens
+                            cost = estimate_cost(input_tokens, output_tokens, model=model_name)
+                            st.success(f"Réponse générée par {model_name}")
+                            st.subheader(f"Réponse {model_name} :")
+                            st.write(answer)
+                            st.info(f"Input tokens : {input_tokens} | Output tokens : {output_tokens} | Total : {total_tokens} | Coût estimé : ${cost} | Temps de réponse : {elapsed:.2f}s")
+                        except Exception as e:
+                            st.error(f"Erreur {model_name} : {e}")
