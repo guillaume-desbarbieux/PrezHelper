@@ -6,14 +6,8 @@ import openai
 st.set_page_config(page_title="PrezHelper IA", layout="centered")
 st.title("PrezHelper IA")
 
-# Sidebar pour les paramètres avancés
-st.sidebar.header("Paramètres avancés")
-
 # Paramètre : introduction personnalisable du prompt envoyé au LLM
-prompt_intro = st.sidebar.text_area(
-    "Introduction du prompt (avant la question)",
-    value="Tu es un assistant expert de la documentation Prezevent. Réponds uniquement en français, de façon claire et concise, en t'appuyant exclusivement sur la documentation ci-dessous. Si la réponse n'est pas présente, indique-le poliment."
-)
+prompt_intro = "Tu es un assistant expert de Prezevent. Tu ne réponds qu'à partir des documents ci-dessous."
 
 # Chargement du corpus documentaire
 @st.cache_data(show_spinner=False)
@@ -33,12 +27,13 @@ if question:
         with st.spinner("Génération de la réponse par ChatGPT à partir de la documentation complète..."):
             # Construction du prompt complet
             full_prompt = (
+                "\n\n[INSTRUCTIONS SYSTEME]" +
                 prompt_intro +
                 "\n\n[QUESTION UTILISATEUR]:\n" +
                 question +
-                "\n\n[CONTEXTE DOCUMENTAIRE]:\n" +
+                "\n\n[DOCUMENTATION DISPONIBLE]:\n" +
                 corpus +
-                "\n\n[REPONSE ATTENDUE]:\n"
+                "\n\n[ATTENTION] Ne réponds que si la réponse est clairement indiquée. Sinon, dis que tu ne sais pas.\n"
             )
             if not openai_api_key:
                 st.error("Veuillez renseigner votre clé API OpenAI dans la sidebar.")

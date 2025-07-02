@@ -30,7 +30,7 @@ def estimate_cost(tokens: int, model: str = "gpt-3.5-turbo") -> float:
 
 # Exemple d'utilisation
 if __name__ == "__main__":
-    model = "gpt-3.5-turbo"
+    model = "gpt-4o"
 
 
 prompt_intro = "Tu es un assistant expert de la documentation Prezevent. Réponds uniquement en français, de façon claire et concise, en t'appuyant exclusivement sur la documentation ci-dessous. Si la réponse n'est pas présente, indique-le poliment."
@@ -41,17 +41,19 @@ def load_corpus():
 corpus = load_corpus()
 
 
-# Construction du prompt complet
-full_prompt = (
-    prompt_intro +
-    "\n\n[QUESTION UTILISATEUR]:\n" +
-    "Comment importer une liste de contacts d’un fichier excel ?" +
-    "\n\n[CONTEXTE DOCUMENTAIRE]:\n" +
-    corpus +
-    "\n\n[REPONSE ATTENDUE]:\n"
-)
+# Construction du prompt complet au format messages (OpenAI)
+messages = [
+    {"role": "system", "content": prompt_intro},
+    {"role": "user", "content": (
+        "[QUESTION UTILISATEUR]:\n" +
+        "Comment importer une liste de contacts d’un fichier excel ?" +
+        "\n\n[CONTEXTE DOCUMENTAIRE]:\n" +
+        corpus +
+        "\n\n[REPONSE ATTENDUE]:\n"
+    )}
+]
 
-token_count = count_tokens(full_prompt, model=model)
+token_count = count_tokens(messages, model=model)
 cost = estimate_cost(token_count, model=model)
 
 print(f"Modèle utilisé       : {model}")
