@@ -31,13 +31,12 @@ if question:
             # Construction du prompt complet
             full_prompt = (
                 prompt_intro +
+                 "\n\nQUESTION:\n" +
+                question +
                 "\n\nDOCUMENTATION:\n" +
                 corpus +
-                "\n\nQUESTION:\n" +
-                question +
-                "\n\nRéponds uniquement à partir de la documentation ci-dessus."
             )
-            answer = generate_answer_ollama(question, full_prompt)
+            answer = generate_answer_ollama(full_prompt)
         st.success("Réponse générée par le LLM ci-dessous.")
         st.subheader("Réponse générée par LLM :")
         st.write(answer)
