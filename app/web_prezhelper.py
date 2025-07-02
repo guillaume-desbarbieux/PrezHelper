@@ -5,6 +5,7 @@ import tiktoken
 import time
 from sentence_transformers import SentenceTransformer, util
 import re
+import json
 
 # Configuration de la page Streamlit
 st.set_page_config(page_title="PrezHelper IA", layout="centered")
@@ -88,11 +89,9 @@ def get_embedder():
 
 @st.cache_data(show_spinner=False)
 def load_corpus_docs():
-    # Découpe le corpus en documents individuels
-    with open("data/corpus_llm.txt", "r", encoding="utf-8") as f:
-        txt = f.read()
-    docs = re.split(r"\[\/DOCUMENT\]", txt)
-    docs = [d.strip() + "\n[/DOCUMENT]" for d in docs if d.strip()]
+    # Charge la liste de documents individuels pré-découpés
+    with open("data/corpus_docs.json", "r", encoding="utf-8") as f:
+        docs = json.load(f)
     return docs
 corpus_docs = load_corpus_docs()
 
