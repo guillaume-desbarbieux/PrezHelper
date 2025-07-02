@@ -2,32 +2,14 @@ services:
   assistant:
     build:
       context: .
-      dockerfile: Dockerfile.dev  # Plus léger en dev
+      dockerfile: Dockerfile.dev
     container_name: PrezHelper
     volumes:
-      - ./app:/app           # Remplacé ./app:/app/app
+      - ./app:/app
       - ./data:/app/data
-      - ./chroma:/app/chroma
     ports:
       - "8501:8501"
     environment:
       - PYTHONUNBUFFERED=1
-      - LANGCHAIN_TRACING_V2=false
-      - CHROMA_DB_DIR=/app/chroma
-      - OLLAMA_URL=http://ollama:11434
     command: streamlit run web_prezhelper.py --server.port 8501 --server.address 0.0.0.0
-    working_dir: /app        # S'assurer que le CMD est exécuté au bon endroit
-    depends_on:
-      - ollama
-
-  ollama:
-    image: ollama/ollama
-    container_name: ollama
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    entrypoint: ["/bin/bash", "-c", "ollama serve & sleep 2 && ollama pull mistral && tail -f /dev/null"]
-
-volumes:
-  ollama_data:
+    working_dir: /app

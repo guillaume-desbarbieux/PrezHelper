@@ -20,4 +20,4 @@ COPY app/ ./app
 COPY data/ ./data
 
 # Point d'entrée
-CMD ["python", "app/main.py"]
+CMD ["streamlit", "run", "app/web_prezhelper.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
