@@ -18,17 +18,13 @@ st.title("PrezHelper IA")
 prompt_intro = (
     "Tu es un assistant expert de Prezevent. "
     "Tu dois répondre uniquement en utilisant les documents fournis dans chaque requête. "
-    "Si aucune réponse claire n’est présente, tu réponds simplement que tu ne sais pas. "
+    "Ces documents peuvent inclure des descriptions détaillées d’interfaces visuelles (captures d’écran) sous forme de texte. "
+    "Ces descriptions remplacent l'image et doivent être prises en compte pour comprendre les boutons, menus ou options affichés. "
+    "Tu ne dois jamais mentionner d'images."
+    "Si aucune réponse claire n’est présente dans les documents, réponds simplement que tu ne sais pas. "
     "En fin de réponse, indique toujours les articles utilisés sous la forme : "
     "📄 Source : [Titre de l’article](URL)"
 )
-
-# Chargement du corpus documentaire
-@st.cache_data(show_spinner=False)
-def load_corpus():
-    with open("data/corpus_llm.txt", "r", encoding="utf-8") as f:
-        return f.read()
-corpus = load_corpus()
 
 # Champ de saisie pour la question de l'utilisateur
 question = st.text_input("Posez votre question :", "")
@@ -100,12 +96,12 @@ def get_embedder():
         return None
 
 @st.cache_data(show_spinner=False)
-def load_corpus_docs():
+def load_corpus():
     # Charge la liste de documents individuels pré-découpés
-    with open("data/corpus_docs.json", "r", encoding="utf-8") as f:
+    with open("data/corpus_list.json", "r", encoding="utf-8") as f:
         docs = json.load(f)
     return docs
-corpus_docs = load_corpus_docs()
+corpus = load_corpus()
 
 # Variables globales pour stocker les résultats RAG et reformulation
 if 'top_docs' not in st.session_state:
@@ -225,7 +221,7 @@ if rag_btn:
         q_emb = embedder.encode(question_recherche, convert_to_tensor=True)
         scores = []
         titres = []
-        for doc in corpus_docs:
+        for doc in corpus:
             titre, contenu = extraire_titre_et_contenu(doc)
             titres.append(titre)
             titre_emb = embedder.encode(titre, convert_to_tensor=True)
@@ -241,7 +237,7 @@ if rag_btn:
             if scores[i] >= min_score and scores[i] >= max_score - relative_margin
         ]
         top_filtered = filtered[:top_k]
-        st.session_state['top_docs'] = [corpus_docs[i] for i, _ in top_filtered]
+        st.session_state['top_docs'] = [corpus[i] for i, _ in top_filtered]
         st.session_state['top_scores'] = [score for _, score in top_filtered]
         elapsed = time.time() - start
         # --- Sauvegarde historique ---
@@ -289,9 +285,13 @@ if llm_btn and question and selected:
                         client = openai.OpenAI(api_key=openai_api_key)
                         rag_prompt = (
                             f"Voici la question d'un utilisateur :\n{st.session_state.get('question_recherche') or question}\n\n"
-                            f"Voici les documents pertinents à ta disposition :\n{rag_corpus}\n\n"
+                            "Voici les documents pertinents à ta disposition :\n"
+                            "Certains passages décrivent l’interface visuelle (ex : boutons, onglets, textes affichés). "
+                            "Ces descriptions textuelles remplacent les captures d’écran et sont à interpréter comme si tu voyais l’écran.\n\n"
+                            f"{rag_corpus}\n\n"
                             "ATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente."
                         )
+
                         messages = [
                             {"role": "system", "content": prompt_intro},
                             {"role": "user", "content": rag_prompt}
@@ -337,7 +337,7 @@ if llm_btn and question and selected:
 # --- Étape 4 : Génération de la réponse LLM avec toute la documentation ---
 if llm_all_btn and question and selected:
     with st.spinner("Génération de la réponse par ChatGPT à partir de toute la documentation..."):
-        rag_corpus = corpus  # toute la documentation brute
+        rag_corpus = "\n\n".join(corpus)  # toute la documentation brute
         cols = st.columns(len(selected))
         for idx, model_name in enumerate(selected):
             with cols[idx]:
@@ -345,7 +345,10 @@ if llm_all_btn and question and selected:
                     client = openai.OpenAI(api_key=openai_api_key)
                     rag_prompt = (
                         f"Voici la question d'un utilisateur :\n{question}\n\n"
-                        f"Voici toute la documentation à ta disposition :\n{rag_corpus}\n\n"
+                        "Voici les documents pertinents à ta disposition :\n"
+                        "Certains passages décrivent l’interface visuelle (ex : boutons, onglets, textes affichés). "
+                        "Ces descriptions textuelles remplacent les captures d’écran et sont à interpréter comme si tu voyais l’écran.\n\n"
+                        f"{rag_corpus}\n\n"
                         "ATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente dans la documentation."
                     )
                     messages = [
