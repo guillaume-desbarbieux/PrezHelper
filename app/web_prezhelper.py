@@ -156,7 +156,7 @@ with col1:
 with col2:
     rag_btn = st.button("Rechercher les documents pertinents (RAG)")
 with col3:
-    llm_btn = st.button("Générer une réponse LLM à partir de la documentation")
+    llm_btn = st.button("Générer une réponse LLM à partir de la documentation pertinente")
 with col4:
     llm_all_btn = st.button("Générer une réponse LLM avec TOUTE la documentation")
 
@@ -401,16 +401,18 @@ def show_history():
             st.markdown(f"**Paramètres :** {json.dumps(entry.get('params',{}) , ensure_ascii=False)}")
             if 'prompt_intro' in entry:
                 st.markdown(f"**Prompt system :**\n```")
-                st.markdown(entry['prompt_intro'])
+                if entry['prompt_intro']:
+                    st.markdown(entry['prompt_intro'])
                 st.markdown("```")
             if 'prompt_rag' in entry:
                 st.markdown(f"**Prompt user :**\n```")
-                st.markdown(entry['prompt_rag'])
+                if entry['prompt_rag']:
+                    st.markdown(entry['prompt_rag'])
                 st.markdown("```")
             if 'docs' in entry:
                 st.markdown(f"**Documents pertinents :**")
                 for i, doc in enumerate(entry['docs']):
-                    st.text_area(f"Doc {i+1}", doc, height=80)
+                    st.text_area(f"Doc {i+1}", doc, height=80, key=f"doc_{i}_{entry.get('timestamp','')}")
             if 'reponse' in entry:
                 st.markdown(f"**Réponse :**\n{entry['reponse']}")
             st.markdown(f"**Coût :** ${entry.get('cout','')} | **Délai :** {entry.get('delai',''):.2f}s")
