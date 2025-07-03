@@ -63,4 +63,4 @@ for j, meta in enumerate(description_meta):
 
 # Sauvegarde du corpus annoté
 with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-    json.dump(documents, f, ensure_ascii=False,
+    json.dump(documents, f, ensure_ascii=False, indent=2)
