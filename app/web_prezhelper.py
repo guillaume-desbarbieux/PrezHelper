@@ -260,9 +260,9 @@ if rag_btn:
             "scores": st.session_state['top_scores'],
             "delai": elapsed
         })
-        st.success
+        st.success(f"{len(st.session_state['top_docs'])} document(s) pertinent(s) trouvé(s).", icon="✅")
         for i, doc in enumerate(st.session_state['top_docs']):
-            titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
+            titre_match = re.search(r"Titre\\s*:\\s*(.*)", doc)
             titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
             st.markdown(f"**{i+1}. {titre}**  ")
             st.markdown(f"Score mixte : `{st.session_state['top_scores'][i]:.4f}`")
@@ -422,5 +422,10 @@ if st.sidebar.button("Afficher l'historique"):
     components.html(f"<script>{js}</script>", height=0)
 
 # Affichage de l'historique si l'URL correspond
-if st.query_params.get('page', [''])[0] == 'llm_history' or st.session_state.get('show_llm_history'):
+if st.query_params.get('page', [''])[0] == 'llm_history':
+    st.set_page_config(page_title="Historique LLM", layout="centered")
+    st.title("Historique des échanges LLM")
+    show_history()
+    st.stop()
+if st.session_state.get('show_llm_history'):
     show_history()
