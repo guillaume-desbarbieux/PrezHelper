@@ -422,10 +422,17 @@ if st.sidebar.button("Afficher l'historique"):
     components.html(f"<script>{js}</script>", height=0)
 
 # Affichage de l'historique si l'URL correspond
-if st.query_params.get('page', [''])[0] == 'llm_history':
-    st.set_page_config(page_title="Historique LLM", layout="centered")
-    st.title("Historique des échanges LLM")
-    show_history()
-    st.stop()
+if st.query_params.get('page', [''])[0] == 'llm_history' or st.query_params.get('llm_history', [''])[0] == '':
+    if st.query_params.get('llm_history', [''])[0] == '':
+        # Cas d'accès direct via /llm_history (sans ?page=llm_history)
+        st.set_page_config(page_title="Historique LLM", layout="centered")
+        st.title("Historique des échanges LLM")
+        show_history()
+        st.stop()
+    elif st.query_params.get('page', [''])[0] == 'llm_history':
+        st.set_page_config(page_title="Historique LLM", layout="centered")
+        st.title("Historique des échanges LLM")
+        show_history()
+        st.stop()
 if st.session_state.get('show_llm_history'):
     show_history()
