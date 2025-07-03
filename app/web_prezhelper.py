@@ -8,6 +8,7 @@ import re
 import json
 import os
 from datetime import datetime
+import streamlit.components.v1 as components
 
 # Configuration de la page Streamlit
 st.set_page_config(page_title="PrezHelper IA", layout="centered")
@@ -418,8 +419,8 @@ if st.sidebar.button("Afficher l'historique"):
     url = "/llm_history"
     js = f"window.open('{url}','_blank')"
     st.sidebar.markdown(f'<a href="{url}" target="_blank">Ouvrir l\'historique dans un nouvel onglet</a>', unsafe_allow_html=True)
-    st.sidebar.components.v1.html(f"<script>{js}</script>", height=0)
+    components.html(f"<script>{js}</script>", height=0)
 
 # Affichage de l'historique si l'URL correspond
-if st.experimental_get_query_params().get('page', [''])[0] == 'llm_history' or st.session_state.get('show_llm_history'):
+if st.query_params.get('page', [''])[0] == 'llm_history' or st.session_state.get('show_llm_history'):
     show_history()
