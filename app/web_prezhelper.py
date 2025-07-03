@@ -6,6 +6,8 @@ import time
 from sentence_transformers import SentenceTransformer, util
 import re
 import json
+import os
+from datetime import datetime
 
 # Configuration de la page Streamlit
 st.set_page_config(page_title="PrezHelper IA", layout="centered")
@@ -138,14 +140,28 @@ alpha = st.sidebar.slider(
     help="Score mixte = alpha * score_titre + (1-alpha) * score_contenu"
 )
 
-# Paramètre pour activer la reformulation de la question
-reformulation_active = st.sidebar.checkbox(
-    "Reformuler la question avant la recherche (style documentation)", value=False
-)
+HISTO_PATH = "data/historique_llm.jsonl"
+
+def save_history(entry):
+    os.makedirs(os.path.dirname(HISTO_PATH), exist_ok=True)
+    with open(HISTO_PATH, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+# --- Affichage des 4 boutons côte à côte sous la zone de question ---
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    reform_btn = st.button("Reformuler la question (optionnel)")
+with col2:
+    rag_btn = st.button("Rechercher les documents pertinents (RAG)")
+with col3:
+    llm_btn = st.button("Générer une réponse LLM à partir de la documentation")
+with col4:
+    llm_all_btn = st.button("Générer une réponse LLM avec TOUTE la documentation")
 
 # --- Étape 1 : Reformulation ---
-if st.button("Reformuler la question (optionnel)"):
-    if reformulation_active and openai_api_key and question:
+if reform_btn:
+    if openai_api_key and question:
         system_prompt = (
             "Tu es un assistant qui reformule des questions posées en langage naturel par des utilisateurs, "
             "pour les adapter au style de la documentation de l’application Prezevent. "
@@ -155,6 +171,7 @@ if st.button("Reformuler la question (optionnel)"):
             "Ta tâche est de reformuler les questions utilisateur dans ce style."
         )
         try:
+            start = time.time()
             client = openai.OpenAI(api_key=openai_api_key)
             messages = [
                 {"role": "system", "content": system_prompt},
@@ -166,6 +183,7 @@ if st.button("Reformuler la question (optionnel)"):
                 max_tokens=100,
                 temperature=0.2
             )
+            elapsed = time.time() - start
             question_recherche = response.choices[0].message.content.strip()
             input_tokens = count_tokens(messages, model="gpt-4o")
             output_tokens = count_tokens(question_recherche, model="gpt-4o")
@@ -176,12 +194,11 @@ if st.button("Reformuler la question (optionnel)"):
                 "input_tokens": input_tokens,
                 "output_tokens": output_tokens,
                 "total_tokens": total_tokens,
-                "cost": cost
+                "cost": cost,
+                "elapsed": elapsed
             }
             st.session_state['reformulation_infos'] = reformulation_infos
             st.session_state['question_recherche'] = question_recherche
-            st.success(f"Question reformulée : {question_recherche}")
-            st.info(f"Tokens (entrée) : `{input_tokens}` | Tokens (sortie) : `{output_tokens}` | Total : `{total_tokens}` | Coût estimé : ${cost}")
         except Exception as e:
             st.session_state['reformulation_infos'] = None
             st.session_state['question_recherche'] = question
@@ -189,37 +206,60 @@ if st.button("Reformuler la question (optionnel)"):
     else:
         st.session_state['reformulation_infos'] = None
         st.session_state['question_recherche'] = question
-        st.info("Aucune reformulation effectuée (option désactivée ou clé API manquante).")
+        st.info("Aucune reformulation effectuée (clé API manquante ou question vide).")
+
+# Affichage persistant de la question reformulée et du coût si disponible
+reformulation_infos = st.session_state.get('reformulation_infos')
+if reformulation_infos:
+    st.info(f"**Question reformulée :** {reformulation_infos['question_reformulee']}\n\nCoût estimé : ${reformulation_infos['cost']} | Temps de réponse : {reformulation_infos['elapsed']:.2f}s")
 
 # --- Étape 2 : Recherche de documents pertinents ---
-if st.button("Rechercher les documents pertinents (RAG)"):
-    question_recherche = st.session_state.get('question_recherche') or question
-    embedder = get_embedder()
-    if embedder is None:
-        st.stop()
-    q_emb = embedder.encode(question_recherche, convert_to_tensor=True)
-    scores = []
-    titres = []
-    for doc in corpus_docs:
-        titre, contenu = extraire_titre_et_contenu(doc)
-        titres.append(titre)
-        titre_emb = embedder.encode(titre, convert_to_tensor=True)
-        contenu_emb = embedder.encode(contenu, convert_to_tensor=True)
-        score_titre = util.cos_sim(q_emb, titre_emb).item()
-        score_contenu = util.cos_sim(q_emb, contenu_emb).item()
-        score_mixte = alpha * score_titre + (1 - alpha) * score_contenu
-        scores.append(score_mixte)
-    max_score = max(scores) if scores else 0.0
-    idx_sorted = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
-    filtered = [
-        (i, scores[i]) for i in idx_sorted
-        if scores[i] >= min_score and scores[i] >= max_score - relative_margin
-    ]
-    top_filtered = filtered[:top_k]
-    st.session_state['top_docs'] = [corpus_docs[i] for i, _ in top_filtered]
-    st.session_state['top_scores'] = [score for _, score in top_filtered]
-    st.success(f"{len(top_filtered)} document(s) pertinent(s) trouvé(s).")
-    with st.expander("🔎 Documents les plus pertinents (RAG)"):
+if rag_btn:
+    with st.spinner("Recherche des documents les plus pertinents dans la base documentaire..."):
+        start = time.time()
+        question_recherche = st.session_state.get('question_recherche') or question
+        embedder = get_embedder()
+        if embedder is None:
+            st.stop()
+        q_emb = embedder.encode(question_recherche, convert_to_tensor=True)
+        scores = []
+        titres = []
+        for doc in corpus_docs:
+            titre, contenu = extraire_titre_et_contenu(doc)
+            titres.append(titre)
+            titre_emb = embedder.encode(titre, convert_to_tensor=True)
+            contenu_emb = embedder.encode(contenu, convert_to_tensor=True)
+            score_titre = util.cos_sim(q_emb, titre_emb).item()
+            score_contenu = util.cos_sim(q_emb, contenu_emb).item()
+            score_mixte = alpha * score_titre + (1 - alpha) * score_contenu
+            scores.append(score_mixte)
+        max_score = max(scores) if scores else 0.0
+        idx_sorted = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
+        filtered = [
+            (i, scores[i]) for i in idx_sorted
+            if scores[i] >= min_score and scores[i] >= max_score - relative_margin
+        ]
+        top_filtered = filtered[:top_k]
+        st.session_state['top_docs'] = [corpus_docs[i] for i, _ in top_filtered]
+        st.session_state['top_scores'] = [score for _, score in top_filtered]
+        elapsed = time.time() - start
+        # --- Sauvegarde historique ---
+        save_history({
+            "timestamp": datetime.now().isoformat(),
+            "type": "rag_search",
+            "question": question,
+            "question_recherche": question_recherche,
+            "params": {
+                "top_k": top_k,
+                "min_score": min_score,
+                "relative_margin": relative_margin,
+                "alpha": alpha
+            },
+            "docs": st.session_state['top_docs'],
+            "scores": st.session_state['top_scores'],
+            "delai": elapsed
+        })
+        st.success
         for i, doc in enumerate(st.session_state['top_docs']):
             titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
             titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
@@ -228,56 +268,117 @@ if st.button("Rechercher les documents pertinents (RAG)"):
             st.text_area("Contenu", doc, height=120)
 
 # --- Étape 3 : Génération de la réponse LLM ---
-if question and selected:
-    if st.button("Générer une réponse LLM à partir de la documentation"):
-        if not st.session_state['top_docs']:
-            st.warning("Veuillez d'abord rechercher les documents pertinents (RAG) avec le bouton dédié.")
-        else:
-            rag_corpus = "\n\n".join(st.session_state['top_docs'])
-            with st.expander("🔎 Debug : Documents les plus pertinents (RAG)"):
-                reformulation_infos = st.session_state.get('reformulation_infos')
-                if reformulation_active and reformulation_infos:
-                    st.markdown(f"**Question reformulée :** {reformulation_infos['question_reformulee']}")
-                    st.markdown(f"Tokens (entrée) : `{reformulation_infos['input_tokens']}` | Tokens (sortie) : `{reformulation_infos['output_tokens']}` | Total : `{reformulation_infos['total_tokens']}`")
-                    st.markdown(f"Coût estimé (reformulation) : `${reformulation_infos['cost']}`")
-                    st.markdown("---")
-                for i, doc in enumerate(st.session_state['top_docs']):
-                    titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
-                    titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
-                    st.markdown(f"**{i+1}. {titre}**  ")
-                    st.markdown(f"Score de similarité : `{st.session_state['top_scores'][i]:.4f}`")
-                    st.text_area("Contenu", doc, height=120)
-            with st.spinner("Génération de la réponse par ChatGPT à partir des documents sélectionnés..."):
-                cols = st.columns(len(selected))
-                for idx, model_name in enumerate(selected):
-                    with cols[idx]:
-                        try:
-                            client = openai.OpenAI(api_key=openai_api_key)
-                            rag_prompt = (
-                                f"Voici la question d'un utilisateur :\n{st.session_state.get('question_recherche') or question}\n\n"
-                                f"Voici les documents pertinents à ta disposition :\n{rag_corpus}\n\n"
-                                "ATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente."
-                            )
-                            messages = [
-                                {"role": "system", "content": prompt_intro},
-                                {"role": "user", "content": rag_prompt}
-                            ]
-                            start = time.time()
-                            response = client.chat.completions.create(
-                                model=model_name if model_name != "rag-gpt-4o" else "gpt-4o",
-                                messages=messages,
-                                max_tokens=800,
-                                temperature=0.2
-                            )
-                            elapsed = time.time() - start
-                            answer = response.choices[0].message.content
-                            input_tokens = count_tokens(messages, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
-                            output_tokens = count_tokens(answer, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
-                            total_tokens = input_tokens + output_tokens
-                            cost = estimate_cost(input_tokens, output_tokens, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
-                            st.success(f"Réponse générée par {model_name}")
-                            st.subheader(f"Réponse {model_name} :")
-                            st.write(answer)
-                            st.info(f"Input tokens : {input_tokens} | Output tokens : {output_tokens} | Total : {total_tokens} | Coût estimé : ${cost} | Temps de réponse : {elapsed:.2f}s")
-                        except Exception as e:
-                            st.error(f"Erreur {model_name} : {e}")
+if llm_btn and question and selected:
+    if not st.session_state['top_docs']:
+        st.warning("Veuillez d'abord rechercher les documents pertinents (RAG) avec le bouton dédié.")
+    else:
+        rag_corpus = "\n\n".join(st.session_state['top_docs'])
+        with st.expander("🔎 Debug : Documents les plus pertinents (RAG)"):
+            for i, doc in enumerate(st.session_state['top_docs']):
+                titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
+                titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
+                st.markdown(f"**{i+1}. {titre}**  ")
+                st.markdown(f"Score de similarité : `{st.session_state['top_scores'][i]:.4f}`")
+                st.text_area("Contenu", doc, height=120)
+        with st.spinner("Génération de la réponse par ChatGPT à partir des documents sélectionnés..."):
+            cols = st.columns(len(selected))
+            for idx, model_name in enumerate(selected):
+                with cols[idx]:
+                    try:
+                        client = openai.OpenAI(api_key=openai_api_key)
+                        rag_prompt = (
+                            f"Voici la question d'un utilisateur :\n{st.session_state.get('question_recherche') or question}\n\n"
+                            f"Voici les documents pertinents à ta disposition :\n{rag_corpus}\n\n"
+                            "ATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente."
+                        )
+                        messages = [
+                            {"role": "system", "content": prompt_intro},
+                            {"role": "user", "content": rag_prompt}
+                        ]
+                        start = time.time()
+                        response = client.chat.completions.create(
+                            model=model_name if model_name != "rag-gpt-4o" else "gpt-4o",
+                            messages=messages,
+                            max_tokens=800,
+                            temperature=0.2
+                        )
+                        elapsed = time.time() - start
+                        answer = response.choices[0].message.content
+                        input_tokens = count_tokens(messages, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
+                        output_tokens = count_tokens(answer, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
+                        total_tokens = input_tokens + output_tokens
+                        cost = estimate_cost(input_tokens, output_tokens, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
+                        st.subheader(f"Réponse {model_name} :")
+                        st.write(answer)
+                        st.info(f"Coût estimé : ${cost} | Temps de réponse : {elapsed:.2f}s")
+                        # --- Sauvegarde historique ---
+                        save_history({
+                            "timestamp": datetime.now().isoformat(),
+                            "type": "llm_rag",
+                            "question": question,
+                            "question_reformulee": st.session_state.get('question_recherche'),
+                            "model": model_name,
+                            "params": {
+                                "top_k": top_k,
+                                "min_score": min_score,
+                                "relative_margin": relative_margin,
+                                "alpha": alpha
+                            },
+                            "prompt_intro": prompt_intro,
+                            "prompt_rag": rag_prompt,
+                            "docs": st.session_state['top_docs'],
+                            "reponse": answer,
+                            "cout": cost,
+                            "delai": elapsed
+                        })
+                    except Exception as e:
+                        st.error(f"Erreur {model_name} : {e}")
+# --- Étape 4 : Génération de la réponse LLM avec toute la documentation ---
+if llm_all_btn and question and selected:
+    with st.spinner("Génération de la réponse par ChatGPT à partir de toute la documentation..."):
+        rag_corpus = corpus  # toute la documentation brute
+        cols = st.columns(len(selected))
+        for idx, model_name in enumerate(selected):
+            with cols[idx]:
+                try:
+                    client = openai.OpenAI(api_key=openai_api_key)
+                    rag_prompt = (
+                        f"Voici la question d'un utilisateur :\n{question}\n\n"
+                        f"Voici toute la documentation à ta disposition :\n{rag_corpus}\n\n"
+                        "ATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente dans la documentation."
+                    )
+                    messages = [
+                        {"role": "system", "content": prompt_intro},
+                        {"role": "user", "content": rag_prompt}
+                    ]
+                    start = time.time()
+                    response = client.chat.completions.create(
+                        model=model_name if model_name != "rag-gpt-4o" else "gpt-4o",
+                        messages=messages,
+                        max_tokens=800,
+                        temperature=0.2
+                    )
+                    elapsed = time.time() - start
+                    answer = response.choices[0].message.content
+                    input_tokens = count_tokens(messages, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
+                    output_tokens = count_tokens(answer, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
+                    total_tokens = input_tokens + output_tokens
+                    cost = estimate_cost(input_tokens, output_tokens, model=model_name if model_name != "rag-gpt-4o" else "gpt-4o")
+                    st.subheader(f"Réponse {model_name} (toute la doc) :")
+                    st.write(answer)
+                    st.info(f"Coût estimé : ${cost} | Temps de réponse : {elapsed:.2f}s")
+                    # --- Sauvegarde historique ---
+                    save_history({
+                        "timestamp": datetime.now().isoformat(),
+                        "type": "llm_all",
+                        "question": question,
+                        "model": model_name,
+                        "params": {},
+                        "prompt_intro": prompt_intro,
+                        "prompt_rag": rag_prompt,
+                        "reponse": answer,
+                        "cout": cost,
+                        "delai": elapsed
+                    })
+                except Exception as e:
+                    st.error(f"Erreur {model_name} : {e}")
