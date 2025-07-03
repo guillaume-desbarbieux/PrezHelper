@@ -1,11 +1,11 @@
 import openai
-import requests
 import json
 import re
 from time import sleep
+import getpass
 
 # 👉 Renseigne ta clé API ici (ou utilise une variable d'environnement)
-openai.api_key = "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"
+openai.api_key = getpass.getpass("Entrez votre clé OpenAI : ")
 
 # 🔢 Modèle multimodal
 MODEL = "gpt-4o"
