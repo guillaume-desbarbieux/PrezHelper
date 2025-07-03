@@ -3,6 +3,7 @@ import json
 import re
 from time import sleep
 import getpass
+import os
 
 # 👉 Renseigne ta clé API ici (ou utilise une variable d'environnement)
 openai.api_key = getpass.getpass("Entrez votre clé OpenAI : ")
@@ -11,7 +12,9 @@ openai.api_key = getpass.getpass("Entrez votre clé OpenAI : ")
 MODEL = "gpt-4o"
 
 # 🖼️ Liste des URLs d'images à analyser
-with open("data/corpus_llm_test.json", "r", encoding="utf-8") as f:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+corpus_path = os.path.join(BASE_DIR, '..', 'data', 'corpus_llm_test.json')
+with open(corpus_path, "r", encoding="utf-8") as f:
     corpus = json.load(f)
 
 # Dictionnaire pour stocker les descriptions générées par URL
@@ -80,6 +83,6 @@ for doc in corpus:
         return re.sub(r'\[Image URL: ([^\]\s]+)\]', replacer, text)
     doc['text'] = insert_descriptions(doc.get('text', ''))
 
-with open("data/corpus_llm_test.json", "w", encoding="utf-8") as f:
+with open(corpus_path, "w", encoding="utf-8") as f:
     json.dump(corpus, f, ensure_ascii=False, indent=2)
 
