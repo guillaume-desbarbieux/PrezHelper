@@ -382,3 +382,44 @@ if llm_all_btn and question and selected:
                     })
                 except Exception as e:
                     st.error(f"Erreur {model_name} : {e}")
+
+# --- Bouton pour afficher l'historique dans un nouvel onglet ---
+def show_history():
+    if not os.path.exists(HISTO_PATH):
+        st.sidebar.info("Aucun historique disponible.")
+        return
+    with open(HISTO_PATH, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    st.title("Historique des échanges LLM")
+    for line in lines[::-1]:  # affichage du plus récent au plus ancien
+        entry = json.loads(line)
+        with st.expander(f"{entry.get('timestamp', '')} | {entry.get('type', '')}"):
+            st.markdown(f"**Question :** {entry.get('question','')}")
+            if 'question_reformulee' in entry:
+                st.markdown(f"**Question reformulée :** {entry['question_reformulee']}")
+            st.markdown(f"**Paramètres :** {json.dumps(entry.get('params',{}) , ensure_ascii=False)}")
+            if 'prompt_intro' in entry:
+                st.markdown(f"**Prompt system :**\n```")
+                st.markdown(entry['prompt_intro'])
+                st.markdown("```")
+            if 'prompt_rag' in entry:
+                st.markdown(f"**Prompt user :**\n```")
+                st.markdown(entry['prompt_rag'])
+                st.markdown("```")
+            if 'docs' in entry:
+                st.markdown(f"**Documents pertinents :**")
+                for i, doc in enumerate(entry['docs']):
+                    st.text_area(f"Doc {i+1}", doc, height=80)
+            if 'reponse' in entry:
+                st.markdown(f"**Réponse :**\n{entry['reponse']}")
+            st.markdown(f"**Coût :** ${entry.get('cout','')} | **Délai :** {entry.get('delai',''):.2f}s")
+
+if st.sidebar.button("Afficher l'historique"):
+    url = "/llm_history"
+    js = f"window.open('{url}','_blank')"
+    st.sidebar.markdown(f'<a href="{url}" target="_blank">Ouvrir l\'historique dans un nouvel onglet</a>', unsafe_allow_html=True)
+    st.sidebar.components.v1.html(f"<script>{js}</script>", height=0)
+
+# Affichage de l'historique si l'URL correspond
+if st.experimental_get_query_params().get('page', [''])[0] == 'llm_history' or st.session_state.get('show_llm_history'):
+    show_history()
