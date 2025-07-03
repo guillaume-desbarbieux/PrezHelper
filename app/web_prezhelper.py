@@ -25,21 +25,6 @@ prompt_intro = (
     "📄 Source : [Titre de l’article](URL)"
 )
 
-COST_PER_1K_INPUT = {
-    "gpt-3.5-turbo": 0.0015,
-    "gpt-3.5-turbo-1106": 0.0010,
-    "gpt-4": 0.03,
-    "gpt-4-1106-preview": 0.01,
-    "gpt-4o": 0.005,
-}
-COST_PER_1K_OUTPUT = {
-    "gpt-3.5-turbo": 0.002,
-    "gpt-3.5-turbo-1106": 0.002,
-    "gpt-4": 0.06,
-    "gpt-4-1106-preview": 0.03,
-    "gpt-4o": 0.015,
-}
-
 def count_tokens(messages, model=model_llm):
     try:
         encoding = tiktoken.encoding_for_model(model)
@@ -56,10 +41,8 @@ def count_tokens(messages, model=model_llm):
         num_tokens += 2
     return num_tokens
 
-def estimate_cost(input_tokens, output_tokens, model=model_llm):
-    in_cost = COST_PER_1K_INPUT.get(model, 0.0015)
-    out_cost = COST_PER_1K_OUTPUT.get(model, 0.002)
-    return round((input_tokens / 1000) * in_cost + (output_tokens / 1000) * out_cost, 6)
+def estimate_cost(input_tokens, output_tokens):
+    return round((input_tokens / 1000) * 0.005 + (output_tokens / 1000) * 0.015, 6)
 
 @st.cache_resource(show_spinner=False)
 def get_embedder():
@@ -71,7 +54,6 @@ def get_embedder():
 
 @st.cache_data(show_spinner=False)
 def load_corpus():
-    # Charge la liste de documents individuels pré-découpés
     with open("data/corpus_list.json", "r", encoding="utf-8") as f:
         docs = json.load(f)
     return docs
@@ -158,7 +140,7 @@ if reform_btn:
             input_tokens = count_tokens(messages, model=model_llm)
             output_tokens = count_tokens(question_recherche, model=model_llm)
             total_tokens = input_tokens + output_tokens
-            cost = estimate_cost(input_tokens, output_tokens, model=model_llm)
+            cost = estimate_cost(input_tokens, output_tokens)
             reformulation_infos = {
                 "question_reformulee": question_recherche,
                 "input_tokens": input_tokens,
@@ -221,18 +203,23 @@ if rag_btn and question :
             st.text_area("Contenu", doc, height=120)
 
 # --- Étape 3 : Génération de la réponse LLM ---
-if llm_btn and question :
-    if not st.session_state['top_docs']:
-        st.warning("Veuillez d'abord rechercher les documents pertinents (RAG) avec le bouton dédié.")
-    else:
-        rag_corpus = "\n\n".join(st.session_state['top_docs'])
-        with st.expander("🔎 Debug : Documents les plus pertinents (RAG)"):
-            for i, doc in enumerate(st.session_state['top_docs']):
-                titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
-                titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
-                st.markdown(f"**{i+1}. {titre}**  ")
-                st.markdown(f"Score de similarité : `{st.session_state['top_scores'][i]:.4f}`")
-                st.text_area("Contenu", doc, height=120)
+if question and (llm_btn or llm_all_btn):
+    if openai_api_key :
+        if llm_all_btn :
+            corpus = "\n\n".join(corpus)  # toute la documentation brute
+
+        if llm_btn :
+            if not st.session_state['top_docs']:
+                st.warning("Veuillez d'abord rechercher les documents pertinents (RAG) avec le bouton dédié.")
+            else:
+                corpus = "\n\n".join(st.session_state['top_docs'])
+                with st.expander("🔎 Debug : Documents les plus pertinents (RAG)"):
+                    for i, doc in enumerate(st.session_state['top_docs']):
+                        titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
+                        titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
+                        st.markdown(f"**{i+1}. {titre}**  ")
+                        st.markdown(f"Score de similarité : `{st.session_state['top_scores'][i]:.4f}`")
+                        st.text_area("Contenu", doc, height=120)
 
         with st.spinner("Génération de la réponse par ChatGPT à partir des documents sélectionnés..."):
             try:
@@ -242,64 +229,31 @@ if llm_btn and question :
                             "Voici les documents pertinents à ta disposition :\n"
                             "Certains passages décrivent l’interface visuelle (ex : boutons, onglets, textes affichés). "
                             "Ces descriptions textuelles remplacent les captures d’écran et sont à interpréter comme si tu voyais l’écran.\n\n"
-                            f"{rag_corpus}\n\n"
+                            f"{corpus}\n\n"
                             "ATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente."
                         )
 
                 messages = [
                             {"role": "system", "content": prompt_intro},
                             {"role": "user", "content": rag_prompt}
-                        ]
+                            ]
                 start = time.time()
                 response = client.chat.completions.create(
-                            model=model_llm,
-                            messages=messages,
-                            max_tokens=800,
-                            temperature=0.2
-                )
+                                model=model_llm,
+                                messages=messages,
+                                max_tokens=800,
+                                temperature=0.2
+                    )
                 elapsed = time.time() - start
                 answer = response.choices[0].message.content
                 input_tokens = count_tokens(messages, model=model_llm)
                 output_tokens = count_tokens(answer, model=model_llm)
                 total_tokens = input_tokens + output_tokens
-                cost = estimate_cost(input_tokens, output_tokens, model=model_llm)
+                cost = estimate_cost(input_tokens, output_tokens)
                 st.subheader(f"Réponse {model_llm} :")
                 st.write(answer)
                 st.info(f"Coût estimé : ${cost} | Temps de réponse : {elapsed:.2f}s")        
             except Exception as e:
                         st.error(f"Erreur {model_llm} : {e}")
-
-# --- Étape 4 : Génération de la réponse LLM avec toute la documentation ---
-if llm_all_btn and question :
-    with st.spinner("Génération de la réponse par ChatGPT à partir de toute la documentation..."):
-        rag_corpus = "\n\n".join(corpus)  # toute la documentation brute
-        try:
-            client = openai.OpenAI(api_key=openai_api_key)
-            rag_prompt = (
-                            f"Voici la question d'un utilisateur :\n{question}\n\n"
-                            "Voici les documents pertinents à ta disposition :\n"
-                            "Certains passages décrivent l’interface visuelle (ex : boutons, onglets, textes affichés). "
-                            "Ces descriptions textuelles remplacent les captures d’écran et sont à interpréter comme si tu voyais l’écran.\n\n"
-                            f"{rag_corpus}\n\n"
-                            "ATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente dans la documentation."
-                        )
-            messages = [{"role": "system", "content": prompt_intro},
-                        {"role": "user", "content": rag_prompt}]
-            start = time.time()
-            response = client.chat.completions.create(
-                            model=model_llm,
-                            messages=messages,
-                            max_tokens=800,
-                            temperature=0.2
-                        )
-            elapsed = time.time() - start
-            answer = response.choices[0].message.content
-            input_tokens = count_tokens(messages, model=model_llm)
-            output_tokens = count_tokens(answer, model=model_llm)
-            total_tokens = input_tokens + output_tokens
-            cost = estimate_cost(input_tokens, output_tokens, model=model_llm)
-            st.subheader(f"Réponse gpt-4o (toute la doc) :")
-            st.write(answer)
-            st.info(f"Coût estimé : ${cost} | Temps de réponse : {elapsed:.2f}s")
-        except Exception as e:
-            st.error(f"Erreur gpt-4o : {e}")
+    else:
+        st.warning("Veuillez d'abord entrer votre clé API OpenAI dans la sidebar.")
