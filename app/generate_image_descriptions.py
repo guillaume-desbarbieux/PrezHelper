@@ -13,9 +13,15 @@ MODEL = "gpt-4o"
 
 # 🖼️ Liste des URLs d'images à analyser
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-corpus_path = os.path.join(BASE_DIR, 'data', 'corpus_llm_test.json')
+corpus_path = os.path.join(BASE_DIR, 'data', 'corpus_llm.json')
 with open(corpus_path, "r", encoding="utf-8") as f:
     corpus = json.load(f)
+
+image_urls = []
+for doc in corpus:
+    matches = re.findall(r'\[Image URL: ([^\]\s]+)\]', doc.get('text', ''))
+    image_urls.extend([m.strip() for m in matches])
+image_urls = list(sorted(set(image_urls)))
 
 # Dictionnaire pour stocker les descriptions générées par URL
 image_descriptions = {}
@@ -30,21 +36,6 @@ Fournis une description fonctionnelle précise, incluant :
 Utilise des puces pour chaque point.
 Ne fais pas de résumé général. Sois utile à un assistant IA qui ne peut pas afficher l’image mais doit guider un utilisateur qui la voit.
 """
-
-# 🖼️ Liste des URLs d'images à analyser
-image_urls = []
-for doc in corpus:
-    matches = re.findall(r'\[Image URL: ([^\]\s]+)\]', doc.get('text', ''))
-    image_urls.extend([m.strip() for m in matches])
-image_urls = list(sorted(set(image_urls)))
-
-# Correction : normaliser les URLs qui commencent par //
-def normalize_url(url):
-    if url.startswith("//"):
-        return "https:" + url
-    return url
-
-image_urls = [normalize_url(url) for url in image_urls]
 
 # 🔁 Boucle de génération
 for i, url in enumerate(image_urls):
