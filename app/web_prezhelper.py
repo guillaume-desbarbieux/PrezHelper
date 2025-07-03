@@ -125,13 +125,61 @@ alpha = st.sidebar.slider(
     help="Score mixte = alpha * score_titre + (1-alpha) * score_contenu"
 )
 
+# Paramètre pour activer la reformulation de la question
+reformulation_active = st.sidebar.checkbox(
+    "Reformuler la question avant la recherche (style documentation)", value=False
+)
+
 # Bouton pour déclencher uniquement la recherche de documents pertinents
 show_docs = st.button("Afficher les documents les plus pertinents (RAG)")
 
 if show_docs and question:
     with st.spinner("Recherche des documents les plus pertinents dans la base documentaire..."):
+        # Étape 1 : reformulation si activée
+        question_recherche = question
+        reformulation_infos = None
+        if reformulation_active and openai_api_key:
+            system_prompt = (
+                "Tu es un assistant qui reformule des questions posées en langage naturel par des utilisateurs, "
+                "pour les adapter au style de la documentation de l’application Prezevent. "
+                "La documentation utilise un style clair, direct, sous forme de questions techniques. "
+                "Les titres des articles commencent souvent par 'Comment' et se concentrent sur une action précise, "
+                "comme 'Comment exporter une liste de contacts ?' ou 'Comment créer une campagne de mail ?'. "
+                "Ta tâche est de reformuler les questions utilisateur dans ce style."
+            )
+            try:
+                client = openai.OpenAI(api_key=openai_api_key)
+                messages = [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": question}
+                ]
+                response = client.chat.completions.create(
+                    model="gpt-4o",
+                    messages=messages,
+                    max_tokens=100,
+                    temperature=0.2
+                )
+                question_recherche = response.choices[0].message.content.strip()
+                # Calcul des tokens et coût pour la reformulation
+                input_tokens = count_tokens(messages, model="gpt-4o")
+                output_tokens = count_tokens(question_recherche, model="gpt-4o")
+                total_tokens = input_tokens + output_tokens
+                cost = estimate_cost(input_tokens, output_tokens, model="gpt-4o")
+                reformulation_infos = {
+                    "question_reformulee": question_recherche,
+                    "input_tokens": input_tokens,
+                    "output_tokens": output_tokens,
+                    "total_tokens": total_tokens,
+                    "cost": cost
+                }
+                st.info(f"Question reformulée : {question_recherche}")
+            except Exception as e:
+                st.warning(f"Erreur lors de la reformulation : {e}")
+                question_recherche = question
+                reformulation_infos = None
+        # Étape 2 : recherche RAG classique
         embedder = get_embedder()
-        q_emb = embedder.encode(question, convert_to_tensor=True)
+        q_emb = embedder.encode(question_recherche, convert_to_tensor=True)
         scores = []
         titres = []
         for doc in corpus_docs:
@@ -152,7 +200,15 @@ if show_docs and question:
         top_filtered = filtered[:top_k]
         st.session_state['top_docs'] = [corpus_docs[i] for i, _ in top_filtered]
         st.session_state['top_scores'] = [score for _, score in top_filtered]
+        st.session_state['reformulation_infos'] = reformulation_infos
     with st.expander("🔎 Debug : Documents les plus pertinents (RAG)"):
+        # Affichage infos reformulation si dispo
+        reformulation_infos = st.session_state.get('reformulation_infos')
+        if reformulation_active and reformulation_infos:
+            st.markdown(f"**Question reformulée :** {reformulation_infos['question_reformulee']}")
+            st.markdown(f"Tokens (entrée) : `{reformulation_infos['input_tokens']}` | Tokens (sortie) : `{reformulation_infos['output_tokens']}` | Total : `{reformulation_infos['total_tokens']}`")
+            st.markdown(f"Coût estimé (reformulation) : `${reformulation_infos['cost']}`")
+            st.markdown("---")
         for i, doc in enumerate(st.session_state['top_docs']):
             titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
             titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
@@ -167,6 +223,13 @@ if question and selected:
         else:
             rag_corpus = "\n\n".join(st.session_state['top_docs'])
             with st.expander("🔎 Debug : Documents les plus pertinents (RAG)"):
+                # Affichage infos reformulation si dispo
+                reformulation_infos = st.session_state.get('reformulation_infos')
+                if reformulation_active and reformulation_infos:
+                    st.markdown(f"**Question reformulée :** {reformulation_infos['question_reformulee']}")
+                    st.markdown(f"Tokens (entrée) : `{reformulation_infos['input_tokens']}` | Tokens (sortie) : `{reformulation_infos['output_tokens']}` | Total : `{reformulation_infos['total_tokens']}`")
+                    st.markdown(f"Coût estimé (reformulation) : `${reformulation_infos['cost']}`")
+                    st.markdown("---")
                 for i, doc in enumerate(st.session_state['top_docs']):
                     titre_match = re.search(r"Titre\s*:\s*(.*)", doc)
                     titre = titre_match.group(1).strip() if titre_match else "(Titre inconnu)"
