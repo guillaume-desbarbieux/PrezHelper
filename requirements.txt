@@ -3,3 +3,5 @@ openai
 tiktoken
 sentence-transformers
 scikit-learn
+numpy
+torch
