@@ -42,7 +42,7 @@ PrezHelper IA est un assistant intelligent pour l'aide à l'utilisation de la pl
 ### 1. Reformulation de la question
 
 - **But** : Adapter la question utilisateur au style de la documentation Prezevent pour maximiser la pertinence de la recherche documentaire.
-- **Prompt utilisé** :
+- **Prompt système `prompt_system`** :
   > Tu es un assistant qui reformule des questions posées en langage naturel par des utilisateurs, pour les adapter au style de la documentation de l’application Prezevent. La documentation utilise un style clair, direct, sous forme de questions techniques. Les titres des articles commencent souvent par 'Comment' et se concentrent sur une action précise, comme 'Comment exporter une liste de contacts ?' ou 'Comment créer une campagne de mail ?'. Ta tâche est de reformuler les questions utilisateur dans ce style.
 - **Modèle** : GPT-4o (OpenAI)
 - **Résultat** : La question reformulée est utilisée pour la recherche documentaire.
@@ -74,13 +74,25 @@ PrezHelper IA est un assistant intelligent pour l'aide à l'utilisation de la pl
     - Les documents pertinents sont concaténés et fournis en texte brut avec leurs balises spécifiques :
     `[DOCUMENT] Titre :... , URL :... , Contenu : ... [Interface affichée: ...] ... [/DOCUMENT]`
 
-- **Prompt système** :
+- **Prompt système `prompt_system`** :
   > Tu es un assistant expert de Prezevent. Tu dois répondre uniquement en utilisant les documents fournis dans chaque requête. Ces documents peuvent inclure des descriptions détaillées d’interfaces visuelles (captures d’écran) sous forme de texte. Ces descriptions remplacent l'image et doivent être prises en compte pour comprendre les boutons, menus ou options affichés. Tu ne dois jamais mentionner d'images. Si aucune réponse claire n’est présente dans les documents, réponds simplement que tu ne sais pas. En fin de réponse, indique toujours les articles utilisés sous la forme : 📄 Source : [Titre de l’article](URL)
-- **Prompt user** :
+
+- **Prompt user `prompt_user`** :
   > Voici la question d'un utilisateur :\n`{question}`\n\nVoici les documents pertinents à ta disposition :\nCertains passages décrivent l’interface visuelle (ex : boutons, onglets, textes affichés). Ces descriptions textuelles remplacent les captures d’écran et sont à interpréter comme si tu voyais l’écran.\n\n`{corpus}`\n\nATTENTION : ne fais pas d'invention. Ne réponds que si la réponse est clairement présente.
 
 - **Modèle** : GPT-4o (OpenAI)
 - **Affichage** : La réponse est affichée avec le coût estimé et le temps de génération.
+
+### 4. Prefix Caching ###
+
+    Pour réduire la latence et les coûts, l'API d'OpenAI gère le prefix caching. Pour que cela fonctionne, le prefixe de chaque requête soit être strictement identique.
+    
+    Les requêtes sont déjà optimisés pour utiliser la capacité de prefix caching de l'API d'OpenAI : la première partie du prompt est statique, la seconde est dynamique :
+    messages = [
+                {"role": "system", "content": `prompt_system`},
+                {"role": "user", "content": `prompt_user`}
+                ]
+    Cependant, ce prefix cache est temporaire, probablement lié à un cache LRU (least recently used) ou mémoire locale GPU/session. Il est indépendant de l’ordre immédiat des appels : il peut retrouver un préfixe déjà vu 2, 3 ou plus appels avant, tant qu’il est encore en mémoire (à priori quelques secondes à quelques minutes).  Ce cache n’est pas garanti (et n’est pas traçable publiquement), mais est très souvent exploité si le prompt est fréquent.
 
 ## Pistes d'amélioration / TODO
 
@@ -90,3 +102,29 @@ PrezHelper IA est un assistant intelligent pour l'aide à l'utilisation de la pl
 - **Affinage du scoring RAG** (poids dynamiques, prise en compte du contexte, nouvelle recherche documentaire avec ajustement des paramètres avant génération si necessaire).
 - **Ajout d'un mode conversationnel** (mémoire de session, suivi de contexte).
 - **Automatisation de la mise à jour du corpus** (scraping régulier, UI to text).
+- **OpenAI Retrieval**
+    https://platform.openai.com/docs/guides/retrieval
+
+    OpenAI propose depuis peu de faire le RAG sur ses propres serveurs :
+        - on fournit le contexte documentaire (text only)
+        - la vectorisation et le stockage est fait sur les serveurs OpenAI
+        - lorsqu'une requête est envoyée, on fournit l'ID de la base vectorielle à utiliser.
+        - le serveur s'occupe de
+            - la ré-écriture de la requête
+            - la recherche sémantique
+            - renvoie les documents pertinents
+        - Pour générer une réponse, on retourne à l'étape décrite plus haut (prompt + corpus + question)
+    - Tarifs :
+        - Facturation de la vectorisation initiale par token
+        - Facturation du stockage (0,1/GB/jour) selon taille du corpus
+        - Facturation classique pour chaque requête de Retrieval par token
+        !! Le retrieval est encore en version beta, les tarifs vont probablement évoluer !!
+    - Avantages :
+        - Solution clé en main
+        - Grande robustesse
+        - Ré-indexation automatique sur upload
+    - Inconvénients :
+        - Pas de contrôle des paramètres de retrieval (poids du titre, paramètres dynamiques)
+        - Stockage hors europe (à priori pas de pb ici pour la doc)
+        - couts supplémentaires
+        - La description d'images est à gérer en amont dans tous les cas
