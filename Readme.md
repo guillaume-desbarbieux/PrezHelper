@@ -2,6 +2,19 @@
 
 PrezHelper IA est un assistant intelligent pour l'aide à l'utilisation de la plateforme Prezevent, basé sur l'IA générative et la recherche sémantique dans la documentation.
 
+## Installation :
+> Télécharger Docker
+docs.docker.com/engine/install/
+```
+git clone https://github.com/guillaume-desbarbieux/PrezHelper.git
+cd PrezHelper
+docker compose up
+```
+L'interface web Streamlit est disponible en local
+(url indiquée dans le terminal)
+
+**Vous aurez besoin d'une Clé API d'OpenAI, à renseigner sur l'interface pour exécuter les requêtes.**
+
 ## Fonctionnalités principales
 
 - **Reformulation automatique** : Reformule la question utilisateur dans le style de la documentation technique pour améliorer la recherche.
