@@ -13,7 +13,7 @@ docker compose up
 L'interface web Streamlit est disponible en local
 (url indiquée dans le terminal)
 
-**Vous aurez besoin d'une Clé API d'OpenAI, à renseigner sur l'interface pour exécuter les requêtes.**
+**Vous aurez besoin d'une Clé API d'OpenAI, à renseigner sur l'interface pour exécuter les requêtes.(https://platform.openai.com/)**
 
 ## Fonctionnalités principales
 
